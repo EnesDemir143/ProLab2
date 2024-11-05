@@ -1,7 +1,8 @@
 public class Firkateyn extends Deniz_araclari{
+    private static int firkateynSayisi = 0;
 
     public Firkateyn() {
-        super(0, 25, 10,5,0);
+        super(0, 25, 10,5,0,"firkateyn"+(++firkateynSayisi));
     }
 
     @Override

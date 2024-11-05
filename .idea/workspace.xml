@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82e517f4-47f5-42a0-a255-1f2613b1799b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Oyuncu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Deniz_araclari.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Deniz_araclari.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Firkateyn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Firkateyn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Hava_araclari.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hava_araclari.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/KFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/KFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kara_araclari.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kara_araclari.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Oyun.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Obus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Obus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Savas_Araclari.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Savas_Araclari.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sida.java" afterDir="false" />
@@ -40,20 +44,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Oyun.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -78,7 +83,8 @@
       <workItem from="1730739785097" duration="8000" />
       <workItem from="1730740315207" duration="2515000" />
       <workItem from="1730793366901" duration="491000" />
-      <workItem from="1730798551916" duration="712000" />
+      <workItem from="1730798551916" duration="2977000" />
+      <workItem from="1730801580693" duration="4214000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,8 @@
 public class Obus extends Kara_araclari{
+    private static int obusSayisi = 0;
+
     public Obus() {
-        super(0, 20, 10,5,0);
+        super(0, 20, 10,5,0,"obus"+(++obusSayisi));
     }
 
     @Override

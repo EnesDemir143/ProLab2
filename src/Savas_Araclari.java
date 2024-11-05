@@ -1,5 +1,6 @@
 public abstract class Savas_Araclari {
     private int seviye_puani;
+    private String kartID;
 
     private int dayaniklilik;
     private int vurus;
@@ -9,11 +10,12 @@ public abstract class Savas_Araclari {
     public Savas_Araclari() {
     }
 
-    public Savas_Araclari(int seviye_puani, int dayaniklilik, int vurus, String sinif) {
+    public Savas_Araclari(int seviye_puani, int dayaniklilik, int vurus, String sinif,String kartID) {
         this.seviye_puani = seviye_puani;
         this.dayaniklilik = dayaniklilik;
         this.vurus = vurus;
         this.sinif = sinif;
+        this.kartID = kartID;
     }
 
     public abstract void kartPuanGoster();
@@ -42,5 +44,9 @@ public abstract class Savas_Araclari {
 
     public int getSeviye_puani() {
         return seviye_puani;
+    }
+
+    public String getKartID() {
+        return kartID;
     }
 }

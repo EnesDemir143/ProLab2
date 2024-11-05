@@ -1,6 +1,8 @@
 public class Siha extends Hava_araclari{
+    private static int sihaSayisi = 0;
+
     public Siha() {
-        super(0, 15, 10,10,10);
+        super(0, 15, 10,10,10,"siha"+(++sihaSayisi));
     }
 
     @Override

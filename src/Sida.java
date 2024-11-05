@@ -1,7 +1,8 @@
 public class Sida extends Deniz_araclari{
+    private static int sidaSayisi = 0;
 
     public Sida() {
-        super(0, 15, 10,10,10);
+        super(0, 15, 10,10,10,"sida"+(++sidaSayisi));
     }
 
     @Override
