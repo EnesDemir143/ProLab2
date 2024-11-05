@@ -16,27 +16,31 @@ public abstract class Savas_Araclari {
         this.sinif = sinif;
     }
 
-    public void setSeviye_puani(int seviye_puani) {
-        this.seviye_puani = seviye_puani;
-    }
+    public abstract void kartPuanGoster();
+
+    public abstract void durumGuncelle();
 
     public void setDayaniklilik(int dayaniklilik) {
         this.dayaniklilik = dayaniklilik;
     }
 
-    public int getSeviye_puani() {
-        return seviye_puani;
+    public void setSeviye_puani(int seviye_puani) {
+        this.seviye_puani = seviye_puani;
     }
 
-    public int getDayaniklilik() {
-        return dayaniklilik;
+    public String getSinif() {
+        return sinif;
     }
 
     public int getVurus() {
         return vurus;
     }
 
-    public String getSinif() {
-        return sinif;
+    public int getDayaniklilik() {
+        return dayaniklilik;
+    }
+
+    public int getSeviye_puani() {
+        return seviye_puani;
     }
 }

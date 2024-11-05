@@ -9,4 +9,11 @@ public abstract class Kara_araclari extends Savas_Araclari{
         this.hava_vurus_avantaji = hava_vurus_avantaji;
     }
 
+    public int getDeniz_vurus_avantaji() {
+        return deniz_vurus_avantaji;
+    }
+
+    public int getHava_vurus_avantaji() {
+        return hava_vurus_avantaji;
+    }
 }
