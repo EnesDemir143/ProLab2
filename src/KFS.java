@@ -12,8 +12,8 @@ public class KFS extends Kara_araclari{
     }
 
     @Override
-    public void durumGuncelle() {
-
+    public void durumGuncelle(int hasar) {
+        this.setDayaniklilik(Math.max(this.getDayaniklilik() - hasar, 0));
     }
 
 }

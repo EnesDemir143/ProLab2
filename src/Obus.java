@@ -7,13 +7,14 @@ public class Obus extends Kara_araclari {
 
     @Override
     public void kartPuanGoster() {
-        System.out.println("Kart Puan Goster:"+getSeviye_puani());
+        System.out.print(getKartID()+"|");
+        System.out.print("Kart Puan Goster:"+getSeviye_puani()+"|");
         System.out.println("Dayaniklik:"+getDayaniklilik());
     }
 
     @Override
-    public void durumGuncelle() {
-
+    public void durumGuncelle(int hasar) {
+        this.setDayaniklilik(Math.max(this.getDayaniklilik() - hasar, 0));
     }
 
 

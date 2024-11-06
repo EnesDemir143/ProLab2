@@ -15,7 +15,13 @@ public class Oyun {
         pc.bilgisyarKartListesi();
 
         secilenKartlar(insan,pc,insanSeckart,pcSeckart);
-        kartSavaslari();
+        kartSavaslari(insanSeckart,pcSeckart);
+        for (int i=0;i<3;i++){
+            insanSeckart.get(i).kartPuanGoster();
+        }
+        for (int i=0;i<3;i++){
+            pcSeckart.get(i).kartPuanGoster();
+        }
 
     }
 
@@ -44,14 +50,23 @@ public class Oyun {
                 default -> throw new IllegalStateException("Unexpected value: " + pc.kartSec(pc));
             }
         }
-    }
+    }//insan ve pc ayırılıp arka tarafa alınıcak.
 
     public static int saldiriHesapla(Oyuncu insan,Oyuncu pc) {
-            int secim=pc.kartSec(pc);
-            return  pc.getBilgisayarKart().get(secim).getVurus();
+        return 0;
     }
 
-    public static void kartSavaslari(){
+    public static void kartSavaslari(ArrayList<Savas_Araclari> insanseckart,ArrayList<Savas_Araclari> pcSeckart){
+        for(int i=0;i<3;i++){
+            if(insanseckart.get(i) instanceof EkstraVurusOzellikleri ekstralar){
+                pcSeckart.get(i).durumGuncelle(ekstralar.getHava_vurus_avantaji()+ekstralar.getKara_vurus_avantaji()+ekstralar.getDeniz_vurus_avantaji()+insanseckart.get(i).getVurus());
+            }
+        }
 
+        for (int i=0;i<3;i++){
+            if(pcSeckart.get(i) instanceof EkstraVurusOzellikleri ekstralar){
+                insanseckart.get(i).durumGuncelle(ekstralar.getHava_vurus_avantaji()+ekstralar.getKara_vurus_avantaji()+ekstralar.getDeniz_vurus_avantaji()+pcSeckart.get(i).getVurus());
+            }
+        }
     }
 }

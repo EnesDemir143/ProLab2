@@ -5,6 +5,10 @@ public abstract class Savas_Araclari {
     private int dayaniklilik;
     private int vurus;
 
+    private int hava_vurus_avantaji;
+    private int kara_vurus_avantaji;
+    private int deniz_vurus_avantaji;
+
     private String sinif;
 
     public Savas_Araclari() {
@@ -20,7 +24,7 @@ public abstract class Savas_Araclari {
 
     public abstract void kartPuanGoster();
 
-    public abstract void durumGuncelle();
+    public abstract void durumGuncelle(int hasar);
 
     public void setDayaniklilik(int dayaniklilik) {
         this.dayaniklilik = dayaniklilik;

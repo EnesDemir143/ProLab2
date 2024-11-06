@@ -18,6 +18,7 @@ public class Oyuncu {
 
    private  ArrayList<Savas_Araclari> insanKart = new ArrayList<>();
    private  ArrayList<Savas_Araclari> bilgisayarKart = new ArrayList<>();
+   private ArrayList<Integer> kullanilmisSayilar = new ArrayList<>();
 
     public Oyuncu() {
         oyuncu_id = "0";
@@ -88,8 +89,18 @@ public class Oyuncu {
     public  int kartSec(Oyuncu oyuncu){
         if(oyuncu.oyuncu_adi.equals("Bilgisayar")){
             Random rand = new Random();
-            int sinir=rand.nextInt(3);
-            return  sinir;
+            int secim;
+
+            if (kullanilmisSayilar.size() >= 3) {
+                kullanilmisSayilar.clear();
+            }
+
+            do {
+                secim = rand.nextInt(3);
+            } while (kullanilmisSayilar.contains(secim));
+
+            kullanilmisSayilar.add(secim);
+            return secim;
         }else{
             Scanner sc = new Scanner(System.in);
             int secim= sc.nextInt();

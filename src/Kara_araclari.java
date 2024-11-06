@@ -1,4 +1,4 @@
-public abstract class Kara_araclari extends Savas_Araclari{
+public abstract class Kara_araclari extends Savas_Araclari implements EkstraVurusOzellikleri{
 
     private int deniz_vurus_avantaji;
     private int hava_vurus_avantaji;
@@ -9,11 +9,13 @@ public abstract class Kara_araclari extends Savas_Araclari{
         this.hava_vurus_avantaji = hava_vurus_avantaji;
     }
 
-    public int getDeniz_vurus_avantaji() {
-        return deniz_vurus_avantaji;
+    @Override
+    public int getHava_vurus_avantaji() {
+        return EkstraVurusOzellikleri.super.getHava_vurus_avantaji();
     }
 
-    public int getHava_vurus_avantaji() {
-        return hava_vurus_avantaji;
+    @Override
+    public int getDeniz_vurus_avantaji() {
+        return EkstraVurusOzellikleri.super.getDeniz_vurus_avantaji();
     }
 }

@@ -5,10 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82e517f4-47f5-42a0-a255-1f2613b1799b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/EkstraVurusOzellikleri.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Deniz_araclari.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Deniz_araclari.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Firkateyn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Firkateyn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Hava_araclari.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hava_araclari.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/KFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kara_araclari.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kara_araclari.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Obus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Obus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Oyun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Oyun.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Oyuncu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Oyuncu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Savas_Araclari.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Savas_Araclari.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Siha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Siha.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ucak.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ucak.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +27,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -79,7 +88,7 @@
       <workItem from="1730815976479" duration="4771000" />
       <workItem from="1730822353280" duration="13000" />
       <workItem from="1730843687732" duration="330000" />
-      <workItem from="1730882311291" duration="309000" />
+      <workItem from="1730882311291" duration="3662000" />
     </task>
     <servers />
   </component>
