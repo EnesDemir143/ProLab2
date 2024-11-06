@@ -11,11 +11,11 @@ public abstract class Deniz_araclari extends Savas_Araclari implements EkstraVur
 
     @Override
     public int getHava_vurus_avantaji() {
-        return EkstraVurusOzellikleri.super.getHava_vurus_avantaji();
+        return hava_vurus_avantaji;
     }
 
     @Override
     public int getKara_vurus_avantaji() {
-        return EkstraVurusOzellikleri.super.getKara_vurus_avantaji();
+        return kara_vurus_avantaji;
     }
 }

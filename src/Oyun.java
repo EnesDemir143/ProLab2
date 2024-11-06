@@ -15,14 +15,21 @@ public class Oyun {
         pc.bilgisyarKartListesi();
 
         secilenKartlar(insan,pc,insanSeckart,pcSeckart);
-        kartSavaslari(insanSeckart,pcSeckart);
+        System.out.println("önce");
         for (int i=0;i<3;i++){
             insanSeckart.get(i).kartPuanGoster();
         }
         for (int i=0;i<3;i++){
             pcSeckart.get(i).kartPuanGoster();
         }
-
+        kartSavaslari(insanSeckart,pcSeckart);
+        System.out.println("Sonra");
+        for (int i=0;i<3;i++){
+            insanSeckart.get(i).kartPuanGoster();
+        }
+        for (int i=0;i<3;i++){
+            pcSeckart.get(i).kartPuanGoster();
+        }
     }
 
     public static void secilenKartlar(Oyuncu insan,Oyuncu pc,ArrayList<Savas_Araclari> insanseckart,ArrayList<Savas_Araclari> pcSeckart) {
@@ -52,20 +59,36 @@ public class Oyun {
         }
     }//insan ve pc ayırılıp arka tarafa alınıcak.
 
-    public static int saldiriHesapla(Oyuncu insan,Oyuncu pc) {
-        return 0;
-    }
-
-    public static void kartSavaslari(ArrayList<Savas_Araclari> insanseckart,ArrayList<Savas_Araclari> pcSeckart){
-        for(int i=0;i<3;i++){
-            if(insanseckart.get(i) instanceof EkstraVurusOzellikleri ekstralar){
-                pcSeckart.get(i).durumGuncelle(ekstralar.getHava_vurus_avantaji()+ekstralar.getKara_vurus_avantaji()+ekstralar.getDeniz_vurus_avantaji()+insanseckart.get(i).getVurus());
+    public static void kartSavaslari(ArrayList<Savas_Araclari> insanseckart, ArrayList<Savas_Araclari> pcSeckart) {
+        for(int i = 0; i < 3; i++) {
+            if(insanseckart.get(i) instanceof EkstraVurusOzellikleri ekstralar) {
+                int hasar = insanseckart.get(i).getVurus(); // Temel vuruş hasarı
+                // Rakip kartın sınıfına göre avantaj hesaplama
+                String rakipSinif = pcSeckart.get(i).getSinif();
+                if(!insanseckart.get(i).getSinif().trim().equals(rakipSinif.trim())) {
+                    switch (rakipSinif) {
+                        case "Kara" -> hasar += ekstralar.getKara_vurus_avantaji();
+                        case "Hava" -> hasar += ekstralar.getHava_vurus_avantaji();
+                        case "Deniz" -> hasar += ekstralar.getDeniz_vurus_avantaji();
+                    }
+                }
+                pcSeckart.get(i).durumGuncelle(hasar);
             }
-        }
 
-        for (int i=0;i<3;i++){
-            if(pcSeckart.get(i) instanceof EkstraVurusOzellikleri ekstralar){
-                insanseckart.get(i).durumGuncelle(ekstralar.getHava_vurus_avantaji()+ekstralar.getKara_vurus_avantaji()+ekstralar.getDeniz_vurus_avantaji()+pcSeckart.get(i).getVurus());
+            // PC'nin saldırısı
+            if(pcSeckart.get(i) instanceof EkstraVurusOzellikleri ekstralar) {
+                int hasar = pcSeckart.get(i).getVurus(); // Temel vuruş hasarı
+
+                // Rakip kartın sınıfına göre avantaj hesaplama
+                String rakipSinif = insanseckart.get(i).getSinif();
+                if(!pcSeckart.get(i).getSinif().trim().equals(rakipSinif.trim())) {
+                    switch (rakipSinif) {
+                        case "Kara" -> hasar += ekstralar.getKara_vurus_avantaji();
+                        case "Hava" -> hasar += ekstralar.getHava_vurus_avantaji();
+                        case "Deniz" -> hasar += ekstralar.getDeniz_vurus_avantaji();
+                    }
+                }
+                insanseckart.get(i).durumGuncelle(hasar);
             }
         }
     }
