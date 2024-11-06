@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -15,8 +16,8 @@ public class Oyuncu {
     KFS kfs;
     Obus obus;
 
-    List<Savas_Araclari> insanKart = new ArrayList<>();
-    List<Savas_Araclari> bilgisayarKart = new ArrayList<>();
+   private  ArrayList<Savas_Araclari> insanKart = new ArrayList<>();
+   private  ArrayList<Savas_Araclari> bilgisayarKart = new ArrayList<>();
 
     public Oyuncu() {
         oyuncu_id = "0";
@@ -34,20 +35,27 @@ public class Oyuncu {
     }
 
 
-    public void kartListesi(){
+    public void insanKartListesi(){
+        for(int i=0;i<3;i++){
+            insanKart.add(ilkAtamalar());
+        }
         int i=0;
         System.out.println("Oyuncu kart listesi");
         System.out.println("İnsan kart listesi");
         while (i<insanKart.size()) {
             System.out.println(insanKart.get(i).getKartID());
-            System.out.println(insanKart.get(i).getSinif());
             i++;
         }
-        i=0;
-        System.out.println("Bilgisayar kart listesi");
+    }
+    public void bilgisyarKartListesi(){
+        for(int i=0;i<3;i++){
+            bilgisayarKart.add(ilkAtamalar());
+        }
+        int i=0;
+        System.out.println("Oyuncu kart listesi");
+        System.out.println("pc kart listesi");
         while (i<bilgisayarKart.size()) {
-            System.out.println(insanKart.get(i).getKartID());
-            System.out.println(insanKart.get(i).getSinif());
+            System.out.println(bilgisayarKart.get(i).getKartID());
             i++;
         }
     }
@@ -55,6 +63,7 @@ public class Oyuncu {
     public Savas_Araclari ilkAtamalar(){
             Random rand = new Random();
             int sinir=rand.nextInt(3);
+        System.out.println("sinir:"+sinir);
                 return switch (sinir){
                     case 0->(new Ucak());
                     case 1->(new Obus());
@@ -63,43 +72,29 @@ public class Oyuncu {
                 };
     }
 
-    public Savas_Araclari kartAtama(Oyuncu oyuncu){
+//    public Savas_Araclari kartAtama(Oyuncu oyuncu){
+//
+//    }
+
+
+    public ArrayList<Savas_Araclari> getInsanKart() {
+        return insanKart;
+    }
+
+    public ArrayList<Savas_Araclari> getBilgisayarKart() {
+        return bilgisayarKart;
+    }
+
+    public  int kartSec(Oyuncu oyuncu){
         if(oyuncu.oyuncu_adi.equals("Bilgisayar")){
             Random rand = new Random();
-            int sinir=rand.nextInt(6);
-            return switch (sinir){
-                case 0->(new Ucak());
-                case 1->(new Obus());
-                case 2->(new Firkateyn());
-                case 3->(new Siha());
-                case 4->(new KFS());
-                case 5->(new Sida());
-                default -> throw new IllegalArgumentException("Yanlış sayı");
-            };
+            int sinir=rand.nextInt(3);
+            return  sinir;
         }else{
             Scanner sc = new Scanner(System.in);
             int secim= sc.nextInt();
-            return switch (secim){
-                case 0->(new Ucak());
-                case 1->(new Obus());
-                case 2->(new Firkateyn());
-                case 3->(new Siha());
-                case 4->(new KFS());
-                case 5->(new Sida());
-                default -> throw new IllegalArgumentException("Yanlış sayı");
-            };
-
+            return secim;
         }
-    }
-
-    public void kartSec(Oyuncu oyuncu){
-        for(int i=0;i<3;i++){
-            insanKart.add(ilkAtamalar());
-        }
-        for(int i=0;i<3;i++){
-            bilgisayarKart.add(ilkAtamalar());
-        }
-
     }
 
 }

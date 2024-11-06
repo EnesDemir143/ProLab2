@@ -1,4 +1,4 @@
-public class Obus extends Kara_araclari{
+public class Obus extends Kara_araclari {
     private static int obusSayisi = 0;
 
     public Obus() {
