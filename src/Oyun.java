@@ -15,21 +15,22 @@ public class Oyun {
         pc.bilgisyarKartListesi();
 
         secilenKartlar(insan,pc,insanSeckart,pcSeckart);
-        System.out.println("önce");
-        for (int i=0;i<3;i++){
-            insanSeckart.get(i).kartPuanGoster();
+        System.out.println("ÖNCE");
+        for (int i = 0; i < insan.getInsanKart().size(); i++) {
+            insan.getInsanKart().get(i).kartPuanGoster();
         }
-        for (int i=0;i<3;i++){
-            pcSeckart.get(i).kartPuanGoster();
+        for (int i = 0; i < pc.getBilgisayarKart().size(); i++) {
+            pc.getBilgisayarKart().get(i).kartPuanGoster();
         }
-        kartSavaslari(insanSeckart,pcSeckart);
+        kartSavaslari(insan,pc,insanSeckart,pcSeckart);
         System.out.println("Sonra");
-        for (int i=0;i<3;i++){
-            insanSeckart.get(i).kartPuanGoster();
+        for (int i = 0; i < insan.getInsanKart().size(); i++) {
+            insan.getInsanKart().get(i).kartPuanGoster();
         }
-        for (int i=0;i<3;i++){
-            pcSeckart.get(i).kartPuanGoster();
+        for (int i = 0; i < pc.getBilgisayarKart().size(); i++) {
+            pc.getBilgisayarKart().get(i).kartPuanGoster();
         }
+
     }
 
     public static void secilenKartlar(Oyuncu insan,Oyuncu pc,ArrayList<Savas_Araclari> insanseckart,ArrayList<Savas_Araclari> pcSeckart) {
@@ -59,7 +60,7 @@ public class Oyun {
         }
     }//insan ve pc ayırılıp arka tarafa alınıcak.
 
-    public static void kartSavaslari(ArrayList<Savas_Araclari> insanseckart, ArrayList<Savas_Araclari> pcSeckart) {
+    public static void kartSavaslari(Oyuncu insan,Oyuncu pc,ArrayList<Savas_Araclari> insanseckart, ArrayList<Savas_Araclari> pcSeckart) {
         for(int i = 0; i < 3; i++) {
             if(insanseckart.get(i) instanceof EkstraVurusOzellikleri ekstralar) {
                 int hasar = insanseckart.get(i).getVurus(); // Temel vuruş hasarı
@@ -73,6 +74,9 @@ public class Oyun {
                     }
                 }
                 pcSeckart.get(i).durumGuncelle(hasar);
+                if(pcSeckart.get(i).getDayaniklilik()==0){
+                    pc.getBilgisayarKart().remove(pcSeckart.get(i));
+                }
             }
 
             // PC'nin saldırısı
@@ -89,6 +93,9 @@ public class Oyun {
                     }
                 }
                 insanseckart.get(i).durumGuncelle(hasar);
+                if(insanseckart.get(i).getDayaniklilik()==0){
+                    insan.getInsanKart().remove(insanseckart.get(i));
+                }
             }
         }
     }

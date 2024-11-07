@@ -35,6 +35,10 @@ public class Oyuncu {
         return skor;
     }
 
+    public void setSkor(int skor) {
+        this.skor = skor;
+    }
+
 
     public void insanKartListesi(){
         for(int i=0;i<3;i++){

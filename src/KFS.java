@@ -2,7 +2,7 @@ public class KFS extends Kara_araclari{
     private static int kfsSayisi = 0;
 
     public KFS() {
-        super(0, 10, 10,10,20,"kfs"+(++kfsSayisi));
+        super(20, 10, 10,10,20,"kfs"+(++kfsSayisi));
     }
 
     @Override
