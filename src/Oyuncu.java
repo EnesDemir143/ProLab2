@@ -7,7 +7,8 @@ import java.util.Scanner;
 public class Oyuncu {
     private String oyuncu_id;
     private String oyuncu_adi;
-    private int skor;
+    private int insanSkor;
+    private int pcSkor;
 
     Ucak ucak;
     Siha siha;
@@ -23,22 +24,29 @@ public class Oyuncu {
     public Oyuncu() {
         oyuncu_id = "0";
         oyuncu_adi = "Bilgisayar";
-        skor = 0;
+        pcSkor = 0;
     }
-    public Oyuncu(String oyuncu_id, String oyuncu_adi,int skor) {
+    public Oyuncu(String oyuncu_id, String oyuncu_adi,int insanSkor) {
         this.oyuncu_id = oyuncu_id;
         this.oyuncu_adi = oyuncu_adi;
-        this.skor = skor;
+        this.insanSkor = insanSkor;
     }
 
-    public int getSkor() {
-        return skor;
+    public void setInsanSkor(int insanSkor) {
+        this.insanSkor += insanSkor;
     }
 
-    public void setSkor(int skor) {
-        this.skor = skor;
+    public void setPcSkor(int pcSkor) {
+        this.pcSkor += pcSkor;
     }
 
+    public int getInsanSkor() {
+        return insanSkor;
+    }
+
+    public int getPcSkor() {
+        return pcSkor;
+    }
 
     public void insanKartListesi(){
         for(int i=0;i<3;i++){
@@ -77,9 +85,17 @@ public class Oyuncu {
                 };
     }
 
-//    public Savas_Araclari kartAtama(Oyuncu oyuncu){
-//
-//    }
+    public Savas_Araclari kartEkleme(Oyuncu oyuncu){
+        Random rand = new Random();
+        int sinir=rand.nextInt(3);
+        System.out.println("sinir:"+sinir);
+        return switch (sinir){
+            case 0->(new Ucak());
+            case 1->(new Obus());
+            case 2->(new Firkateyn());
+            default -> throw new IllegalStateException("Unexpected value: " + sinir);
+        };
+    }
 
 
     public ArrayList<Savas_Araclari> getInsanKart() {

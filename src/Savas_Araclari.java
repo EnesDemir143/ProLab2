@@ -23,7 +23,6 @@ public abstract class Savas_Araclari {
     }
 
     public abstract void kartPuanGoster();
-
     public abstract void durumGuncelle(int hasar);
 
     public void setDayaniklilik(int dayaniklilik) {

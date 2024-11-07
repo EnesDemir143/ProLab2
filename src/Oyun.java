@@ -16,6 +16,8 @@ public class Oyun {
 
         secilenKartlar(insan,pc,insanSeckart,pcSeckart);
         System.out.println("ÖNCE");
+        System.out.println("insanskor:"+insan.getInsanSkor());
+        System.out.println("pcskor:"+pc.getPcSkor());
         for (int i = 0; i < insan.getInsanKart().size(); i++) {
             insan.getInsanKart().get(i).kartPuanGoster();
         }
@@ -24,6 +26,8 @@ public class Oyun {
         }
         kartSavaslari(insan,pc,insanSeckart,pcSeckart);
         System.out.println("Sonra");
+        System.out.println("insanskor:"+insan.getInsanSkor());
+        System.out.println("pcskor:"+pc.getPcSkor());
         for (int i = 0; i < insan.getInsanKart().size(); i++) {
             insan.getInsanKart().get(i).kartPuanGoster();
         }
@@ -76,6 +80,11 @@ public class Oyun {
                 pcSeckart.get(i).durumGuncelle(hasar);
                 if(pcSeckart.get(i).getDayaniklilik()==0){
                     pc.getBilgisayarKart().remove(pcSeckart.get(i));
+                    if (pcSeckart.get(i).getSeviye_puani()==0){
+                        insan.setInsanSkor(10);
+                    }else if (pcSeckart.get(i).getSeviye_puani()==20){
+                        insan.setInsanSkor(20);
+                    }
                 }
             }
 
@@ -95,6 +104,11 @@ public class Oyun {
                 insanseckart.get(i).durumGuncelle(hasar);
                 if(insanseckart.get(i).getDayaniklilik()==0){
                     insan.getInsanKart().remove(insanseckart.get(i));
+                    if (insanseckart.get(i).getSeviye_puani()==0){
+                        pc.setPcSkor(10);
+                    }else if (insanseckart.get(i).getSeviye_puani()==20){
+                        pc.setPcSkor(20);
+                    }
                 }
             }
         }
