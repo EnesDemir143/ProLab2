@@ -179,5 +179,60 @@ public class Oyuncu {
             pcSeckart.add(pc.getBilgisayarKart().get(pc.kartSec(pc)));
         }
     }//insan ve pc ayırılıp arka tarafa alınıcak.
+        public static int savasSonuclari(Oyuncu insan,Oyuncu pc,int tur,int kontrol){
+            if ( kontrol==0) {
+                int x=0;
+                if(pc.getBilgisayarKart().size()==2){
+                    pc.bilgisayarKart.add(pc.kartEkleme(pc));
+                    x++;
+                }
+                if (insan.getInsanKart().size()==2){
+                    insan.getInsanKart().add(pc.kartEkleme(insan));
+                    x++;
+                }
+                if(x>0){
+                    System.out.println("finall");
+                    return 7;
+                }
+            }
+            if (insan.getInsanKart().isEmpty() || pc.getBilgisayarKart().isEmpty()) {
+                System.out.println("Game over");
+                return 1;
+            }
+            if(( tur==5 && (insan.getInsanKart().size()==1 || pc.getBilgisayarKart().size()==1)) || (kontrol==1) ) {
+                if(insan.getInsanSkor()>pc.getPcSkor()){
+                    System.out.println("sen kazandın");
+                    return 2;
+                }else if(insan.getInsanSkor()==pc.getPcSkor()){
+                    int toplam_dayaniklilik1=0;
+                    int toplam_dayaniklilik2=0;
+                    for (int j = 0; j < insan.getInsanKart().size(); j++) {
+                        toplam_dayaniklilik1+=insan.getInsanKart().get(j).getDayaniklilik();
+                    }
+                    for (int j = 0; j < pc.getBilgisayarKart().size(); j++) {
+                        toplam_dayaniklilik2+=pc.getBilgisayarKart().get(j).getDayaniklilik();
+                    }
+                    if(toplam_dayaniklilik1>toplam_dayaniklilik2){
+                        System.out.println("Sen kazandın");
+                        insan.setInsanSkor(toplam_dayaniklilik1-toplam_dayaniklilik2);
+                        System.out.println((toplam_dayaniklilik1-toplam_dayaniklilik2)+"eklendi");
+                        return 3;
+                    }else if (toplam_dayaniklilik1<toplam_dayaniklilik2){
+                        System.out.println("pc kazandın");
+                        pc.setPcSkor(toplam_dayaniklilik2-toplam_dayaniklilik1);
+                        System.out.println((toplam_dayaniklilik2-toplam_dayaniklilik1)+"eklendi");
+                        return 4;
+                    } else {
+                        System.out.println("Berabere");
+                        return 5;
+                    }
 
+                } else{
+                    System.out.println("pc kazandı");
+                    return 6;
+                }
+            }
+            System.out.println("devamm");
+            return -1;
+        }
 }

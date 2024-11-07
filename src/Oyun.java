@@ -41,35 +41,36 @@ public class Oyun {
             for (int j = 0; j < pc.getBilgisayarKart().size(); j++) {
                 pc.getBilgisayarKart().get(j).kartPuanGoster();
             }
-            if (insan.getInsanKart().isEmpty() || pc.getBilgisayarKart().isEmpty()) {
-                System.out.println("Game over");
-                break;
-            }
-            if(i==5 && !insan.getInsanKart().isEmpty() && !pc.getBilgisayarKart().isEmpty() ) {
-                if(insan.getInsanSkor()>pc.getPcSkor()){
-                    System.out.println("sen kazandın");
-                }else if(insan.getInsanSkor()==pc.getPcSkor()){
-                    int toplam_dayaniklilik1=0;
-                    int toplam_dayaniklilik2=0;
-                    for (int j = 0; j < insan.getInsanKart().size(); j++) {
-                        toplam_dayaniklilik1+=insan.getInsanKart().get(j).getDayaniklilik();
-                    }
-                    for (int j = 0; j < pc.getBilgisayarKart().size(); j++) {
-                        toplam_dayaniklilik2+=pc.getBilgisayarKart().get(j).getDayaniklilik();
-                    }
-                    if(toplam_dayaniklilik1>toplam_dayaniklilik2){
-                        System.out.println("Sen kazandın");
-                        insan.setInsanSkor(toplam_dayaniklilik1-toplam_dayaniklilik2);
-                    }else if (toplam_dayaniklilik1<toplam_dayaniklilik2){
-                        System.out.println("pc kazandın");
-                        pc.setPcSkor(toplam_dayaniklilik2-toplam_dayaniklilik1);
-                    } else {
-                        System.out.println("Berabere");
-                    }
-
-                } else{
-                    System.out.println("pc kazandı");
+            int a=Oyuncu.savasSonuclari(insan,pc,i,0);
+            if(a==7 || a==8 ){
+                System.out.println("ADIM====> "+(i+1));
+                System.out.println("ÖNCE");
+                System.out.println("insanskor:"+insan.getInsanSkor());
+                System.out.println("pcskor:"+pc.getPcSkor());
+                System.out.println("İnsankartları");
+                for (int j = 0; j < insan.getInsanKart().size(); j++) {
+                    insan.getInsanKart().get(j).kartPuanGoster();
                 }
+                System.out.println("pckartları");
+                for (int j = 0; j < pc.getBilgisayarKart().size(); j++) {
+                    pc.getBilgisayarKart().get(j).kartPuanGoster();
+                }
+                Oyuncu.secilenKartlar(insan, pc, insanSeckart, pcSeckart);
+                Oyuncu.kartSavaslari(insan, pc, insanSeckart, pcSeckart);
+                Oyuncu.savasSonuclari(insan,pc,i,1);
+                System.out.println("Sonra");
+                System.out.println("insanskor:"+insan.getInsanSkor());
+                System.out.println("pcskor:"+pc.getPcSkor());
+                System.out.println("İnsankartları");
+                for (int j = 0; j < insan.getInsanKart().size(); j++) {
+                    insan.getInsanKart().get(j).kartPuanGoster();
+                }
+                System.out.println("pckartları");
+                for (int j = 0; j < pc.getBilgisayarKart().size(); j++) {
+                    pc.getBilgisayarKart().get(j).kartPuanGoster();
+                }
+                System.out.println("bitti");
+                break;
             }
         }
 
