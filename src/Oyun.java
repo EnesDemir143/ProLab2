@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+//Dosya çekmeye bugün bakıcalıcak!!!
+//Mainde pc. ve insan. ile olan erişimleri kapat(Methodları kastediyorum)
+
 public class Oyun {
     public static void main(String[] args) {
 
@@ -9,8 +12,9 @@ public class Oyun {
         ArrayList<Savas_Araclari> pcSeckart = new ArrayList<>();
         ArrayList<Savas_Araclari> insanSeckart = new ArrayList<>();
 
-        insan.insanKartListesi();
-        pc.bilgisyarKartListesi();
+        insan.insanKartListesi(insan);
+        pc.bilgisyarKartListesi(pc);
+
 
         for (int i = 1; i < 6; i++) {
             System.out.println("ADIM====> "+(i));

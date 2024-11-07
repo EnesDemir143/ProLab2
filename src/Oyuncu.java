@@ -39,9 +39,9 @@ public class Oyuncu {
         return pcSkor;
     }
 
-    public void insanKartListesi(){
+    public void insanKartListesi(Oyuncu insan){
         for(int i=0;i<3;i++){
-            insanKart.add(ilkAtamalar());
+            insanKart.add(kartEkleme(insan));
         }
         int i=0;
         System.out.println("Oyuncu kart listesi");
@@ -51,9 +51,9 @@ public class Oyuncu {
             i++;
         }
     }
-    public void bilgisyarKartListesi(){
+    public void bilgisyarKartListesi(Oyuncu bilgisayar){
         for(int i=0;i<3;i++){
-            bilgisayarKart.add(ilkAtamalar());
+            bilgisayarKart.add(kartEkleme(bilgisayar));
         }
         int i=0;
         System.out.println("Oyuncu kart listesi");
@@ -63,18 +63,7 @@ public class Oyuncu {
             i++;
         }
     }
-
-    public Savas_Araclari ilkAtamalar(){
-            Random rand = new Random();
-            int sinir=rand.nextInt(3);
-                return switch (sinir){
-                    case 0->(new Ucak());
-                    case 1->(new Obus());
-                    case 2->(new Firkateyn());
-                    default -> throw new IllegalStateException("Unexpected value: " + sinir);
-                };
-    }
-
+    
     public Savas_Araclari kartEkleme(Oyuncu oyuncu){
         Random rand = new Random();
         int sinir;
