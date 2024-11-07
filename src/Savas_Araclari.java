@@ -29,10 +29,6 @@ public abstract class Savas_Araclari {
         this.dayaniklilik = dayaniklilik;
     }
 
-    public void setSeviye_puani(int seviye_puani) {
-        this.seviye_puani = seviye_puani;
-    }
-
     public String getSinif() {
         return sinif;
     }

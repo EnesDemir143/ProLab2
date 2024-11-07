@@ -63,7 +63,7 @@ public class Oyuncu {
             i++;
         }
     }
-    
+
     public Savas_Araclari kartEkleme(Oyuncu oyuncu){
         Random rand = new Random();
         int sinir;
@@ -76,7 +76,7 @@ public class Oyuncu {
             // 20 puan ve üzeri ise tüm kartlardan birini seç
             sinir = rand.nextInt(6);
         }
-        System.out.println("Kart ekleniyor....");
+       // System.out.println("Kart ekleniyor....");
         return switch (sinir) {
             case 0 -> new Ucak();
             case 1 -> new Obus();
