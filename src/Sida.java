@@ -7,7 +7,7 @@ public class Sida extends Deniz_araclari{
 
     @Override
     public void kartPuanGoster() {
-        System.out.println("Kart Puan Goster:"+getSeviye_puani());
+        System.out.print(getKartID()+"|");
         System.out.println("Dayaniklik:"+getDayaniklilik());
     }
 

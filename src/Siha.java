@@ -8,7 +8,6 @@ public class Siha extends Hava_araclari{
     @Override
     public void kartPuanGoster() {
         System.out.print(getKartID()+"|");
-        System.out.print("Kart Puan Goster:"+getSeviye_puani()+"|");
         System.out.println("Dayaniklik:"+getDayaniklilik());
     }
 
