@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Oyun {
     public static void main(String[] args) {
 
-        Oyuncu insan = new Oyuncu("123","Enes",30);
+        Oyuncu insan = new Oyuncu("123","Enes",0);
         Oyuncu pc = new Oyuncu();
 
         ArrayList<Savas_Araclari> pcSeckart = new ArrayList<>();
@@ -22,10 +22,12 @@ public class Oyun {
             System.out.println("pcskor:"+pc.getPcSkor());
             System.out.println("İnsankartları");
             for (int j = 0; j < insan.getInsanKart().size(); j++) {
+                System.out.print(j+1+"=>");
                 insan.getInsanKart().get(j).kartPuanGoster();
             }
             System.out.println("pckartları");
             for (int j = 0; j < pc.getBilgisayarKart().size(); j++) {
+                System.out.print(j+1+"=>");
                 pc.getBilgisayarKart().get(j).kartPuanGoster();
             }
             Oyuncu.secilenKartlar(insan, pc, insanSeckart, pcSeckart);
@@ -42,6 +44,8 @@ public class Oyun {
                 pc.getBilgisayarKart().get(j).kartPuanGoster();
             }
             int a=Oyuncu.savasSonuclari(insan,pc,i,0);
+            pcSeckart.clear();
+            insanSeckart.clear();
             if(a==7 || a==8 ){
                 System.out.println("ADIM====> "+(i+1));
                 System.out.println("ÖNCE");
@@ -49,10 +53,12 @@ public class Oyun {
                 System.out.println("pcskor:"+pc.getPcSkor());
                 System.out.println("İnsankartları");
                 for (int j = 0; j < insan.getInsanKart().size(); j++) {
+                    System.out.print(j+1+"=>");
                     insan.getInsanKart().get(j).kartPuanGoster();
                 }
                 System.out.println("pckartları");
                 for (int j = 0; j < pc.getBilgisayarKart().size(); j++) {
+                    System.out.print(j+1+"=>");
                     pc.getBilgisayarKart().get(j).kartPuanGoster();
                 }
                 Oyuncu.secilenKartlar(insan, pc, insanSeckart, pcSeckart);

@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -7,10 +8,25 @@ public class Oyuncu {
     private String oyuncu_adi;
     private int insanSkor;
     private int pcSkor;
+    private  int a=0;
+
+    public void setA(int a) {
+        this.a += a;
+    }
 
    private  ArrayList<Savas_Araclari> insanKart = new ArrayList<>();
    private  ArrayList<Savas_Araclari> bilgisayarKart = new ArrayList<>();
    private ArrayList<Integer> kullanilmisSayilar = new ArrayList<>();
+   private ArrayList<Savas_Araclari>kullanilmisKartlarInsan = new ArrayList<>();
+   private ArrayList<Savas_Araclari>kullanilmisKartlarPc = new ArrayList<>();
+
+    public ArrayList<Savas_Araclari> getKullanilmisKartlarInsan() {
+        return kullanilmisKartlarInsan;
+    }
+
+    public ArrayList<Savas_Araclari> getKullanilmisKartlarPc() {
+        return kullanilmisKartlarPc;
+    }
 
     public Oyuncu() {
         oyuncu_id = "0";
@@ -116,6 +132,11 @@ public class Oyuncu {
             Scanner sc = new Scanner(System.in);
             System.out.print("KART SEÇİN:");
             int secim= sc.nextInt();
+            while (oyuncu.getKullanilmisKartlarInsan().contains(oyuncu.getInsanKart().get(secim)) && kullanilmisKartlarInsan.size()!=getInsanKart().size()) {
+                System.out.print("Tekrar seçim yapınız:");
+                secim= sc.nextInt();
+            }
+
             return secim;
         }
     }
@@ -137,6 +158,7 @@ public class Oyuncu {
                 pcSeckart.get(i).durumGuncelle(hasar);
                 if(pcSeckart.get(i).getDayaniklilik()==0){
                     pc.getBilgisayarKart().remove(pcSeckart.get(i));
+                    pc.getKullanilmisKartlarPc().remove(pcSeckart.get(i));
                     if (pcSeckart.get(i).getSeviye_puani()==0){
                         insan.setInsanSkor(10);
                     }else if (pcSeckart.get(i).getSeviye_puani()==20){
@@ -160,6 +182,7 @@ public class Oyuncu {
                 insanseckart.get(i).durumGuncelle(hasar);
                 if(insanseckart.get(i).getDayaniklilik()==0){
                     insan.getInsanKart().remove(insanseckart.get(i));
+                    insan.getKullanilmisKartlarInsan().remove(insanseckart.get(i));
                     if (insanseckart.get(i).getSeviye_puani()==0){
                         pc.setPcSkor(10);
                     }else if (insanseckart.get(i).getSeviye_puani()==20){
@@ -171,13 +194,25 @@ public class Oyuncu {
         insan.getInsanKart().add(insan.kartEkleme(insan));
         pc.getBilgisayarKart().add(pc.kartEkleme(pc));
     }
-    public static void secilenKartlar(Oyuncu insan,Oyuncu pc,ArrayList<Savas_Araclari> insanseckart,ArrayList<Savas_Araclari> pcSeckart) {
+
+    public int getA() {
+        return a;
+    }
+
+    public static void secilenKartlar(Oyuncu insan, Oyuncu pc, ArrayList<Savas_Araclari> insanseckart, ArrayList<Savas_Araclari> pcSeckart) {
         for(int i=0;i<3;i++){
             insanseckart.add(insan.getInsanKart().get(insan.kartSec(insan)));
+            if (!insan.getKullanilmisKartlarInsan().contains(insanseckart.get(i))){
+                insan.getKullanilmisKartlarInsan().add(insanseckart.get(i));
+            }
         }
         for(int i=0;i<3;i++){
             pcSeckart.add(pc.getBilgisayarKart().get(pc.kartSec(pc)));
+            if (pc.getKullanilmisKartlarPc().contains(pcSeckart.get(i))){
+                pc.getKullanilmisKartlarPc().add(pcSeckart.get(i));
+            }
         }
+        insan.setA(-insan.getA());
     }//insan ve pc ayırılıp arka tarafa alınıcak.
         public static int savasSonuclari(Oyuncu insan,Oyuncu pc,int tur,int kontrol){
             if ( kontrol==0) {
