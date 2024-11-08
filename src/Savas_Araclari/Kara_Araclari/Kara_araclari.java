@@ -1,4 +1,9 @@
-public abstract class Kara_araclari extends Savas_Araclari implements EkstraVurusOzellikleri{
+package Savas_Araclari.Kara_Araclari;
+
+import Savas_Araclari.EkstraVurusOzellikleri;
+import Savas_Araclari.Savas_Araclari;
+
+public abstract class Kara_araclari extends Savas_Araclari implements EkstraVurusOzellikleri {
 
     private int deniz_vurus_avantaji;
     private int hava_vurus_avantaji;

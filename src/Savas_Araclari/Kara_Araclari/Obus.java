@@ -1,8 +1,10 @@
-public class KFS extends Kara_araclari{
-    private static int kfsSayisi = 0;
+package Savas_Araclari.Kara_Araclari;
 
-    public KFS() {
-        super(20, 10, 10,10,20,"kfs"+(++kfsSayisi));
+public class Obus extends Kara_araclari {
+    private static int obusSayisi = 0;
+
+    public Obus() {
+        super(0, 20, 10,5,0,"obus"+(++obusSayisi));
     }
 
     @Override
@@ -15,5 +17,6 @@ public class KFS extends Kara_araclari{
     public void durumGuncelle(int hasar) {
         this.setDayaniklilik(Math.max(this.getDayaniklilik() - hasar, 0));
     }
+
 
 }

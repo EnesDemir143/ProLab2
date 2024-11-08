@@ -1,8 +1,10 @@
-public class Siha extends Hava_araclari{
-    private static int sihaSayisi = 0;
+package Savas_Araclari.Kara_Araclari;
 
-    public Siha() {
-        super(20, 15, 10,10,10,"siha"+(++sihaSayisi));
+public class KFS extends Kara_araclari{
+    private static int kfsSayisi = 0;
+
+    public KFS() {
+        super(20, 10, 10,10,20,"kfs"+(++kfsSayisi));
     }
 
     @Override
@@ -15,6 +17,5 @@ public class Siha extends Hava_araclari{
     public void durumGuncelle(int hasar) {
         this.setDayaniklilik(Math.max(this.getDayaniklilik() - hasar, 0));
     }
-
 
 }

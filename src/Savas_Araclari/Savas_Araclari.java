@@ -1,3 +1,5 @@
+package Savas_Araclari;
+
 public abstract class Savas_Araclari {
     private int seviye_puani;
     private String kartID;

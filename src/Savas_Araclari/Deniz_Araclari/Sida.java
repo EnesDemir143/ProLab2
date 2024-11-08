@@ -1,8 +1,10 @@
-public class Ucak extends Hava_araclari{
-    private static int ucakSayisi = 0;
+package Savas_Araclari.Deniz_Araclari;
 
-    public Ucak() {
-        super(0, 20, 10,10,0,"ucak"+(++ucakSayisi));
+public class Sida extends Deniz_araclari{
+    private static int sidaSayisi = 0;
+
+    public Sida() {
+        super(20, 15, 10,10,10,"sida"+(++sidaSayisi));
     }
 
     @Override

@@ -5,7 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82e517f4-47f5-42a0-a255-1f2613b1799b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Deniz_araclari.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EkstraVurusOzellikleri.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Firkateyn.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Hava_araclari.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KFS.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kara_araclari.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Obus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Oyun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Oyun.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Oyuncu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Oyuncu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Savas_Araclari.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sida.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Siha.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ucak.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +42,6 @@
   <component name="ProjectId" id="2oLfbMGfXv5xUIHEwVeD6r2qmEG" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
@@ -44,6 +56,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -78,11 +91,17 @@
       <workItem from="1730843687732" duration="330000" />
       <workItem from="1730882311291" duration="9460000" />
       <workItem from="1730968839930" duration="9668000" />
-      <workItem from="1730986896364" duration="19659000" />
+      <workItem from="1730986896364" duration="22494000" />
+      <workItem from="1731091234338" duration="56000" />
+      <workItem from="1731091510177" duration="683000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

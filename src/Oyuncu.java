@@ -1,4 +1,12 @@
-import java.lang.reflect.Array;
+import Savas_Araclari.Deniz_Araclari.Firkateyn;
+import Savas_Araclari.Deniz_Araclari.Sida;
+import Savas_Araclari.EkstraVurusOzellikleri;
+import Savas_Araclari.Hava_Araclari.Siha;
+import Savas_Araclari.Hava_Araclari.Ucak;
+import Savas_Araclari.Kara_Araclari.KFS;
+import Savas_Araclari.Kara_Araclari.Obus;
+import Savas_Araclari.Savas_Araclari;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;

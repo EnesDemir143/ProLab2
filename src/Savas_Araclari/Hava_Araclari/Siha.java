@@ -1,8 +1,10 @@
-public class Firkateyn extends Deniz_araclari{
-    private static int firkateynSayisi = 0;
+package Savas_Araclari.Hava_Araclari;
 
-    public Firkateyn() {
-        super(0, 25, 10,5,0,"firkateyn"+(++firkateynSayisi));
+public class Siha extends Hava_araclari{
+    private static int sihaSayisi = 0;
+
+    public Siha() {
+        super(20, 15, 10,10,10,"siha"+(++sihaSayisi));
     }
 
     @Override
