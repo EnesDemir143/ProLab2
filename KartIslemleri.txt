@@ -1,0 +1,76 @@
+Senin başlangıc puanı: 0
+Senin kartları bunlardır:
+firkateyn1
+obus1
+firkateyn2
+
+Bilgisayarın baslangıc puanı: 0
+Bilgisayarın kartları bunlardır:
+ucak1
+ucak2
+obus2
+
+
+--------------------1.adim--------------------
+Senin sectiğin kartlar:
+firkateyn1
+obus1
+firkateyn2
+
+PC sectiği kartlar:
+obus2
+obus2
+obus2
+
+--------------------Savaş--------------------
+            Sen         Bilgisayar
+1.Eşleşme:firkateyn1 <----> obus2
+2.Eşleşme:obus1 <----> obus2
+3.Eşleşme:firkateyn2 <----> obus2
+
+Skorlar=>
+Sen:0
+Bilgisayar:0
+
+
+Senin desten=>
+firkateyn1
+obus1
+firkateyn2
+ucak3
+Bilgisayarın destesi=>
+ucak1
+ucak2
+obus3
+
+--------------------2.adim--------------------
+Senin sectiğin kartlar:
+ucak3
+firkateyn2
+obus1
+
+PC sectiği kartlar:
+ucak1
+ucak1
+ucak2
+
+--------------------Savaş--------------------
+            Sen         Bilgisayar
+1.Eşleşme:ucak3 <----> ucak1
+2.Eşleşme:firkateyn2 <----> ucak1
+3.Eşleşme:obus1 <----> ucak2
+
+Skorlar=>
+Sen:20
+Bilgisayar:0
+
+
+Senin desten=>
+firkateyn1
+ucak3
+firkateyn3
+Bilgisayarın destesi=>
+ucak2
+obus3
+sida1
+

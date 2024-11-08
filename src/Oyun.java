@@ -5,7 +5,7 @@ import java.util.ArrayList;
 //Dosya çekmeye bugün bakıcalıcak!!!
 //Mainde pc. ve insan. ile olan erişimleri kapat(Methodları kastediyorum)
 
-public class Oyun {
+public class Oyun implements Dosya_Islemleri{
     public static void main(String[] args) {
 
         Oyuncu insan = new Oyuncu("123","Enes",0);
@@ -14,9 +14,10 @@ public class Oyun {
         ArrayList<Savas_Araclari> pcSeckart = new ArrayList<>();
         ArrayList<Savas_Araclari> insanSeckart = new ArrayList<>();
 
+        insan.dosyayiSifirla();
         insan.insanKartListesi(insan);
         pc.bilgisyarKartListesi(pc);
-
+        insan.ilkKartlar(insan,pc,insan.getInsanKart(),pc.getBilgisayarKart());
         for (int i = 1; i < 6; i++) {
             System.out.println("ADIM====> "+(i));
             System.out.println("ÖNCE");
@@ -33,7 +34,9 @@ public class Oyun {
                 pc.getBilgisayarKart().get(j).kartPuanGoster();
             }
             Oyuncu.secilenKartlar(insan, pc, insanSeckart, pcSeckart);
+            insan.savas(insan,pc,insanSeckart,pcSeckart,i);
             Oyuncu.kartSavaslari(insan, pc, insanSeckart, pcSeckart);
+            insan.destendekiKartlar(insan, pc, insan.getInsanKart(), pc.getBilgisayarKart());
             System.out.println("Sonra");
             System.out.println("insanskor:"+insan.getInsanSkor());
             System.out.println("pcskor:"+pc.getPcSkor());
@@ -64,8 +67,10 @@ public class Oyun {
                     pc.getBilgisayarKart().get(j).kartPuanGoster();
                 }
                 Oyuncu.secilenKartlar(insan, pc, insanSeckart, pcSeckart);
+                insan.savas(insan,pc,insanSeckart,pcSeckart,i+1);
                 Oyuncu.kartSavaslari(insan, pc, insanSeckart, pcSeckart);
-                Oyuncu.savasSonuclari(insan,pc,i,1);
+                Oyuncu.savasSonuclari(insan,pc,i+1,1);
+                insan.destendekiKartlar(insan, pc, insan.getInsanKart(), pc.getBilgisayarKart());
                 System.out.println("Sonra");
                 System.out.println("insanskor:"+insan.getInsanSkor());
                 System.out.println("pcskor:"+pc.getPcSkor());
@@ -80,6 +85,7 @@ public class Oyun {
                 System.out.println("bitti");
                 break;
             }
+            if(a==3 || a==4 || a==5 || a==6 || a==2){}
         }
 
     }

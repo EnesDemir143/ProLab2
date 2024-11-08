@@ -11,16 +11,11 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Oyuncu {
+public class Oyuncu implements Dosya_Islemleri{
     private String oyuncu_id;
     private String oyuncu_adi;
     private int insanSkor;
     private int pcSkor;
-    private  int a=0;
-
-    public void setA(int a) {
-        this.a += a;
-    }
 
    private  ArrayList<Savas_Araclari> insanKart = new ArrayList<>();
    private  ArrayList<Savas_Araclari> bilgisayarKart = new ArrayList<>();
@@ -137,6 +132,10 @@ public class Oyuncu {
             Scanner sc = new Scanner(System.in);
             System.out.print("KART SEÇİN:");
             int secim= sc.nextInt();
+            while (secim>=oyuncu.getInsanKart().size()){
+                System.out.print("Tekrar seçiniz(index dışında):");
+                secim= sc.nextInt();
+            }
             while (oyuncu.getKullanilmisKartlarInsan().contains(oyuncu.getInsanKart().get(secim)) && kullanilmisKartlarInsan.size()!=getInsanKart().size()) {
                 System.out.print("Tekrar seçim yapınız:");
                 secim= sc.nextInt();
@@ -151,6 +150,7 @@ public class Oyuncu {
 
     public static void kartSavaslari(Oyuncu insan,Oyuncu pc,ArrayList<Savas_Araclari> insanseckart, ArrayList<Savas_Araclari> pcSeckart) {
         //insanın saldırısı
+
         for(int i = 0; i < 3; i++) {
             if(insanseckart.get(i) instanceof EkstraVurusOzellikleri ekstralar) {
                 int hasar = insanseckart.get(i).getVurus(); // Temel vuruş hasarı
@@ -167,6 +167,7 @@ public class Oyuncu {
                 if(pcSeckart.get(i).getDayaniklilik()==0){
                     pc.getBilgisayarKart().remove(pcSeckart.get(i));
                     pc.getKullanilmisKartlarPc().remove(pcSeckart.get(i));
+                    System.out.println(pcSeckart.get(i).getKartID()+"öldü");
                     if (pcSeckart.get(i).getSeviye_puani()==0){
                         insan.setInsanSkor(10);
                     }else if (pcSeckart.get(i).getSeviye_puani()==20){
@@ -189,6 +190,7 @@ public class Oyuncu {
                 }
                 insanseckart.get(i).durumGuncelle(hasar);
                 if(insanseckart.get(i).getDayaniklilik()==0){
+                    System.out.println(insanseckart.get(i).getKartID()+"öldü");
                     insan.getInsanKart().remove(insanseckart.get(i));
                     insan.getKullanilmisKartlarInsan().remove(insanseckart.get(i));
                     if (insanseckart.get(i).getSeviye_puani()==0){
@@ -201,10 +203,6 @@ public class Oyuncu {
         }
         insan.getInsanKart().add(insan.kartEkleme(insan));
         pc.getBilgisayarKart().add(pc.kartEkleme(pc));
-    }
-
-    public int getA() {
-        return a;
     }
 
     public static void secilenKartlar(Oyuncu insan, Oyuncu pc, ArrayList<Savas_Araclari> insanseckart, ArrayList<Savas_Araclari> pcSeckart) {
@@ -220,7 +218,6 @@ public class Oyuncu {
                 pc.getKullanilmisKartlarPc().add(pcSeckart.get(i));
             }
         }
-        insan.setA(-insan.getA());
     }//insan ve pc ayırılıp arka tarafa alınıcak.
         public static int savasSonuclari(Oyuncu insan,Oyuncu pc,int tur,int kontrol){
             if ( kontrol==0) {
@@ -238,11 +235,7 @@ public class Oyuncu {
                     return 7;
                 }
             }
-            if (insan.getInsanKart().isEmpty() || pc.getBilgisayarKart().isEmpty()) {
-                System.out.println("Game over");
-                return 1;
-            }
-            if(( tur==5 && (insan.getInsanKart().size()==1 || pc.getBilgisayarKart().size()==1)) || (kontrol==1) ) {
+            if(( tur==5 || (insan.getInsanKart().size()==1 || pc.getBilgisayarKart().size()==1)) || (kontrol==1) ) {
                 if(insan.getInsanSkor()>pc.getPcSkor()){
                     System.out.println("sen kazandın");
                     return 2;
@@ -278,4 +271,24 @@ public class Oyuncu {
             System.out.println("devamm");
             return -1;
         }
+
+    @Override
+    public void ilkKartlar(Oyuncu insan, Oyuncu pc, ArrayList<Savas_Araclari> insankart, ArrayList<Savas_Araclari> pckart) {
+        Dosya_Islemleri.super.ilkKartlar(insan, pc, insankart, pckart);
+    }
+
+    @Override
+    public void savas(Oyuncu insan, Oyuncu pc, ArrayList<Savas_Araclari> insanseckart, ArrayList<Savas_Araclari> pckartsec, int adim) {
+        Dosya_Islemleri.super.savas(insan, pc, insanseckart, pckartsec, adim);
+    }
+
+    @Override
+    public void destendekiKartlar(Oyuncu insan, Oyuncu pc, ArrayList<Savas_Araclari> insanDeste, ArrayList<Savas_Araclari> pcDeste) {
+        Dosya_Islemleri.super.destendekiKartlar(insan, pc, insanDeste, pcDeste);
+    }
+
+    @Override
+    public void dosyayiSifirla() {
+        Dosya_Islemleri.super.dosyayiSifirla();
+    }
 }
