@@ -124,25 +124,21 @@ public class Oyuncu implements Dosya_Islemleri{
                 secim = rand.nextInt(oyuncu.getBilgisayarKart().size());
             } while (oyuncu.getKullanilmisKartlarPc().contains(oyuncu.getBilgisayarKart().get(secim)) && kullanilmisKartlarPc.size() != getBilgisayarKart().size());
 
-            if(pcseckart.contains(oyuncu.getBilgisayarKart().get(secim))){
-                kartSec(oyuncu, pcseckart,insanseckart);
+            while (pcseckart.contains(oyuncu.getBilgisayarKart().get(secim))){
+                secim = rand.nextInt(oyuncu.getBilgisayarKart().size());
             }
             return secim;
         }else{
             Scanner sc = new Scanner(System.in);
             System.out.print("KART SEÇİN:");
             int secim= sc.nextInt();
-            while (secim>=oyuncu.getInsanKart().size()){
-                System.out.print("Tekrar seçiniz(index dışında):");
-                secim= sc.nextInt();
-            }
-            while (oyuncu.getKullanilmisKartlarInsan().contains(oyuncu.getInsanKart().get(secim)) && kullanilmisKartlarInsan.size()!=getInsanKart().size()) {
+            while ( secim>=oyuncu.getInsanKart().size() || (oyuncu.getKullanilmisKartlarInsan().contains(oyuncu.getInsanKart().get(secim)) && kullanilmisKartlarInsan.size()!=getInsanKart().size())) {
                 System.out.print("Tekrar seçim yapınız:");
                 secim= sc.nextInt();
-            }
-            if(insanseckart.contains(oyuncu.getInsanKart().get(secim))){
-                System.out.println("Aynı kart tekrar deneyiniz!!!");
-                kartSec(oyuncu, pcseckart,insanseckart);
+            }//İlk başta zorla seçtirilen kısım yukarısı
+            while (secim>=oyuncu.getInsanKart().size() ||insanseckart.contains(oyuncu.getInsanKart().get(secim))){
+                System.out.print("Tekrar seçim yapınız:");
+                secim= sc.nextInt();
             }
             return secim;
         }
@@ -167,7 +163,7 @@ public class Oyuncu implements Dosya_Islemleri{
                 if(pcSeckart.get(i).getDayaniklilik()==0){
                     pc.getBilgisayarKart().remove(pcSeckart.get(i));
                     pc.getKullanilmisKartlarPc().remove(pcSeckart.get(i));
-                    System.out.println(pcSeckart.get(i).getKartID()+"öldü");
+                    System.out.println(pcSeckart.get(i).getKartID()+"öldü"+"   i="+i);
                     if (pcSeckart.get(i).getSeviye_puani()==0){
                         insan.setInsanSkor(10);
                     }else if (pcSeckart.get(i).getSeviye_puani()==20){
@@ -220,7 +216,7 @@ public class Oyuncu implements Dosya_Islemleri{
         }
     }//insan ve pc ayırılıp arka tarafa alınıcak.
         public static int savasSonuclari(Oyuncu insan,Oyuncu pc,int tur,int kontrol){
-            if ( kontrol==0) {
+            if ( kontrol==0 && (insan.getInsanKart().size()!=1 || pc.getBilgisayarKart().size()!=1))  {
                 int x=0;
                 if(pc.getBilgisayarKart().size()==2){
                     pc.bilgisayarKart.add(pc.kartEkleme(pc));

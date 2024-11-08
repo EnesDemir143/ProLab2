@@ -1,9 +1,7 @@
 import Savas_Araclari.Savas_Araclari;
-
 import java.util.ArrayList;
-
-//Dosya çekmeye bugün bakıcalıcak!!!
 //Mainde pc. ve insan. ile olan erişimleri kapat(Methodları kastediyorum)
+//Debug yap birden fazla kez kodda!!!
 
 public class Oyun implements Dosya_Islemleri{
     public static void main(String[] args) {
@@ -85,7 +83,10 @@ public class Oyun implements Dosya_Islemleri{
                 System.out.println("bitti");
                 break;
             }
-            if(a==3 || a==4 || a==5 || a==6 || a==2){}
+            if(a==3 || a==4 || a==5 || a==6 || a==2){
+                System.out.println("bitttttttttti");
+                break;
+            }
         }
 
     }
