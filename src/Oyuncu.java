@@ -113,20 +113,17 @@ public class Oyuncu {
         return bilgisayarKart;
     }
 
-    public  int kartSec(Oyuncu oyuncu){
+    public  int kartSec(Oyuncu oyuncu,ArrayList<Savas_Araclari> pcseckart,ArrayList<Savas_Araclari> insanseckart){
         if(oyuncu.oyuncu_adi.equals("Bilgisayar")){
             Random rand = new Random();
             int secim;
-
-            if (kullanilmisSayilar.size() >= 3) {
-                kullanilmisSayilar.clear();
-            }
-
             do {
                 secim = rand.nextInt(oyuncu.getBilgisayarKart().size());
-            } while (kullanilmisSayilar.contains(secim));
+            } while (oyuncu.getKullanilmisKartlarPc().contains(oyuncu.getBilgisayarKart().get(secim)) && kullanilmisKartlarPc.size() != getBilgisayarKart().size());
 
-            kullanilmisSayilar.add(secim);
+            if(pcseckart.contains(oyuncu.getBilgisayarKart().get(secim))){
+                kartSec(oyuncu, pcseckart,insanseckart);
+            }
             return secim;
         }else{
             Scanner sc = new Scanner(System.in);
@@ -136,7 +133,10 @@ public class Oyuncu {
                 System.out.print("Tekrar seçim yapınız:");
                 secim= sc.nextInt();
             }
-
+            if(insanseckart.contains(oyuncu.getInsanKart().get(secim))){
+                System.out.println("Aynı kart tekrar deneyiniz!!!");
+                kartSec(oyuncu, pcseckart,insanseckart);
+            }
             return secim;
         }
     }
@@ -201,13 +201,13 @@ public class Oyuncu {
 
     public static void secilenKartlar(Oyuncu insan, Oyuncu pc, ArrayList<Savas_Araclari> insanseckart, ArrayList<Savas_Araclari> pcSeckart) {
         for(int i=0;i<3;i++){
-            insanseckart.add(insan.getInsanKart().get(insan.kartSec(insan)));
+            insanseckart.add(insan.getInsanKart().get(insan.kartSec(insan,pcSeckart,insanseckart)));
             if (!insan.getKullanilmisKartlarInsan().contains(insanseckart.get(i))){
                 insan.getKullanilmisKartlarInsan().add(insanseckart.get(i));
             }
         }
         for(int i=0;i<3;i++){
-            pcSeckart.add(pc.getBilgisayarKart().get(pc.kartSec(pc)));
+            pcSeckart.add(pc.getBilgisayarKart().get(pc.kartSec(pc,pcSeckart,insanseckart)));
             if (pc.getKullanilmisKartlarPc().contains(pcSeckart.get(i))){
                 pc.getKullanilmisKartlarPc().add(pcSeckart.get(i));
             }
