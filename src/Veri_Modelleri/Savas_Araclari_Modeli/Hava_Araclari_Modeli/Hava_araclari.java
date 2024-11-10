@@ -1,7 +1,7 @@
-package Savas_Araclari.Hava_Araclari;
+package Veri_Modelleri.Savas_Araclari_Modeli.Hava_Araclari_Modeli;
 
-import Savas_Araclari.EkstraVurusOzellikleri;
-import Savas_Araclari.Savas_Araclari;
+import Veri_Modelleri.Savas_Araclari_Modeli.EkstraVurusOzellikleri;
+import Veri_Modelleri.Savas_Araclari_Modeli.Savas_Araclari;
 
 public abstract class Hava_araclari extends Savas_Araclari implements EkstraVurusOzellikleri {
 

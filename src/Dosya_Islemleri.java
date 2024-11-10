@@ -1,4 +1,4 @@
-import Savas_Araclari.Savas_Araclari;
+import Veri_Modelleri.Savas_Araclari_Modeli.Savas_Araclari;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

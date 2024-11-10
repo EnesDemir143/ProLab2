@@ -1,11 +1,11 @@
-import Savas_Araclari.Deniz_Araclari.Firkateyn;
-import Savas_Araclari.Deniz_Araclari.Sida;
-import Savas_Araclari.EkstraVurusOzellikleri;
-import Savas_Araclari.Hava_Araclari.Siha;
-import Savas_Araclari.Hava_Araclari.Ucak;
-import Savas_Araclari.Kara_Araclari.KFS;
-import Savas_Araclari.Kara_Araclari.Obus;
-import Savas_Araclari.Savas_Araclari;
+import Veri_Modelleri.Savas_Araclari_Modeli.Deniz_Araclari_Modeli.Firkateyn;
+import Veri_Modelleri.Savas_Araclari_Modeli.Deniz_Araclari_Modeli.Sida;
+import Veri_Modelleri.Savas_Araclari_Modeli.EkstraVurusOzellikleri;
+import Veri_Modelleri.Savas_Araclari_Modeli.Hava_Araclari_Modeli.Siha;
+import Veri_Modelleri.Savas_Araclari_Modeli.Hava_Araclari_Modeli.Ucak;
+import Veri_Modelleri.Savas_Araclari_Modeli.Kara_Araclari_Modeli.KFS;
+import Veri_Modelleri.Savas_Araclari_Modeli.Kara_Araclari_Modeli.Obus;
+import Veri_Modelleri.Savas_Araclari_Modeli.Savas_Araclari;
 
 import java.util.ArrayList;
 import java.util.Random;

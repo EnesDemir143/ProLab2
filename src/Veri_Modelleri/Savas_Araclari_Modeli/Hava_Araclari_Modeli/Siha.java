@@ -1,10 +1,10 @@
-package Savas_Araclari.Hava_Araclari;
+package Veri_Modelleri.Savas_Araclari_Modeli.Hava_Araclari_Modeli;
 
-public class Ucak extends Hava_araclari{
-    private static int ucakSayisi = 0;
+public class Siha extends Hava_araclari{
+    private static int sihaSayisi = 0;
 
-    public Ucak() {
-        super(0, 20, 10,10,0,"ucak"+(++ucakSayisi));
+    public Siha() {
+        super(20, 15, 10,10,10,"siha"+(++sihaSayisi));
     }
 
     @Override

@@ -1,10 +1,10 @@
-package Savas_Araclari.Deniz_Araclari;
+package Veri_Modelleri.Savas_Araclari_Modeli.Kara_Araclari_Modeli;
 
-public class Sida extends Deniz_araclari{
-    private static int sidaSayisi = 0;
+public class Obus extends Kara_araclari {
+    private static int obusSayisi = 0;
 
-    public Sida() {
-        super(20, 15, 10,10,10,"sida"+(++sidaSayisi));
+    public Obus() {
+        super(0, 20, 10,5,0,"obus"+(++obusSayisi));
     }
 
     @Override

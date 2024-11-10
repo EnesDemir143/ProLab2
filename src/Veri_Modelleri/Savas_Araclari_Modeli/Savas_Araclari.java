@@ -1,4 +1,4 @@
-package Savas_Araclari;
+package Veri_Modelleri.Savas_Araclari_Modeli;
 
 public abstract class Savas_Araclari {
     private int seviye_puani;

@@ -1,10 +1,10 @@
-package Savas_Araclari.Kara_Araclari;
+package Veri_Modelleri.Savas_Araclari_Modeli.Hava_Araclari_Modeli;
 
-public class Obus extends Kara_araclari {
-    private static int obusSayisi = 0;
+public class Ucak extends Hava_araclari{
+    private static int ucakSayisi = 0;
 
-    public Obus() {
-        super(0, 20, 10,5,0,"obus"+(++obusSayisi));
+    public Ucak() {
+        super(0, 20, 10,10,0,"ucak"+(++ucakSayisi));
     }
 
     @Override

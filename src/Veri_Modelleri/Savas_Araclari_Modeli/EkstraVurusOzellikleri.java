@@ -1,4 +1,4 @@
-package Savas_Araclari;
+package Veri_Modelleri.Savas_Araclari_Modeli;
 
 public interface EkstraVurusOzellikleri {
     default int getHava_vurus_avantaji() { return 0; }

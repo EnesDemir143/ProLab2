@@ -1,10 +1,10 @@
-package Savas_Araclari.Deniz_Araclari;
+package Veri_Modelleri.Savas_Araclari_Modeli.Kara_Araclari_Modeli;
 
-public class Firkateyn extends Deniz_araclari{
-    private static int firkateynSayisi = 0;
+public class KFS extends Kara_araclari{
+    private static int kfsSayisi = 0;
 
-    public Firkateyn() {
-        super(0, 25, 10,5,0,"firkateyn"+(++firkateynSayisi));
+    public KFS() {
+        super(20, 10, 10,10,20,"kfs"+(++kfsSayisi));
     }
 
     @Override
@@ -17,6 +17,5 @@ public class Firkateyn extends Deniz_araclari{
     public void durumGuncelle(int hasar) {
         this.setDayaniklilik(Math.max(this.getDayaniklilik() - hasar, 0));
     }
-
 
 }
