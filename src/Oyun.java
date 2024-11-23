@@ -5,21 +5,22 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import Veri_Modelleri.Savas_Araclari_Modeli.*;
 import java.util.ArrayList;
+import java.util.Objects;
 //Mainde pc. ve insan. ile olan erişimleri kapat(Methodları kastediyorum)
 //Debug yap birden fazla kez kodda!!!
 
-public class Oyun extends Application implements Dosya_Islemleri{
+public class Oyun  implements Dosya_Islemleri{
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        // FXML dosyasını yüklüyoruz
-        Parent root = FXMLLoader.load(getClass().getResource("sample/sample.fxml"));
-
-        // Sahneyi oluşturuyoruz ve başlatıyoruz
-        primaryStage.setTitle("JavaFX Grafik Uygulaması");
-        primaryStage.setScene(new Scene(root, 500, 500));
-        primaryStage.show();
-    }
+//    @Override
+//    public void start(Stage primaryStage) throws Exception {
+//        // FXML dosyasını yüklüyoruz
+//        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("sample/sample.fxml")));
+//
+//        // Sahneyi oluşturuyoruz ve başlatıyoruz
+//        primaryStage.setTitle("JavaFX Grafik Uygulaması");
+//        primaryStage.setScene(new Scene(root, 500, 500));
+//        primaryStage.show();
+//    }
 
     public static void main(String[] args) {
 
@@ -48,6 +49,7 @@ public class Oyun extends Application implements Dosya_Islemleri{
                 System.out.print(j+1+"=>");
                 pc.getBilgisayarKart().get(j).kartPuanGoster();
             }
+            insan.destendekiKartlar(insan, pc, insan.getInsanKart(), pc.getBilgisayarKart());
             Oyuncu.secilenKartlar(insan, pc, insanSeckart, pcSeckart);
             insan.savas(insan,pc,insanSeckart,pcSeckart,i);
             Oyuncu.kartSavaslari(insan, pc, insanSeckart, pcSeckart);
@@ -100,12 +102,12 @@ public class Oyun extends Application implements Dosya_Islemleri{
                 System.out.println("bitti");
                 break;
             }
-            if(a==3 || a==4 || a==5 || a==6 || a==2){
+            if(a==3 || a==4 || a==5 || a==6 || a==2 ){
                 System.out.println("bitttttttttti");
                 break;
             }
         }
-        launch(args);
+     //   launch(args);
     }
 }
 

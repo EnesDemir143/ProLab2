@@ -7,26 +7,26 @@ obus2
 Bilgisayarın baslangıc puanı: 0
 Bilgisayarın kartları bunlardır:
 obus3
-firkateyn2
 obus4
+obus5
 
 
 --------------------1.adim--------------------
 Senin sectiğin kartlar:
-firkateyn1
 obus2
 obus1
+firkateyn1
 
 PC sectiği kartlar:
+obus5
 obus3
-firkateyn2
 obus4
 
 --------------------Savaş--------------------
             Sen         Bilgisayar
-1.Eşleşme:firkateyn1 <----> obus3
-2.Eşleşme:obus2 <----> firkateyn2
-3.Eşleşme:obus1 <----> obus4
+1.Eşleşme:obus2 <----> obus5
+2.Eşleşme:obus1 <----> obus3
+3.Eşleşme:firkateyn1 <----> obus4
 
 Skorlar=>
 Sen:0
@@ -37,30 +37,30 @@ Senin desten=>
 firkateyn1
 obus1
 obus2
-firkateyn3
+firkateyn2
 
 Bilgisayarın destesi=>
 obus3
-firkateyn2
 obus4
 obus5
+firkateyn3
 
 --------------------2.adim--------------------
 Senin sectiğin kartlar:
-firkateyn3
+firkateyn2
 obus2
 obus1
 
 PC sectiği kartlar:
-obus5
 obus4
-firkateyn2
+obus5
+firkateyn3
 
 --------------------Savaş--------------------
             Sen         Bilgisayar
-1.Eşleşme:firkateyn3 <----> obus5
-2.Eşleşme:obus2 <----> obus4
-3.Eşleşme:obus1 <----> firkateyn2
+1.Eşleşme:firkateyn2 <----> obus4
+2.Eşleşme:obus2 <----> obus5
+3.Eşleşme:obus1 <----> firkateyn3
 
 Skorlar=>
 Sen:0
@@ -69,11 +69,71 @@ Bilgisayar:0
 
 Senin desten=>
 firkateyn1
-firkateyn3
-sida1
+firkateyn2
+firkateyn4
 
 Bilgisayarın destesi=>
 obus3
-obus5
-sida2
+firkateyn3
+obus6
+
+--------------------3.adim--------------------
+Senin sectiğin kartlar:
+firkateyn4
+firkateyn2
+firkateyn1
+
+PC sectiği kartlar:
+firkateyn3
+obus3
+obus6
+
+--------------------Savaş--------------------
+            Sen         Bilgisayar
+1.Eşleşme:firkateyn4 <----> firkateyn3
+2.Eşleşme:firkateyn2 <----> obus3
+3.Eşleşme:firkateyn1 <----> obus6
+
+Skorlar=>
+Sen:20
+Bilgisayar:20
+
+
+Senin desten=>
+firkateyn4
+kfs1
+
+Bilgisayarın destesi=>
+obus6
+kfs2
+
+--------------------4.adim--------------------
+Senin sectiğin kartlar:
+firkateyn5
+kfs1
+firkateyn4
+
+PC sectiği kartlar:
+obus6
+kfs2
+obus7
+
+--------------------Savaş--------------------
+            Sen         Bilgisayar
+1.Eşleşme:firkateyn5 <----> obus6
+2.Eşleşme:kfs1 <----> kfs2
+3.Eşleşme:firkateyn4 <----> obus7
+
+Skorlar=>
+Sen:40
+Bilgisayar:40
+
+
+Senin desten=>
+firkateyn5
+siha1
+
+Bilgisayarın destesi=>
+obus7
+siha2
 

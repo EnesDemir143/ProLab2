@@ -216,22 +216,7 @@ public class Oyuncu implements Dosya_Islemleri{
         }
     }//insan ve pc ayırılıp arka tarafa alınıcak.
         public static int savasSonuclari(Oyuncu insan,Oyuncu pc,int tur,int kontrol){
-            if ( kontrol==0 && (insan.getInsanKart().size()!=1 || pc.getBilgisayarKart().size()!=1))  {
-                int x=0;
-                if(pc.getBilgisayarKart().size()==2){
-                    pc.bilgisayarKart.add(pc.kartEkleme(pc));
-                    x++;
-                }
-                if (insan.getInsanKart().size()==2){
-                    insan.getInsanKart().add(pc.kartEkleme(insan));
-                    x++;
-                }
-                if(x>0){
-                    System.out.println("finall");
-                    return 7;
-                }
-            }
-            if(( tur==5 || (insan.getInsanKart().size()==1 || pc.getBilgisayarKart().size()==1)) || (kontrol==1) ) {
+            if( tur==5 || (insan.getInsanKart().size()==1 || pc.getBilgisayarKart().size()==1) || (kontrol==1) ) {
                 if(insan.getInsanSkor()>pc.getPcSkor()){
                     System.out.println("sen kazandın");
                     return 2;
@@ -262,6 +247,21 @@ public class Oyuncu implements Dosya_Islemleri{
                 } else{
                     System.out.println("pc kazandı");
                     return 6;
+                }
+            }
+            if ( kontrol==0 && (insan.getInsanKart().size()==2 || pc.getBilgisayarKart().size()==2))  {
+                int x=0;
+                if(pc.getBilgisayarKart().size()==2){
+                    pc.getBilgisayarKart().add(pc.kartEkleme(pc));
+                    x++;
+                }
+                if (insan.getInsanKart().size()==2){
+                    insan.getInsanKart().add(insan.kartEkleme(insan));
+                    x++;
+                }
+                if(x>0){
+                    System.out.println("finall");
+                    return 7;
                 }
             }
             System.out.println("devamm");
