@@ -14,7 +14,7 @@ public class Oyun implements Dosya_Islemleri{
 
    // Oyuncu oyuncu = new Oyuncu("1","",0);
 
-        Game.Oyuncu insan = new Game.Oyuncu("123","Enes",0);
+        Game.Oyuncu insan = new Game.Oyuncu("123","",0);
         Game.Oyuncu pc = new Game.Oyuncu();
         UI.setInitialOyuncu(insan);
         Application.launch(UI.class, args);

@@ -5,6 +5,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 public class Controller {
@@ -17,22 +18,27 @@ public class Controller {
 
     @FXML
     public void initialize() {
-        assert username != null : "fx:id=\"username\" was not injected: check your FXML file";
-        assert level != null : "fx:id=\"level\" was not injected: check your FXML file";
+        // FXML öğelerinin doğru bağlandığını kontrol et
+        assert username != null : "fx:id=\"username\" was not injected: check your FXML file.";
+        assert level != null : "fx:id=\"level\" was not injected: check your FXML file.";
 
-        // Level kısmını boş başlat
+        // Level alanını başlangıçta boş bırak
         level.setText("");
 
-        // Enter tuşuna basıldığında kontrol
+        // username için Enter ve yön tuşları ayarları
+        username.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER || event.getCode() == KeyCode.DOWN) {
+                level.requestFocus(); // Enter veya aşağı ok tuşuna basıldığında level alanına geç
+            }
+        });
+
+        // level için Enter ve yön tuşları ayarları
         level.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
-                handleSubmit();
-
-                // Pencereyi kapat
-                Stage stage = (Stage) level.getScene().getWindow();
-                Platform.runLater(() -> {
-                    stage.close();
-                });
+                handleSubmit(); // Giriş tamamlanır
+                closeWindow();  // Pencereyi kapatır
+            } else if (event.getCode() == KeyCode.UP) {
+                username.requestFocus(); // Yukarı ok tuşuna basıldığında username alanına geri dön
             }
         });
     }
@@ -69,7 +75,19 @@ public class Controller {
             System.err.println("Lütfen level için geçerli bir sayı girin!");
         }
     }
-
+    private void closeWindow() {
+        Stage stage = (Stage) level.getScene().getWindow();
+        Platform.runLater(stage::close);
+    }
+    private void handleKeyPress(KeyEvent event, TextField nextField) {
+        if (event.getCode() == KeyCode.ENTER) {
+            nextField.requestFocus(); // Odak diğer TextField'a geçer
+        } else if (event.getCode() == KeyCode.DOWN) {
+            nextField.requestFocus(); // Aşağı tuşu ile geçiş
+        } else if (event.getCode() == KeyCode.UP) {
+            nextField.requestFocus(); // Yukarı tuşu ile geçiş
+        }
+    }
     public TextField getLevel() {
         return level;
     }

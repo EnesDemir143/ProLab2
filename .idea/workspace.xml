@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82e517f4-47f5-42a0-a255-1f2613b1799b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/sample/UI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/backGraund.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KartIslemleri.txt" beforeDir="false" afterPath="$PROJECT_DIR$/KartIslemleri.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dosya_Islemleri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Dosya_Islemleri.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Oyun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Oyun.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Oyuncu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Oyuncu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Oyun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Oyun.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/backGraund.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,7 +123,7 @@
       <workItem from="1731428134055" duration="9000" />
       <workItem from="1732003282182" duration="801000" />
       <workItem from="1732360313378" duration="10269000" />
-      <workItem from="1732385093241" duration="9064000" />
+      <workItem from="1732385093241" duration="12038000" />
     </task>
     <servers />
   </component>
