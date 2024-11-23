@@ -1,139 +1,224 @@
-Senin başlangıc puanı: 0
-Senin kartları bunlardır:
-firkateyn1
-obus1
-obus2
+--------------------------------------------------
+BAŞLANGIÇ KARTLARI VE PUANLAR
+--------------------------------------------------
+Oyuncu: Enes
+Başlangıç Puanı: 0
+Kartlar:
+- firkateyn1 (Dayanıklılık: 25)
+- ucak1 (Dayanıklılık: 20)
+- firkateyn2 (Dayanıklılık: 25)
+------------------------------
+Oyuncu: Bilgisayar
+Başlangıç Puanı: 0
+Kartlar:
+- firkateyn3 (Dayanıklılık: 25)
+- obus1 (Dayanıklılık: 20)
+- firkateyn4 (Dayanıklılık: 25)
+--------------------------------------------------
 
-Bilgisayarın baslangıc puanı: 0
-Bilgisayarın kartları bunlardır:
-obus3
-obus4
-obus5
+-------------------- 1. SAVAŞ --------------------
 
+Oyuncu Seçilen Kartlar:
+- firkateyn2 (Dayanıklılık: 25)
+- ucak1 (Dayanıklılık: 20)
+- firkateyn1 (Dayanıklılık: 25)
+------------------------------
+Bilgisayar Seçilen Kartlar:
+- firkateyn4 (Dayanıklılık: 25)
+- obus1 (Dayanıklılık: 20)
+- firkateyn3 (Dayanıklılık: 25)
 
---------------------1.adim--------------------
-Senin sectiğin kartlar:
-obus2
-obus1
-firkateyn1
+-------------------- EŞLEŞMELER --------------------
+OYUNCU                              | BİLGİSAYAR                         
+---------------------------------------------------------------------------
+firkateyn2 (Dayanıklılık: 25)       | firkateyn4 (Dayanıklılık: 25)      
+ucak1 (Dayanıklılık: 20)            | obus1 (Dayanıklılık: 20)           
+firkateyn1 (Dayanıklılık: 25)       | firkateyn3 (Dayanıklılık: 25)      
+---------------------------------------------------------------------------
 
-PC sectiği kartlar:
-obus5
-obus3
-obus4
+-------------------- GÜNCEL DURUM --------------------
 
---------------------Savaş--------------------
-            Sen         Bilgisayar
-1.Eşleşme:obus2 <----> obus5
-2.Eşleşme:obus1 <----> obus3
-3.Eşleşme:firkateyn1 <----> obus4
+SKORLAR
+--------------------
+Oyuncu: 10
+Bilgisayar: 0
 
-Skorlar=>
-Sen:0
-Bilgisayar:0
+GÜNCEL DESTELER
+--------------------
+Oyuncu Destesi:
+- firkateyn1 (Dayanıklılık: 15)
+- ucak1 (Dayanıklılık: 10)
+- firkateyn2 (Dayanıklılık: 15)
+- obus2 (Dayanıklılık: 20)
+--------------------
+Bilgisayar Destesi:
+- firkateyn3 (Dayanıklılık: 15)
+- firkateyn4 (Dayanıklılık: 15)
+- obus3 (Dayanıklılık: 20)
+--------------------------------------------------
 
+-------------------- 2. SAVAŞ --------------------
 
-Senin desten=>
-firkateyn1
-obus1
-obus2
-firkateyn2
+Oyuncu Seçilen Kartlar:
+- obus2 (Dayanıklılık: 20)
+- firkateyn2 (Dayanıklılık: 15)
+- ucak1 (Dayanıklılık: 10)
+------------------------------
+Bilgisayar Seçilen Kartlar:
+- obus3 (Dayanıklılık: 20)
+- firkateyn4 (Dayanıklılık: 15)
+- firkateyn3 (Dayanıklılık: 15)
 
-Bilgisayarın destesi=>
-obus3
-obus4
-obus5
-firkateyn3
+-------------------- EŞLEŞMELER --------------------
+OYUNCU                              | BİLGİSAYAR                         
+---------------------------------------------------------------------------
+obus2 (Dayanıklılık: 20)            | obus3 (Dayanıklılık: 20)           
+firkateyn2 (Dayanıklılık: 15)       | firkateyn4 (Dayanıklılık: 15)      
+ucak1 (Dayanıklılık: 10)            | firkateyn3 (Dayanıklılık: 15)      
+---------------------------------------------------------------------------
 
---------------------2.adim--------------------
-Senin sectiğin kartlar:
-firkateyn2
-obus2
-obus1
+-------------------- GÜNCEL DURUM --------------------
 
-PC sectiği kartlar:
-obus4
-obus5
-firkateyn3
+SKORLAR
+--------------------
+Oyuncu: 10
+Bilgisayar: 10
 
---------------------Savaş--------------------
-            Sen         Bilgisayar
-1.Eşleşme:firkateyn2 <----> obus4
-2.Eşleşme:obus2 <----> obus5
-3.Eşleşme:obus1 <----> firkateyn3
+GÜNCEL DESTELER
+--------------------
+Oyuncu Destesi:
+- firkateyn1 (Dayanıklılık: 15)
+- firkateyn2 (Dayanıklılık: 5)
+- obus2 (Dayanıklılık: 10)
+- ucak2 (Dayanıklılık: 20)
+--------------------
+Bilgisayar Destesi:
+- firkateyn3 (Dayanıklılık: 5)
+- firkateyn4 (Dayanıklılık: 5)
+- obus3 (Dayanıklılık: 10)
+- firkateyn5 (Dayanıklılık: 25)
+--------------------------------------------------
 
-Skorlar=>
-Sen:0
-Bilgisayar:0
+-------------------- 3. SAVAŞ --------------------
 
+Oyuncu Seçilen Kartlar:
+- ucak2 (Dayanıklılık: 20)
+- obus2 (Dayanıklılık: 10)
+- firkateyn2 (Dayanıklılık: 5)
+------------------------------
+Bilgisayar Seçilen Kartlar:
+- firkateyn4 (Dayanıklılık: 5)
+- firkateyn3 (Dayanıklılık: 5)
+- firkateyn5 (Dayanıklılık: 25)
 
-Senin desten=>
-firkateyn1
-firkateyn2
-firkateyn4
+-------------------- EŞLEŞMELER --------------------
+OYUNCU                              | BİLGİSAYAR                         
+---------------------------------------------------------------------------
+ucak2 (Dayanıklılık: 20)            | firkateyn4 (Dayanıklılık: 5)       
+obus2 (Dayanıklılık: 10)            | firkateyn3 (Dayanıklılık: 5)       
+firkateyn2 (Dayanıklılık: 5)        | firkateyn5 (Dayanıklılık: 25)      
+---------------------------------------------------------------------------
 
-Bilgisayarın destesi=>
-obus3
-firkateyn3
-obus6
+-------------------- GÜNCEL DURUM --------------------
 
---------------------3.adim--------------------
-Senin sectiğin kartlar:
-firkateyn4
-firkateyn2
-firkateyn1
+SKORLAR
+--------------------
+Oyuncu: 30
+Bilgisayar: 30
 
-PC sectiği kartlar:
-firkateyn3
-obus3
-obus6
+GÜNCEL DESTELER
+--------------------
+Oyuncu Destesi:
+- firkateyn1 (Dayanıklılık: 15)
+- ucak2 (Dayanıklılık: 5)
+- sida1 (Dayanıklılık: 15)
+--------------------
+Bilgisayar Destesi:
+- obus3 (Dayanıklılık: 10)
+- firkateyn5 (Dayanıklılık: 15)
+- siha1 (Dayanıklılık: 15)
+--------------------------------------------------
 
---------------------Savaş--------------------
-            Sen         Bilgisayar
-1.Eşleşme:firkateyn4 <----> firkateyn3
-2.Eşleşme:firkateyn2 <----> obus3
-3.Eşleşme:firkateyn1 <----> obus6
+-------------------- 4. SAVAŞ --------------------
 
-Skorlar=>
-Sen:20
-Bilgisayar:20
+Oyuncu Seçilen Kartlar:
+- sida1 (Dayanıklılık: 15)
+- ucak2 (Dayanıklılık: 5)
+- firkateyn1 (Dayanıklılık: 15)
+------------------------------
+Bilgisayar Seçilen Kartlar:
+- firkateyn5 (Dayanıklılık: 15)
+- obus3 (Dayanıklılık: 10)
+- siha1 (Dayanıklılık: 15)
 
+-------------------- EŞLEŞMELER --------------------
+OYUNCU                              | BİLGİSAYAR                         
+---------------------------------------------------------------------------
+sida1 (Dayanıklılık: 15)            | firkateyn5 (Dayanıklılık: 15)      
+ucak2 (Dayanıklılık: 5)             | obus3 (Dayanıklılık: 10)           
+firkateyn1 (Dayanıklılık: 15)       | siha1 (Dayanıklılık: 15)           
+---------------------------------------------------------------------------
 
-Senin desten=>
-firkateyn4
-kfs1
+-------------------- GÜNCEL DURUM --------------------
 
-Bilgisayarın destesi=>
-obus6
-kfs2
+SKORLAR
+--------------------
+Oyuncu: 60
+Bilgisayar: 50
 
---------------------4.adim--------------------
-Senin sectiğin kartlar:
-firkateyn5
-kfs1
-firkateyn4
+GÜNCEL DESTELER
+--------------------
+Oyuncu Destesi:
+- sida1 (Dayanıklılık: 5)
+- kfs1 (Dayanıklılık: 10)
+- ucak4 (Dayanıklılık: 20)
+--------------------
+Bilgisayar Destesi:
+- firkateyn5 (Dayanıklılık: 5)
+- ucak3 (Dayanıklılık: 20)
+- firkateyn6 (Dayanıklılık: 25)
+--------------------------------------------------
 
-PC sectiği kartlar:
-obus6
-kfs2
-obus7
+-------------------- 5. SAVAŞ --------------------
 
---------------------Savaş--------------------
-            Sen         Bilgisayar
-1.Eşleşme:firkateyn5 <----> obus6
-2.Eşleşme:kfs1 <----> kfs2
-3.Eşleşme:firkateyn4 <----> obus7
+Oyuncu Seçilen Kartlar:
+- ucak4 (Dayanıklılık: 20)
+- kfs1 (Dayanıklılık: 10)
+- sida1 (Dayanıklılık: 5)
+------------------------------
+Bilgisayar Seçilen Kartlar:
+- firkateyn5 (Dayanıklılık: 5)
+- ucak3 (Dayanıklılık: 20)
+- firkateyn6 (Dayanıklılık: 25)
 
-Skorlar=>
-Sen:40
-Bilgisayar:40
+-------------------- EŞLEŞMELER --------------------
+OYUNCU                              | BİLGİSAYAR                         
+---------------------------------------------------------------------------
+ucak4 (Dayanıklılık: 20)            | firkateyn5 (Dayanıklılık: 5)       
+kfs1 (Dayanıklılık: 10)             | ucak3 (Dayanıklılık: 20)           
+sida1 (Dayanıklılık: 5)             | firkateyn6 (Dayanıklılık: 25)      
+---------------------------------------------------------------------------
 
+-------------------- GÜNCEL DURUM --------------------
 
-Senin desten=>
-firkateyn5
-siha1
+SKORLAR
+--------------------
+Oyuncu: 80
+Bilgisayar: 90
 
-Bilgisayarın destesi=>
-obus7
-siha2
+GÜNCEL DESTELER
+--------------------
+Oyuncu Destesi:
+- ucak4 (Dayanıklılık: 5)
+- ucak5 (Dayanıklılık: 20)
+--------------------
+Bilgisayar Destesi:
+- firkateyn6 (Dayanıklılık: 15)
+- kfs2 (Dayanıklılık: 10)
+--------------------------------------------------
 
+-------------------- SAVAŞ SONUCU --------------------
+
+KAZANAN: Bilgisayar
+Final Skoru: 90
+--------------------------------------------------

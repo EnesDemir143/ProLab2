@@ -4,6 +4,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import Veri_Modelleri.Savas_Araclari_Modeli.*;
+
+import javax.print.attribute.HashPrintJobAttributeSet;
 import java.util.ArrayList;
 import java.util.Objects;
 //Mainde pc. ve insan. ile olan erişimleri kapat(Methodları kastediyorum)
@@ -35,75 +37,24 @@ public class Oyun  implements Dosya_Islemleri{
         pc.bilgisyarKartListesi(pc);
         insan.ilkKartlar(insan,pc,insan.getInsanKart(),pc.getBilgisayarKart());
         for (int i = 1; i < 6; i++) {
-            System.out.println("ADIM====> "+(i));
-            System.out.println("ÖNCE");
-            System.out.println("insanskor:"+insan.getInsanSkor());
-            System.out.println("pcskor:"+pc.getPcSkor());
-            System.out.println("İnsankartları");
-            for (int j = 0; j < insan.getInsanKart().size(); j++) {
-                System.out.print(j+1+"=>");
-                insan.getInsanKart().get(j).kartPuanGoster();
-            }
-            System.out.println("pckartları");
-            for (int j = 0; j < pc.getBilgisayarKart().size(); j++) {
-                System.out.print(j+1+"=>");
-                pc.getBilgisayarKart().get(j).kartPuanGoster();
-            }
-            insan.destendekiKartlar(insan, pc, insan.getInsanKart(), pc.getBilgisayarKart());
             Oyuncu.secilenKartlar(insan, pc, insanSeckart, pcSeckart);
             insan.savas(insan,pc,insanSeckart,pcSeckart,i);
             Oyuncu.kartSavaslari(insan, pc, insanSeckart, pcSeckart);
-            insan.destendekiKartlar(insan, pc, insan.getInsanKart(), pc.getBilgisayarKart());
-            System.out.println("Sonra");
-            System.out.println("insanskor:"+insan.getInsanSkor());
-            System.out.println("pcskor:"+pc.getPcSkor());
-            System.out.println("İnsankartları");
-            for (int j = 0; j < insan.getInsanKart().size(); j++) {
-                insan.getInsanKart().get(j).kartPuanGoster();
-            }
-            System.out.println("pckartları");
-            for (int j = 0; j < pc.getBilgisayarKart().size(); j++) {
-                pc.getBilgisayarKart().get(j).kartPuanGoster();
-            }
             int a=Oyuncu.savasSonuclari(insan,pc,i,0);
+            insan.destendekiKartlar(insan, pc, insan.getInsanKart(), pc.getBilgisayarKart());
             pcSeckart.clear();
             insanSeckart.clear();
             if(a==7 || a==8 ){
-                System.out.println("ADIM====> "+(i+1));
-                System.out.println("ÖNCE");
-                System.out.println("insanskor:"+insan.getInsanSkor());
-                System.out.println("pcskor:"+pc.getPcSkor());
-                System.out.println("İnsankartları");
-                for (int j = 0; j < insan.getInsanKart().size(); j++) {
-                    System.out.print(j+1+"=>");
-                    insan.getInsanKart().get(j).kartPuanGoster();
-                }
-                System.out.println("pckartları");
-                for (int j = 0; j < pc.getBilgisayarKart().size(); j++) {
-                    System.out.print(j+1+"=>");
-                    pc.getBilgisayarKart().get(j).kartPuanGoster();
-                }
                 Oyuncu.secilenKartlar(insan, pc, insanSeckart, pcSeckart);
                 insan.savas(insan,pc,insanSeckart,pcSeckart,i+1);
                 Oyuncu.kartSavaslari(insan, pc, insanSeckart, pcSeckart);
                 Oyuncu.savasSonuclari(insan,pc,i+1,1);
                 insan.destendekiKartlar(insan, pc, insan.getInsanKart(), pc.getBilgisayarKart());
-                System.out.println("Sonra");
-                System.out.println("insanskor:"+insan.getInsanSkor());
-                System.out.println("pcskor:"+pc.getPcSkor());
-                System.out.println("İnsankartları");
-                for (int j = 0; j < insan.getInsanKart().size(); j++) {
-                    insan.getInsanKart().get(j).kartPuanGoster();
-                }
-                System.out.println("pckartları");
-                for (int j = 0; j < pc.getBilgisayarKart().size(); j++) {
-                    pc.getBilgisayarKart().get(j).kartPuanGoster();
-                }
-                System.out.println("bitti");
+                insan.savasSonucu(insan,pc);
                 break;
             }
             if(a==3 || a==4 || a==5 || a==6 || a==2 ){
-                System.out.println("bitttttttttti");
+                insan.savasSonucu(insan,pc);
                 break;
             }
         }

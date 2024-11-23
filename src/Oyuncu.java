@@ -12,14 +12,13 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Oyuncu implements Dosya_Islemleri{
-    private String oyuncu_id;
-    private String oyuncu_adi;
+    private final String  oyuncu_id;
+    private final String oyuncu_adi;
     private int insanSkor;
     private int pcSkor;
 
    private  ArrayList<Savas_Araclari> insanKart = new ArrayList<>();
    private  ArrayList<Savas_Araclari> bilgisayarKart = new ArrayList<>();
-   private ArrayList<Integer> kullanilmisSayilar = new ArrayList<>();
    private ArrayList<Savas_Araclari>kullanilmisKartlarInsan = new ArrayList<>();
    private ArrayList<Savas_Araclari>kullanilmisKartlarPc = new ArrayList<>();
 
@@ -56,6 +55,18 @@ public class Oyuncu implements Dosya_Islemleri{
 
     public int getPcSkor() {
         return pcSkor;
+    }
+
+    public String getOyuncu_adi() {
+        return oyuncu_adi;
+    }
+
+    public ArrayList<Savas_Araclari> getInsanKart() {
+        return insanKart;
+    }
+
+    public ArrayList<Savas_Araclari> getBilgisayarKart() {
+        return bilgisayarKart;
     }
 
     public void insanKartListesi(Oyuncu insan){
@@ -105,15 +116,6 @@ public class Oyuncu implements Dosya_Islemleri{
             case 5 -> new Siha();
             default -> throw new IllegalStateException("Unexpected value: " + sinir);
         };
-    }
-
-
-    public ArrayList<Savas_Araclari> getInsanKart() {
-        return insanKart;
-    }
-
-    public ArrayList<Savas_Araclari> getBilgisayarKart() {
-        return bilgisayarKart;
     }
 
     public  int kartSec(Oyuncu oyuncu,ArrayList<Savas_Araclari> pcseckart,ArrayList<Savas_Araclari> insanseckart){
@@ -214,8 +216,9 @@ public class Oyuncu implements Dosya_Islemleri{
                 pc.getKullanilmisKartlarPc().add(pcSeckart.get(i));
             }
         }
-    }//insan ve pc ayırılıp arka tarafa alınıcak.
-        public static int savasSonuclari(Oyuncu insan,Oyuncu pc,int tur,int kontrol){
+    }
+
+    public static int savasSonuclari(Oyuncu insan, Oyuncu pc, int tur, int kontrol){
             if( tur==5 || (insan.getInsanKart().size()==1 || pc.getBilgisayarKart().size()==1) || (kontrol==1) ) {
                 if(insan.getInsanSkor()>pc.getPcSkor()){
                     System.out.println("sen kazandın");
@@ -235,7 +238,7 @@ public class Oyuncu implements Dosya_Islemleri{
                         System.out.println((toplam_dayaniklilik1-toplam_dayaniklilik2)+"eklendi");
                         return 3;
                     }else if (toplam_dayaniklilik1<toplam_dayaniklilik2){
-                        System.out.println("pc kazandın");
+                        System.out.println("pc kazandı");
                         pc.setPcSkor(toplam_dayaniklilik2-toplam_dayaniklilik1);
                         System.out.println((toplam_dayaniklilik2-toplam_dayaniklilik1)+"eklendi");
                         return 4;
@@ -267,24 +270,4 @@ public class Oyuncu implements Dosya_Islemleri{
             System.out.println("devamm");
             return -1;
         }
-
-    @Override
-    public void ilkKartlar(Oyuncu insan, Oyuncu pc, ArrayList<Savas_Araclari> insankart, ArrayList<Savas_Araclari> pckart) {
-        Dosya_Islemleri.super.ilkKartlar(insan, pc, insankart, pckart);
-    }
-
-    @Override
-    public void savas(Oyuncu insan, Oyuncu pc, ArrayList<Savas_Araclari> insanseckart, ArrayList<Savas_Araclari> pckartsec, int adim) {
-        Dosya_Islemleri.super.savas(insan, pc, insanseckart, pckartsec, adim);
-    }
-
-    @Override
-    public void destendekiKartlar(Oyuncu insan, Oyuncu pc, ArrayList<Savas_Araclari> insanDeste, ArrayList<Savas_Araclari> pcDeste) {
-        Dosya_Islemleri.super.destendekiKartlar(insan, pc, insanDeste, pcDeste);
-    }
-
-    @Override
-    public void dosyayiSifirla() {
-        Dosya_Islemleri.super.dosyayiSifirla();
-    }
 }
