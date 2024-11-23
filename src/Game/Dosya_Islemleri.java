@@ -1,3 +1,5 @@
+package Game;
+
 import Veri_Modelleri.Savas_Araclari_Modeli.Savas_Araclari;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -135,7 +137,7 @@ public interface Dosya_Islemleri {
             bw.write("-".repeat(20));
             bw.newLine();
 
-            // Oyuncu destesi
+            // Game.Oyuncu destesi
             bw.write("Oyuncu Destesi:");
             bw.newLine();
             for(var kart: insanDeste) {

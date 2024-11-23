@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82e517f4-47f5-42a0-a255-1f2613b1799b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/sample/UI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/backGraund.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KartIslemleri.txt" beforeDir="false" afterPath="$PROJECT_DIR$/KartIslemleri.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dosya_Islemleri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dosya_Islemleri.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Oyun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Oyun.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Oyuncu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Oyuncu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dosya_Islemleri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Dosya_Islemleri.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Oyun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Oyun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Oyuncu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Oyuncu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/backGraund.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +47,7 @@
     "Application.Oyun.executor": "Run",
     "Application.Unnamed.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "17",
@@ -69,7 +75,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Oyun" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Oyun" />
+      <option name="MAIN_CLASS_NAME" value="Game.Oyun" />
       <module name="ProLab2" />
       <option name="VM_PARAMETERS" value="--module-path &quot;/Library/Java/javafx-sdk-17.0.13/lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
@@ -80,8 +86,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
       </set>
     </attachedChunks>
   </component>
@@ -122,6 +128,7 @@
       <workItem from="1731428134055" duration="9000" />
       <workItem from="1732003282182" duration="801000" />
       <workItem from="1732360313378" duration="10269000" />
+      <workItem from="1732385093241" duration="9064000" />
     </task>
     <servers />
   </component>

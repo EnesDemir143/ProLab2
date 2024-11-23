@@ -1,3 +1,5 @@
+package Game;
+
 import Veri_Modelleri.Savas_Araclari_Modeli.Deniz_Araclari_Modeli.Firkateyn;
 import Veri_Modelleri.Savas_Araclari_Modeli.Deniz_Araclari_Modeli.Sida;
 import Veri_Modelleri.Savas_Araclari_Modeli.EkstraVurusOzellikleri;
@@ -12,8 +14,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Oyuncu implements Dosya_Islemleri{
-    private final String  oyuncu_id;
-    private final String oyuncu_adi;
+    private  String  oyuncu_id;
+    private  String oyuncu_adi;
     private int insanSkor;
     private int pcSkor;
 
@@ -41,6 +43,10 @@ public class Oyuncu implements Dosya_Islemleri{
         this.insanSkor = insanSkor;
     }
 
+    public void setOyuncu_adi(String oyuncu_adi) {
+        this.oyuncu_adi = oyuncu_adi;
+    }
+
     public void setInsanSkor(int insanSkor) {
         this.insanSkor += insanSkor;
     }
@@ -52,6 +58,7 @@ public class Oyuncu implements Dosya_Islemleri{
     public int getInsanSkor() {
         return insanSkor;
     }
+
 
     public int getPcSkor() {
         return pcSkor;
@@ -69,12 +76,13 @@ public class Oyuncu implements Dosya_Islemleri{
         return bilgisayarKart;
     }
 
+
     public void insanKartListesi(Oyuncu insan){
-        for(int i=0;i<3;i++){
+        for(int i=0;i<6;i++){
             insanKart.add(kartEkleme(insan));
         }
         int i=0;
-        System.out.println("Oyuncu kart listesi");
+        System.out.println("Game.Oyuncu kart listesi");
         System.out.println("İnsan kart listesi");
         while (i<insanKart.size()) {
             System.out.println(insanKart.get(i).getKartID());
@@ -82,11 +90,11 @@ public class Oyuncu implements Dosya_Islemleri{
         }
     }
     public void bilgisyarKartListesi(Oyuncu bilgisayar){
-        for(int i=0;i<3;i++){
+        for(int i=0;i<6;i++){
             bilgisayarKart.add(kartEkleme(bilgisayar));
         }
         int i=0;
-        System.out.println("Oyuncu kart listesi");
+        System.out.println("Game.Oyuncu kart listesi");
         System.out.println("pc kart listesi");
         while (i<bilgisayarKart.size()) {
             System.out.println(bilgisayarKart.get(i).getKartID());

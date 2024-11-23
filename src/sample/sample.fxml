@@ -1,15 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <ImageView fitHeight="334.0" fitWidth="583.0" layoutX="9.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="1080.0" fitWidth="1086.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@/sample/backGraund.jpg" />
+            <Image url="@backGraund.png" />
          </image>
       </ImageView>
+      <HBox alignment="CENTER_LEFT" layoutX="165.0" layoutY="845.0" prefHeight="68.0" prefWidth="624.0" style="-fx-background-color: white;">
+         <children>
+            <Label prefHeight="68.0" prefWidth="203.0" text="Ad Giriniz : ">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+            <TextField fx:id="username" nodeOrientation="LEFT_TO_RIGHT" prefHeight="68.0" prefWidth="421.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="165.0" layoutY="925.0" prefHeight="68.0" prefWidth="624.0" style="-fx-background-color: white;">
+         <children>
+            <Label prefHeight="68.0" prefWidth="203.0" text="Level : ">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+            <TextField fx:id="level" nodeOrientation="LEFT_TO_RIGHT" prefHeight="68.0" prefWidth="421.0" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
