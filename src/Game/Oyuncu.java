@@ -82,7 +82,6 @@ public class Oyuncu implements Dosya_Islemleri{
             insanKart.add(kartEkleme(insan));
         }
         int i=0;
-        System.out.println("Game.Oyuncu kart listesi");
         System.out.println("İnsan kart listesi");
         while (i<insanKart.size()) {
             System.out.println(insanKart.get(i).getKartID());
@@ -94,7 +93,6 @@ public class Oyuncu implements Dosya_Islemleri{
             bilgisayarKart.add(kartEkleme(bilgisayar));
         }
         int i=0;
-        System.out.println("Game.Oyuncu kart listesi");
         System.out.println("pc kart listesi");
         while (i<bilgisayarKart.size()) {
             System.out.println(bilgisayarKart.get(i).getKartID());

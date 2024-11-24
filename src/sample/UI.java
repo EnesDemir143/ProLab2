@@ -15,19 +15,15 @@ public class UI extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("sample2.fxml"));
         Scene scene = new Scene(loader.load());
 
+        // Controller'a stage ve oyuncuyu ilet
         Controller controller = loader.getController();
-        controller.setPerson(initialOyuncu);
-
-        primaryStage.setOnCloseRequest(event -> {
-            System.out.println("String Girişi (Main): " + controller.getUsername().getText());
-            System.out.println("Double Girişi (Main): " + controller.getLevel().getText());
-        });
+        controller.setStageAndOyuncu(primaryStage, initialOyuncu);
 
         primaryStage.setScene(scene);
-        primaryStage.setTitle("JavaFX Uygulaması");
+        primaryStage.setTitle("Sample 2");
         primaryStage.show();
     }
 }

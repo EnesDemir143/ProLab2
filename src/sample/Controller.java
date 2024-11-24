@@ -1,12 +1,15 @@
 package sample;
 
 import Game.Oyuncu;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class Controller {
     @FXML
@@ -14,48 +17,51 @@ public class Controller {
     @FXML
     private TextField level;
 
+    private Stage stage;
     private Oyuncu oyuncu;
+
+    public void setStageAndOyuncu(Stage stage, Oyuncu oyuncu) {
+        this.stage = stage;
+        this.oyuncu = oyuncu;
+    }
 
     @FXML
     public void initialize() {
+        if (username != null && level != null) {
+            setupSampleScene();
+        }
+    }
+
+    private void setupSampleScene() {
         // FXML öğelerinin doğru bağlandığını kontrol et
         assert username != null : "fx:id=\"username\" was not injected: check your FXML file.";
         assert level != null : "fx:id=\"level\" was not injected: check your FXML file.";
 
-        // Level alanını başlangıçta boş bırak
         level.setText("");
 
         // username için Enter ve yön tuşları ayarları
         username.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER || event.getCode() == KeyCode.DOWN) {
-                level.requestFocus(); // Enter veya aşağı ok tuşuna basıldığında level alanına geç
+                level.requestFocus();
             }
         });
 
         // level için Enter ve yön tuşları ayarları
         level.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
-                handleSubmit(); // Giriş tamamlanır
-                closeWindow();  // Pencereyi kapatır
+                handleSubmit();
             } else if (event.getCode() == KeyCode.UP) {
-                username.requestFocus(); // Yukarı ok tuşuna basıldığında username alanına geri dön
+                username.requestFocus();
             }
         });
     }
 
-    public void setPerson(Oyuncu oyuncu) {
-        if (oyuncu != null && username != null && level != null) {
-            this.oyuncu = oyuncu;
-            username.setText(oyuncu.getOyuncu_adi());
-            // Level'ı boş bırak
-            level.setText("");
-        } else {
-            System.err.println("Oyuncu veya UI elemanları null!");
-        }
-    }
-
     @FXML
     private void handleSubmit() {
+        if (!validateInput()) {
+            return; // Eğer giriş doğrulaması başarısızsa işlemi durdur
+        }
+
         if (oyuncu == null || username == null || level == null) {
             System.err.println("Gerekli alanlar başlatılmamış!");
             return;
@@ -71,28 +77,76 @@ public class Controller {
             System.out.println("Oyuncu Adı: " + oyuncu.getOyuncu_adi());
             System.out.println("Oyuncu Skoru: " + oyuncu.getInsanSkor());
 
+            closeWindow(); // Doğru giriş yapıldığında pencereyi kapat
         } catch (NumberFormatException e) {
             System.err.println("Lütfen level için geçerli bir sayı girin!");
+            showError("Lütfen level için geçerli bir sayı girin!");
         }
-    }
-    private void closeWindow() {
-        Stage stage = (Stage) level.getScene().getWindow();
-        Platform.runLater(stage::close);
-    }
-    private void handleKeyPress(KeyEvent event, TextField nextField) {
-        if (event.getCode() == KeyCode.ENTER) {
-            nextField.requestFocus(); // Odak diğer TextField'a geçer
-        } else if (event.getCode() == KeyCode.DOWN) {
-            nextField.requestFocus(); // Aşağı tuşu ile geçiş
-        } else if (event.getCode() == KeyCode.UP) {
-            nextField.requestFocus(); // Yukarı tuşu ile geçiş
-        }
-    }
-    public TextField getLevel() {
-        return level;
     }
 
-    public TextField getUsername() {
-        return username;
+    @FXML
+    private void switchToSampleScene() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
+            Scene sampleScene = new Scene(loader.load());
+
+            // Yeni sahne için controller ayarları
+            Controller sampleController = loader.getController();
+            sampleController.setStageAndOyuncu(stage, oyuncu);
+
+            stage.setScene(sampleScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void showAlertError() {
+        // Hangi TextField'in boş olduğunu kontrol et
+        if (username == null || username.getText().trim().isEmpty()) {
+            showError("Kullanıcı adı boş olamaz!");
+        } else if (level == null || level.getText().trim().isEmpty()) {
+            showError("Seviye boş olamaz!");
+        }
+    }
+
+    private void showError(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Hata");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    private boolean validateInput() {
+        // Kullanıcı adı ve seviye alanlarının doluluğunu kontrol et
+        if (username.getText().trim().isEmpty()) {
+            showError("Kullanıcı adı boş olamaz!");
+            clearFields();  // Boş alan varsa text field'leri temizle
+            username.requestFocus();  // Kullanıcıyı username alanına yönlendir
+            return false;
+        }
+
+        if (level.getText().trim().isEmpty()) {
+            showError("Seviye boş olamaz!");
+            clearFields();  // Boş alan varsa text field'leri temizle
+            level.requestFocus();  // Kullanıcıyı level alanına yönlendir
+            return false;
+        }
+
+        return true;
+    }
+
+    private void clearFields() {
+        // TextField'leri temizler
+        username.clear();
+        level.clear();
+    }
+
+    @FXML
+    private void closeWindow() {
+        if (stage != null) {
+            stage.close();
+        }
     }
 }

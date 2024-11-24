@@ -12,12 +12,12 @@ public class Oyun implements Dosya_Islemleri{
 
     public static void main(String[] args) {
 
-   // Oyuncu oyuncu = new Oyuncu("1","",0);
-
         Game.Oyuncu insan = new Game.Oyuncu("123","",0);
         Game.Oyuncu pc = new Game.Oyuncu();
         UI.setInitialOyuncu(insan);
         Application.launch(UI.class, args);
+        System.out.println(insan.getInsanSkor());
+        System.out.println(insan.getOyuncu_adi());
 
         ArrayList<Savas_Araclari> pcSeckart = new ArrayList<>();
         ArrayList<Savas_Araclari> insanSeckart = new ArrayList<>();
