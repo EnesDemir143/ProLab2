@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Circle?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-image: url('file:/C:/Allcodes/prolab2/wartable.png'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIController">
+   <children>
+      <!-- Bilgisayar kartları -->
+      <HBox layoutX="145.0" layoutY="14.0" prefHeight="80.0" prefWidth="360.0" spacing="10">
+         <children>
+            <ImageView fx:id="computerCard1" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="computerCard2" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="computerCard3" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="computerCard4" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="computerCard5" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="computerCard6" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </HBox>
+
+      <!-- Bilgisayarın seçili kartları -->
+      <HBox layoutX="250.0" layoutY="100.0" spacing="10">
+         <children>
+            <ImageView fx:id="computerSelectedCard1" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="computerSelectedCard2" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="computerSelectedCard3" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </HBox>
+
+      <!-- Oyuncunun seçili kartları -->
+      <HBox layoutX="250.0" layoutY="300.0" spacing="10">
+         <children>
+            <ImageView fx:id="playerSelectedCard1" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="playerSelectedCard2" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="playerSelectedCard3" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </HBox>
+
+      <!-- Oyuncu kartları -->
+      <HBox layoutX="144.0" layoutY="395.0" prefHeight="80.0" prefWidth="360.0" spacing="10">
+         <children>
+            <ImageView fx:id="playerCard1" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="playerCard2" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="playerCard3" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="playerCard4" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="playerCard5" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="playerCard6" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </HBox>
+
+      <!-- Bitir butonu -->
+      <Button fx:id="finishButton" layoutX="629.0" layoutY="435.0" text="Bitir" />
+      <Circle fill="#315577" layoutX="265.0" layoutY="100.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label layoutX="262.0" layoutY="91.0" text="3" textFill="WHITE" />
+   </children>
+</AnchorPane>
