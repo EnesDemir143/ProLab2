@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 public class UI extends Application {
     private static Oyuncu initialOyuncu;
 
@@ -17,7 +19,7 @@ public class UI extends Application {
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("sample2.fxml"));
         Scene scene = new Scene(loader.load());
-
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/sample/styles.css")).toExternalForm());
         // Controller'a stage ve oyuncuyu ilet
         Controller controller = loader.getController();
         controller.setStageAndOyuncu(primaryStage, initialOyuncu);

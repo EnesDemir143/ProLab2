@@ -10,6 +10,7 @@ import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class Controller {
     @FXML
@@ -49,7 +50,7 @@ public class Controller {
         // level için Enter ve yön tuşları ayarları
         level.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
-                handleSubmit();
+                handleSubmit(); // Giriş doğrulaması ve yeni sahne açma işlemi
             } else if (event.getCode() == KeyCode.UP) {
                 username.requestFocus();
             }
@@ -77,8 +78,9 @@ public class Controller {
             System.out.println("Oyuncu Adı: " + oyuncu.getOyuncu_adi());
             System.out.println("Oyuncu Skoru: " + oyuncu.getInsanSkor());
 
-            closeWindow(); // Doğru giriş yapıldığında pencereyi kapat
-        } catch (NumberFormatException e) {
+            // Doğru giriş yapıldığında üçüncü sahneyi aç
+            switchToThirdScene();
+        } catch (NumberFormatException | IOException e) {
             System.err.println("Lütfen level için geçerli bir sayı girin!");
             showError("Lütfen level için geçerli bir sayı girin!");
         }
@@ -98,6 +100,15 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void switchToThirdScene() throws IOException {
+        // 3. sahne oluşturuluyor
+        Scene thirdScene = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("sample3.fxml"))));
+
+        // Yeni sahneyi açıyoruz
+        stage.setScene(thirdScene);
     }
 
     @FXML
