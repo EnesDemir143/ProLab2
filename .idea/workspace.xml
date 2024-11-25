@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82e517f4-47f5-42a0-a255-1f2613b1799b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/sample/UIController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/arka1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/card3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/sample3.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KartIslemleri.txt" beforeDir="false" afterPath="$PROJECT_DIR$/KartIslemleri.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/UIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/UIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/sample3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample3.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +28,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -44,12 +42,12 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
-    "Application.Oyun.executor": "Run",
+    "Application.Oyun.executor": "Debug",
     "Application.Unnamed.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "UI",
     "jdk.selected.JAVA_MODULE": "17",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/enesdemir/IdeaProjects/ProLab2/src/sample",
@@ -128,7 +126,10 @@
       <workItem from="1731428134055" duration="9000" />
       <workItem from="1732003282182" duration="801000" />
       <workItem from="1732360313378" duration="10269000" />
-      <workItem from="1732385093241" duration="34740000" />
+      <workItem from="1732385093241" duration="36322000" />
+      <workItem from="1732475256988" duration="3200000" />
+      <workItem from="1732509768199" duration="4763000" />
+      <workItem from="1732560609834" duration="3074000" />
     </task>
     <servers />
   </component>

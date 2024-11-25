@@ -1,11 +1,10 @@
+// UIController.java
 package sample;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.control.Alert;
 import javafx.animation.ScaleTransition;
@@ -15,99 +14,44 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UIController {
-    @FXML private HBox playerCardsContainer; // Kartları içerecek HBox
-    @FXML private HBox selectedCardsContainer; // Seçili kartları gösterecek HBox
+    @FXML private ImageView playerCard1, playerCard2, playerCard3, playerCard4, playerCard5, playerCard6;
+    @FXML private ImageView playerSelectedCard1, playerSelectedCard2, playerSelectedCard3;
+    @FXML private StackPane playerCard1Indicator, playerCard2Indicator, playerCard3Indicator,
+            playerCard4Indicator, playerCard5Indicator, playerCard6Indicator;
     @FXML private Button finishButton;
 
-    private List<Card> currentHand; // Eldeki kartlar
     private List<ImageView> selectedCards = new ArrayList<>();
     private List<StackPane> selectedCardSlots = new ArrayList<>();
     private static final int MAX_SELECTED_CARDS = 3;
 
-    // Kart türleri için enum
-    public enum CardType {
-        TYPE1("type1.png"),
-        TYPE2("type2.png"),
-        TYPE3("type3.png"),
-        TYPE4("type4.png"),
-        TYPE5("type5.png"),
-        TYPE6("type6.png");
-
-        private final String imagePath;
-
-        CardType(String imagePath) {
-            this.imagePath = imagePath;
-        }
-
-        public String getImagePath() {
-            return imagePath;
-        }
-    }
-
-    // Kart sınıfı
-    public static class Card {
-        private final CardType type;
-        private final Image image;
-
-        public Card(CardType type) {
-            this.type = type;
-            this.image = new Image(getClass().getResourceAsStream("/images/" + type.getImagePath()));
-        }
-
-        public CardType getType() {
-            return type;
-        }
-
-        public Image getImage() {
-            return image;
-        }
-    }
-
     @FXML
     public void initialize() {
+        setupPlayerCards();
+        setupCardSelectionEffect();
+    }
+
+    private void setupPlayerCards() {
+        List<StackPane> playerCards = List.of(
+                playerCard1Indicator, playerCard2Indicator, playerCard3Indicator,
+                playerCard4Indicator, playerCard5Indicator, playerCard6Indicator
+        );
+
+        for (StackPane cardPane : playerCards) {
+            cardPane.getStyleClass().add("player-card-unselected");
+            setupCardSelection(cardPane);
+        }
+
         finishButton.setDisable(true);
     }
 
-    // Yeni eli göstermek için çağrılacak metod
-    public void updateHand(List<Card> newHand) {
-        this.currentHand = newHand;
-        playerCardsContainer.getChildren().clear();
-        selectedCards.clear();
-        selectedCardSlots.clear();
-
-        for (Card card : newHand) {
-            createAndAddCardToUI(card);
-        }
-    }
-
-    private void createAndAddCardToUI(Card card) {
-        // Kart görüntüsünü oluştur
-        ImageView cardImage = new ImageView(card.getImage());
-        cardImage.setFitHeight(150); // Kart yüksekliği
-        cardImage.setFitWidth(100);  // Kart genişliği
-
-        // StackPane oluştur
-        StackPane cardPane = new StackPane(cardImage);
-        cardPane.getStyleClass().add("player-card-unselected");
-
-        // Kart seçim olayını ayarla
-        setupCardSelection(cardPane, card);
-
-        // Hover efektini ekle
-        setupCardHoverEffect(cardPane);
-
-        // HBox'a ekle
-        playerCardsContainer.getChildren().add(cardPane);
-    }
-
-    private void setupCardSelection(StackPane cardPane, Card card) {
+    private void setupCardSelection(StackPane cardPane) {
         cardPane.setOnMouseClicked(event -> {
             ImageView cardImage = (ImageView) cardPane.getChildren().get(0);
 
             if (cardPane.getStyleClass().contains("player-card-selected")) {
                 returnCardToSlot(cardPane, cardImage);
             } else if (selectedCards.size() < MAX_SELECTED_CARDS) {
-                selectCardFromSlot(cardPane, cardImage, card);
+                selectCardFromSlot(cardPane, cardImage);
             } else {
                 showMaxCardWarning();
             }
@@ -116,28 +60,22 @@ public class UIController {
         });
     }
 
-    private void setupCardHoverEffect(StackPane cardPane) {
-        cardPane.setOnMouseEntered(e -> {
-            if (!cardPane.getStyleClass().contains("player-card-selected")) {
-                cardPane.getStyleClass().add("player-card-hover");
-            }
-        });
+    private void selectCardFromSlot(StackPane cardPane, ImageView cardImage) {
+        // Orijinal kartın görüntüsünü kaydet
+        var originalImage = cardImage.getImage();
 
-        cardPane.setOnMouseExited(e -> {
-            cardPane.getStyleClass().remove("player-card-hover");
-        });
-    }
-
-    private void selectCardFromSlot(StackPane cardPane, ImageView cardImage, Card card) {
+        // Kartı görünmez yap ve slot stilini değiştir
         cardImage.setVisible(false);
         cardPane.getStyleClass().add("player-card-empty");
 
-        var selectedCard = new ImageView(card.getImage());
+        // Seçili kartlar listesine ekle
+        var selectedCard = new ImageView(originalImage);
         selectedCard.setFitHeight(cardImage.getFitHeight());
         selectedCard.setFitWidth(cardImage.getFitWidth());
         selectedCards.add(selectedCard);
         selectedCardSlots.add(cardPane);
 
+        // Görsel efektler
         cardPane.getStyleClass().remove("player-card-unselected");
         cardPane.getStyleClass().add("player-card-selected");
         playSelectAnimation(cardPane);
@@ -148,12 +86,15 @@ public class UIController {
     private void returnCardToSlot(StackPane cardPane, ImageView cardImage) {
         int index = selectedCardSlots.indexOf(cardPane);
         if (index != -1) {
+            // Kartı görünür yap ve boş slot stilini kaldır
             cardImage.setVisible(true);
             cardPane.getStyleClass().remove("player-card-empty");
 
+            // Listeleri güncelle
             selectedCards.remove(index);
             selectedCardSlots.remove(index);
 
+            // Görsel efektleri kaldır
             cardPane.getStyleClass().remove("player-card-selected");
             cardPane.getStyleClass().add("player-card-unselected");
 
@@ -161,17 +102,22 @@ public class UIController {
         }
     }
 
-    private void updateSelectedCardDisplay() {
-        selectedCardsContainer.getChildren().clear();
+    private void setupCardSelectionEffect() {
+        List<StackPane> allCards = List.of(
+                playerCard1Indicator, playerCard2Indicator, playerCard3Indicator,
+                playerCard4Indicator, playerCard5Indicator, playerCard6Indicator
+        );
 
-        for (ImageView selectedCard : selectedCards) {
-            StackPane selectedCardPane = new StackPane(selectedCard);
-            selectedCardsContainer.getChildren().add(selectedCardPane);
+        for (StackPane card : allCards) {
+            card.setOnMouseEntered(e -> {
+                if (!card.getStyleClass().contains("player-card-selected")) {
+                    card.getStyleClass().add("player-card-hover");
+                }
+            });
 
-            FadeTransition fadeIn = new FadeTransition(Duration.millis(300), selectedCardPane);
-            fadeIn.setFromValue(0.0);
-            fadeIn.setToValue(1.0);
-            fadeIn.play();
+            card.setOnMouseExited(e -> {
+                card.getStyleClass().remove("player-card-hover");
+            });
         }
     }
 
@@ -186,6 +132,25 @@ public class UIController {
         scaleTransition.play();
     }
 
+    private void updateSelectedCardDisplay() {
+        List<ImageView> selectedSlots = List.of(playerSelectedCard1, playerSelectedCard2, playerSelectedCard3);
+
+        // Tüm slotları temizle
+        for (ImageView slot : selectedSlots) {
+            slot.setImage(null);
+        }
+
+        // Seçili kartları göster
+        for (int i = 0; i < selectedCards.size(); i++) {
+            selectedSlots.get(i).setImage(selectedCards.get(i).getImage());
+
+            FadeTransition fadeIn = new FadeTransition(Duration.millis(300), selectedSlots.get(i));
+            fadeIn.setFromValue(0.0);
+            fadeIn.setToValue(1.0);
+            fadeIn.play();
+        }
+    }
+
     private void showMaxCardWarning() {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Uyarı");
@@ -196,6 +161,6 @@ public class UIController {
 
     @FXML
     private void finishGame() {
-        // Oyun bitirme mantığı
+        // Oyun bitirme mantığı buraya gelecek
     }
 }
