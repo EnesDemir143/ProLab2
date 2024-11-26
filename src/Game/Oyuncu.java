@@ -78,7 +78,7 @@ public class Oyuncu implements Dosya_Islemleri{
 
 
     public void insanKartListesi(Oyuncu insan){
-        for(int i=0;i<7;i++){
+        for(int i=0;i<6;i++){
             insanKart.add(kartEkleme(insan));
         }
         int i=0;
@@ -89,7 +89,7 @@ public class Oyuncu implements Dosya_Islemleri{
         }
     }
     public void bilgisyarKartListesi(Oyuncu bilgisayar){
-        for(int i=0;i<7;i++){
+        for(int i=0;i<6;i++){
             bilgisayarKart.add(kartEkleme(bilgisayar));
         }
         int i=0;

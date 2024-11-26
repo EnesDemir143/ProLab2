@@ -1,3 +1,4 @@
+
 package sample;
 
 import Game.Oyuncu;
@@ -9,23 +10,16 @@ import javafx.stage.Stage;
 import java.util.Objects;
 
 public class UI extends Application {
-    private static Oyuncu initialOyuncu;
-
-    public static void setInitialOyuncu(Oyuncu oyuncu) {
-        initialOyuncu = oyuncu;
-    }
-
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("sample2.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/sample.fxml"));
         Scene scene = new Scene(loader.load());
-       // scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/sample/styles.css")).toExternalForm());
-        // Controller'a stage ve oyuncuyu ilet
+
         Controller controller = loader.getController();
-        controller.setStageAndOyuncu(primaryStage, initialOyuncu);
+        Oyuncu oyuncu = new Oyuncu("", "", 0);
+        controller.setStageAndOyuncu(primaryStage, oyuncu);
 
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Sample 2");
         primaryStage.show();
     }
 }

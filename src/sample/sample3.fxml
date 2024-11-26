@@ -11,22 +11,11 @@
             <!-- Bilgisayar kartları buraya dinamik olarak eklenecek -->
         </HBox>
 
-        <!-- Bilgisayar seçili kartları -->
-        <HBox fx:id="computerSelectedCardsContainer" layoutX="360.0" layoutY="150.0" prefHeight="100.0" prefWidth="360.0" spacing="10">
-            <!-- Bilgisayar seçili kartları buraya dinamik olarak eklenecek -->
-        </HBox>
-
-        <!-- Oyuncu seçili kartları -->
-        <HBox fx:id="playerSelectedCardsContainer" layoutX="360.0" layoutY="300.0" prefHeight="100.0" prefWidth="360.0" spacing="10">
-            <!-- Oyuncu seçili kartları buraya dinamik olarak eklenecek -->
-        </HBox>
-
         <!-- Oyuncu kartları -->
         <HBox fx:id="playerCardsContainer" layoutX="180.0" layoutY="800.0" prefHeight="200.0" prefWidth="720.0" spacing="10">
             <!-- Oyuncu kartları buraya dinamik olarak eklenecek -->
         </HBox>
 
         <!-- Bitir Butonu -->
-        <Button fx:id="finishButton" layoutX="900.0" layoutY="1000.0" text="Bitir" />
     </children>
 </AnchorPane>
