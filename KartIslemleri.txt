@@ -4,21 +4,23 @@ BAŞLANGIÇ KARTLARI VE PUANLAR
 Oyuncu: enes
 Başlangıç Puanı: 12
 Kartlar:
-- ucak1 (Dayanıklılık: 20)
-- firkateyn1 (Dayanıklılık: 25)
-- firkateyn2 (Dayanıklılık: 25)
 - obus1 (Dayanıklılık: 20)
-- firkateyn3 (Dayanıklılık: 25)
-- firkateyn4 (Dayanıklılık: 25)
+- firkateyn1 (Dayanıklılık: 25)
+- ucak1 (Dayanıklılık: 20)
+- ucak2 (Dayanıklılık: 20)
+- ucak3 (Dayanıklılık: 20)
+- ucak4 (Dayanıklılık: 20)
+- obus2 (Dayanıklılık: 20)
 ------------------------------
 Oyuncu: Bilgisayar
 Başlangıç Puanı: 0
 Kartlar:
-- firkateyn5 (Dayanıklılık: 25)
-- firkateyn6 (Dayanıklılık: 25)
-- firkateyn7 (Dayanıklılık: 25)
-- firkateyn8 (Dayanıklılık: 25)
-- ucak2 (Dayanıklılık: 20)
-- ucak3 (Dayanıklılık: 20)
+- obus3 (Dayanıklılık: 20)
+- ucak5 (Dayanıklılık: 20)
+- firkateyn2 (Dayanıklılık: 25)
+- obus4 (Dayanıklılık: 20)
+- obus5 (Dayanıklılık: 20)
+- firkateyn3 (Dayanıklılık: 25)
+- firkateyn4 (Dayanıklılık: 25)
 --------------------------------------------------
 

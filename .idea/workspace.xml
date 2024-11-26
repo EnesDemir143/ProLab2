@@ -7,6 +7,10 @@
     <list default="true" id="82e517f4-47f5-42a0-a255-1f2613b1799b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KartIslemleri.txt" beforeDir="false" afterPath="$PROJECT_DIR$/KartIslemleri.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Oyun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Oyun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Oyuncu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Oyuncu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/UI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/UIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/UIController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/sample3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample3.fxml" afterDir="false" />
     </list>
@@ -42,7 +46,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
-    "Application.Oyun.executor": "Debug",
+    "Application.Oyun.executor": "Run",
     "Application.Unnamed.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -129,7 +133,7 @@
       <workItem from="1732385093241" duration="36322000" />
       <workItem from="1732475256988" duration="3200000" />
       <workItem from="1732509768199" duration="4763000" />
-      <workItem from="1732560609834" duration="3074000" />
+      <workItem from="1732560609834" duration="14212000" />
     </task>
     <servers />
   </component>

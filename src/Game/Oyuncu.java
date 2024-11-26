@@ -78,7 +78,7 @@ public class Oyuncu implements Dosya_Islemleri{
 
 
     public void insanKartListesi(Oyuncu insan){
-        for(int i=0;i<6;i++){
+        for(int i=0;i<7;i++){
             insanKart.add(kartEkleme(insan));
         }
         int i=0;
@@ -89,7 +89,7 @@ public class Oyuncu implements Dosya_Islemleri{
         }
     }
     public void bilgisyarKartListesi(Oyuncu bilgisayar){
-        for(int i=0;i<6;i++){
+        for(int i=0;i<7;i++){
             bilgisayarKart.add(kartEkleme(bilgisayar));
         }
         int i=0;
@@ -276,4 +276,16 @@ public class Oyuncu implements Dosya_Islemleri{
             System.out.println("devamm");
             return -1;
         }
+    public String getKartTipi() {
+        return insanKart.isEmpty() ? "" : insanKart.get(0).getSinif();
+    }
+
+    public int getKartGucu() {
+        return insanKart.isEmpty() ? 0 : insanKart.get(0).getVurus();
+    }
+
+    public int getKartCani() {
+        return insanKart.isEmpty() ? 0 : insanKart.get(0).getDayaniklilik();
+    }
+
 }

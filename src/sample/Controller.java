@@ -105,6 +105,7 @@ public class Controller {
     @FXML
     private void switchToThirdScene() throws IOException {
         // 3. sahne oluşturuluyor
+       // System.setProperty("prism.allowhidpi", "true");
         Scene thirdScene = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("sample3.fxml"))));
 
         // Yeni sahneyi açıyoruz

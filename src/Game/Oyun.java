@@ -2,7 +2,9 @@ package Game;
 
 import Veri_Modelleri.Savas_Araclari_Modeli.Savas_Araclari;
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import sample.UI;
+import sample.UIController;
 
 import java.util.ArrayList;
 //Mainde pc. ve insan. ile olan erişimleri kapat(Methodları kastediyorum)
@@ -12,10 +14,9 @@ public class Oyun implements Dosya_Islemleri{
 
     public static void main(String[] args) {
 
-        Game.Oyuncu insan = new Game.Oyuncu("123","",0);
+        Game.Oyuncu insan = new Game.Oyuncu("123","enes",12);
         Game.Oyuncu pc = new Game.Oyuncu();
         UI.setInitialOyuncu(insan);
-        Application.launch(UI.class, args);
         System.out.println(insan.getInsanSkor());
         System.out.println(insan.getOyuncu_adi());
 
@@ -26,6 +27,9 @@ public class Oyun implements Dosya_Islemleri{
         insan.insanKartListesi(insan);
         pc.bilgisyarKartListesi(pc);
         insan.ilkKartlar(insan,pc,insan.getInsanKart(),pc.getBilgisayarKart());
+        UIController uc = new UIController();
+        uc.setGameLists(insan,pc);
+        Application.launch(UI.class, args);
         for (int i = 1; i < 6; i++) {
             Game.Oyuncu.secilenKartlar(insan, pc, insanSeckart, pcSeckart);
             insan.savas(insan,pc,insanSeckart,pcSeckart,i);
