@@ -20,6 +20,31 @@ public class Controller {
     private Oyuncu oyuncu;
     private Oyuncu pc;
 
+    private Controller controller=this;
+
+    public ArrayList<Savas_Araclari> getPcSeckart() {
+        return pcSeckart;
+    }
+
+    public Oyuncu getPc() {
+        return pc;
+    }
+
+    public Oyuncu getOyuncu() {
+        return oyuncu;
+    }
+
+    public Controller getController() {
+        return controller;
+    }
+
+    public void setController(Controller controller) {
+        this.controller = controller;
+    }
+
+    private ArrayList<Savas_Araclari> pcSeckart = new ArrayList<>();
+    private ArrayList<Savas_Araclari> insanSeckart = new ArrayList<>();
+
     public void setStageAndOyuncu(Stage stage, Oyuncu oyuncu) {
         this.stage = stage;
         this.oyuncu = oyuncu;
@@ -70,7 +95,7 @@ public class Controller {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/sample3.fxml"));
             Scene thirdScene = new Scene(loader.load());
             UIController gameController = loader.getController();
-
+            gameController.setInstance(this);
             // Oyun hazırlıklarını arka planda yap
             Task<Void> gameSetupTask = new Task<>() {
                 @Override
@@ -102,6 +127,7 @@ public class Controller {
             // Arka plan işlemini başlat
             new Thread(gameSetupTask).start();
 
+
         } catch (Exception e) {
             showError("Oyun yüklenirken hata oluştu: " + e.getMessage());
         }
@@ -112,7 +138,7 @@ public class Controller {
         Task<Void> gameTask = new Task<>() {
             @Override
             protected Void call() throws Exception {
-                real();
+          //      real();
                 return null;
             }
         };
@@ -126,37 +152,11 @@ public class Controller {
     }
 
     public void real() {
-        ArrayList<Savas_Araclari> pcSeckart = new ArrayList<>();
-        ArrayList<Savas_Araclari> insanSeckart = new ArrayList<>();
 
-        for (int i = 1; i < 6; i++) {
             Platform.runLater(() -> {
                 // UI güncellemeleri buraya
             });
 
-            Game.Oyuncu.secilenKartlar(oyuncu, pc, insanSeckart, pcSeckart);
-            oyuncu.savas(oyuncu, pc, insanSeckart, pcSeckart, i);
-            Game.Oyuncu.kartSavaslari(oyuncu, pc, insanSeckart, pcSeckart);
-            int a = Game.Oyuncu.savasSonuclari(oyuncu, pc, i, 0);
-            oyuncu.destendekiKartlar(oyuncu, pc, oyuncu.getInsanKart(), pc.getBilgisayarKart());
-
-            pcSeckart.clear();
-            insanSeckart.clear();
-
-            if (a == 7 || a == 8) {
-                Game.Oyuncu.secilenKartlar(oyuncu, pc, insanSeckart, pcSeckart);
-                oyuncu.savas(oyuncu, pc, insanSeckart, pcSeckart, i + 1);
-                Game.Oyuncu.kartSavaslari(oyuncu, pc, insanSeckart, pcSeckart);
-                Game.Oyuncu.savasSonuclari(oyuncu, pc, i + 1, 1);
-                oyuncu.destendekiKartlar(oyuncu, pc, oyuncu.getInsanKart(), pc.getBilgisayarKart());
-                oyuncu.savasSonucu(oyuncu, pc);
-                break;
-            }
-            if (a == 3 || a == 4 || a == 5 || a == 6 || a == 2) {
-                oyuncu.savasSonucu(oyuncu, pc);
-                break;
-            }
-        }
     }
 
     private void showError(String message) {
@@ -188,5 +188,13 @@ public class Controller {
         }
 
         return true;
+    }
+
+    public ArrayList<Savas_Araclari> getInsanSeckart() {
+        return insanSeckart;
+    }
+
+    public void setInsanSeckart(ArrayList<Savas_Araclari> insanSeckart) {
+        this.insanSeckart = insanSeckart;
     }
 }

@@ -8,6 +8,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KartIslemleri.txt" beforeDir="false" afterPath="$PROJECT_DIR$/KartIslemleri.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/Oyuncu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Oyuncu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/UIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/UIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/sample3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample3.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,10 +20,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="module-info" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -55,7 +58,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.JavaFX",
@@ -128,7 +131,11 @@
       <workItem from="1732385093241" duration="36322000" />
       <workItem from="1732475256988" duration="3200000" />
       <workItem from="1732509768199" duration="4763000" />
-      <workItem from="1732560609834" duration="25584000" />
+      <workItem from="1732560609834" duration="26531000" />
+      <workItem from="1732630410976" duration="395000" />
+      <workItem from="1732630914901" duration="37000" />
+      <workItem from="1732634184190" duration="637000" />
+      <workItem from="1732682409704" duration="12695000" />
     </task>
     <servers />
   </component>

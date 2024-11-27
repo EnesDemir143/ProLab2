@@ -13,12 +13,12 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Oyuncu implements Dosya_Islemleri{
+public class Oyuncu implements Dosya_Islemleri {
     private  String  oyuncu_id;
     private  String oyuncu_adi;
     private int insanSkor;
     private int pcSkor;
-
+    private static int i=0;
    private  ArrayList<Savas_Araclari> insanKart = new ArrayList<>();
    private  ArrayList<Savas_Araclari> bilgisayarKart = new ArrayList<>();
    private ArrayList<Savas_Araclari>kullanilmisKartlarInsan = new ArrayList<>();
@@ -78,7 +78,7 @@ public class Oyuncu implements Dosya_Islemleri{
 
 
     public void insanKartListesi(Oyuncu insan){
-        for(int i=0;i<8;i++){
+        for(int i=0;i<6;i++){
             insanKart.add(kartEkleme(insan));
         }
         int i=0;
@@ -89,7 +89,7 @@ public class Oyuncu implements Dosya_Islemleri{
         }
     }
     public void bilgisyarKartListesi(Oyuncu bilgisayar){
-        for(int i=0;i<8;i++){
+        for(int i=0;i<6;i++){
             bilgisayarKart.add(kartEkleme(bilgisayar));
         }
         int i=0;
@@ -137,21 +137,9 @@ public class Oyuncu implements Dosya_Islemleri{
             }
             return secim;
         }else{
-            Scanner sc = new Scanner(System.in);
-            System.out.print("KART SEÇİN:");
-            int secim= sc.nextInt();
-            while ( secim>=oyuncu.getInsanKart().size() || (oyuncu.getKullanilmisKartlarInsan().contains(oyuncu.getInsanKart().get(secim)) && kullanilmisKartlarInsan.size()!=getInsanKart().size())) {
-                System.out.print("Tekrar seçim yapınız:");
-                secim= sc.nextInt();
-            }//İlk başta zorla seçtirilen kısım yukarısı
-            while (secim>=oyuncu.getInsanKart().size() ||insanseckart.contains(oyuncu.getInsanKart().get(secim))){
-                System.out.print("Tekrar seçim yapınız:");
-                secim= sc.nextInt();
-            }
-            return secim;
+            return -1;
         }
     }
-
     public static void kartSavaslari(Oyuncu insan,Oyuncu pc,ArrayList<Savas_Araclari> insanseckart, ArrayList<Savas_Araclari> pcSeckart) {
         //insanın saldırısı
 
@@ -210,18 +198,14 @@ public class Oyuncu implements Dosya_Islemleri{
     }
 
     public static void secilenKartlar(Oyuncu insan, Oyuncu pc, ArrayList<Savas_Araclari> insanseckart, ArrayList<Savas_Araclari> pcSeckart) {
-        for(int i=0;i<3;i++){
-            insanseckart.add(insan.getInsanKart().get(insan.kartSec(insan,pcSeckart,insanseckart)));
             if (!insan.getKullanilmisKartlarInsan().contains(insanseckart.get(i))){
                 insan.getKullanilmisKartlarInsan().add(insanseckart.get(i));
             }
-        }
-        for(int i=0;i<3;i++){
             pcSeckart.add(pc.getBilgisayarKart().get(pc.kartSec(pc,pcSeckart,insanseckart)));
             if (pc.getKullanilmisKartlarPc().contains(pcSeckart.get(i))){
                 pc.getKullanilmisKartlarPc().add(pcSeckart.get(i));
             }
-        }
+        i++;
     }
 
     public static int savasSonuclari(Oyuncu insan, Oyuncu pc, int tur, int kontrol){

@@ -5,24 +5,68 @@ Oyuncu: enes
 Başlangıç Puanı: 12
 Kartlar:
 - obus1 (Dayanıklılık: 20)
-- obus2 (Dayanıklılık: 20)
-- firkateyn1 (Dayanıklılık: 25)
-- obus3 (Dayanıklılık: 20)
-- firkateyn2 (Dayanıklılık: 25)
 - ucak1 (Dayanıklılık: 20)
-- obus4 (Dayanıklılık: 20)
+- firkateyn1 (Dayanıklılık: 25)
 - ucak2 (Dayanıklılık: 20)
+- ucak3 (Dayanıklılık: 20)
+- obus2 (Dayanıklılık: 20)
 ------------------------------
 Oyuncu: Bilgisayar
 Başlangıç Puanı: 0
 Kartlar:
-- firkateyn3 (Dayanıklılık: 25)
-- obus5 (Dayanıklılık: 20)
-- ucak3 (Dayanıklılık: 20)
 - ucak4 (Dayanıklılık: 20)
-- obus6 (Dayanıklılık: 20)
-- firkateyn4 (Dayanıklılık: 25)
+- firkateyn2 (Dayanıklılık: 25)
 - ucak5 (Dayanıklılık: 20)
+- obus3 (Dayanıklılık: 20)
 - ucak6 (Dayanıklılık: 20)
+- obus4 (Dayanıklılık: 20)
+--------------------------------------------------
+
+-------------------- 1. SAVAŞ --------------------
+
+Oyuncu Seçilen Kartlar:
+- obus1 (Dayanıklılık: 10)
+- firkateyn1 (Dayanıklılık: 15)
+- ucak2 (Dayanıklılık: 10)
+------------------------------
+Bilgisayar Seçilen Kartlar:
+- firkateyn2 (Dayanıklılık: 10)
+- ucak6 (Dayanıklılık: 5)
+- ucak4 (Dayanıklılık: 10)
+
+-------------------- EŞLEŞMELER --------------------
+OYUNCU                              | BİLGİSAYAR                         
+---------------------------------------------------------------------------
+obus1 (Dayanıklılık: 10)            | firkateyn2 (Dayanıklılık: 10)      
+firkateyn1 (Dayanıklılık: 15)       | ucak6 (Dayanıklılık: 5)            
+ucak2 (Dayanıklılık: 10)            | ucak4 (Dayanıklılık: 10)           
+---------------------------------------------------------------------------
+
+-------------------- GÜNCEL DURUM --------------------
+
+SKORLAR
+--------------------
+Oyuncu: 12
+Bilgisayar: 0
+
+GÜNCEL DESTELER
+--------------------
+Oyuncu Destesi:
+- obus1 (Dayanıklılık: 10)
+- ucak1 (Dayanıklılık: 20)
+- firkateyn1 (Dayanıklılık: 15)
+- ucak2 (Dayanıklılık: 10)
+- ucak3 (Dayanıklılık: 20)
+- obus2 (Dayanıklılık: 20)
+- ucak7 (Dayanıklılık: 20)
+--------------------
+Bilgisayar Destesi:
+- ucak4 (Dayanıklılık: 10)
+- firkateyn2 (Dayanıklılık: 10)
+- ucak5 (Dayanıklılık: 20)
+- obus3 (Dayanıklılık: 20)
+- ucak6 (Dayanıklılık: 5)
+- obus4 (Dayanıklılık: 20)
+- obus5 (Dayanıklılık: 20)
 --------------------------------------------------
 
