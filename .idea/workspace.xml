@@ -10,7 +10,6 @@
       <change beforePath="$PROJECT_DIR$/src/Game/Oyuncu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Oyuncu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/UIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/UIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/sample3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample3.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +134,7 @@
       <workItem from="1732630410976" duration="395000" />
       <workItem from="1732630914901" duration="37000" />
       <workItem from="1732634184190" duration="637000" />
-      <workItem from="1732682409704" duration="12695000" />
+      <workItem from="1732682409704" duration="18282000" />
     </task>
     <servers />
   </component>

@@ -138,7 +138,6 @@ public class Controller {
         Task<Void> gameTask = new Task<>() {
             @Override
             protected Void call() throws Exception {
-          //      real();
                 return null;
             }
         };
@@ -149,14 +148,6 @@ public class Controller {
 
         // Arka plan işlemini başlat
         new Thread(gameTask).start();
-    }
-
-    public void real() {
-
-            Platform.runLater(() -> {
-                // UI güncellemeleri buraya
-            });
-
     }
 
     private void showError(String message) {

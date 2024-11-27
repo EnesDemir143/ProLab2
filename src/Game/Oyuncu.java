@@ -195,6 +195,7 @@ public class Oyuncu implements Dosya_Islemleri {
         }
         insan.getInsanKart().add(insan.kartEkleme(insan));
         pc.getBilgisayarKart().add(pc.kartEkleme(pc));
+        i=0;
     }
 
     public static void secilenKartlar(Oyuncu insan, Oyuncu pc, ArrayList<Savas_Araclari> insanseckart, ArrayList<Savas_Araclari> pcSeckart) {

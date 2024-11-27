@@ -8,6 +8,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
@@ -34,6 +35,7 @@ public class UIController implements Initializable, Dosya_Islemleri {
     @FXML private Button finishButton;
 
     private Controller instance;
+    private  int countRound=1;
 
     public void setInstance(Controller instance) {
         this.instance = instance;
@@ -42,7 +44,7 @@ public class UIController implements Initializable, Dosya_Islemleri {
     private Oyuncu playerOyuncu;
     private Oyuncu pcOyuncu;
     private Map<ImageView, ImageView> selectedToOriginalMap = new HashMap<>();
-    private int selectedCardCount = 0;
+    private  int  selectedCardCount = 0;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -51,7 +53,6 @@ public class UIController implements Initializable, Dosya_Islemleri {
         assert playerCardsContainer != null : "playerCardsContainer FXML yüklenemedi";
         assert computerSelectedCardsContainer != null : "computerSelectedCardsContainer FXML yüklenemedi";
         assert playerSelectedCardsContainer != null : "playerSelectedCardsContainer FXML yüklenemedi";
-
         if (finishButton != null) {
             finishButton.setOnAction(e -> {
                 // Önce kart savaşlarını gerçekleştir
@@ -62,31 +63,52 @@ public class UIController implements Initializable, Dosya_Islemleri {
 
                 // Savaş sonrası yapılacak işlemler
                 Platform.runLater(() -> {
-                    instance.getController().getOyuncu().savas(instance.getController().getOyuncu(), instance.getController().getPc(), instance.getController().getInsanSeckart(), instance.getController().getPcSeckart(), 1);
-//       Game.Oyuncu.kartSavaslari(oyuncu, pc, insanSeckart, pcSeckart);
-                    int a = Game.Oyuncu.savasSonuclari(instance.getController().getOyuncu(), instance.getController().getPc(), 1, 0);
+                    int a = Game.Oyuncu.savasSonuclari(instance.getController().getOyuncu(), instance.getController().getPc(), countRound, 0);
                     instance.getController().getOyuncu().destendekiKartlar(instance.getController().getOyuncu(), instance.getController().getPc(), instance.getController().getOyuncu().getInsanKart(), instance.getController().getPc().getBilgisayarKart());
-
                     instance.getController().getPcSeckart().clear();
                     instance.getController().getInsanSeckart().clear();
+                    selectedCardCount=0;
+                    updateGameState();
+                    setGameLists(playerOyuncu, pcOyuncu);
+                    countRound++;
+
+                    if(a==7 || a==8){
+                        Oyuncu.kartSavaslari(instance.getController().getOyuncu(),
+                                instance.getController().getPc(),
+                                instance.getInsanSeckart(),
+                                instance.getPcSeckart());
+                        Game.Oyuncu.savasSonuclari(instance.getController().getOyuncu(), instance.getController().getPc(), countRound+1, 1);
+                        instance.getController().getOyuncu().destendekiKartlar(instance.getController().getOyuncu(), instance.getController().getPc(), instance.getController().getOyuncu().getInsanKart(), instance.getController().getPc().getBilgisayarKart());
+                        instance.getController().getOyuncu().savasSonucu(instance.getController().getOyuncu(), instance.getController().getPc());
+                        finishButton.setDisable(true);  // Butonu devre dışı bırak
+                        showGameOverDialog();
+                    }
+                    if(a == 3 || a == 4 || a == 5 || a == 6 || a == 2)
+                    {
+                        instance.getController().getOyuncu().savasSonucu(instance.getController().getOyuncu(), instance.getController().getPc());
+                        finishButton.setDisable(true);  // Butonu devre dışı bırak
+                        showGameOverDialog();
+                    }
                 });
             });        }
     }
+    private void showGameOverDialog() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Oyun Bitti");
+        alert.setHeaderText("Tüm turlar tamamlandı!");
 
-    private void handleFinishTurn() {
-        if (selectedCardCount == 3) {
-            // İşlem tamamlandı, seçili kartları resetle
-            selectedCardCount = 0;
-            selectedToOriginalMap.clear();
-            playerSelectedCardsContainer.getChildren().clear();
+        // Skorları göster
+        String message = String.format(
+                "Oyun bitti!\nOyuncu Skoru: %d\nBilgisayar Skoru: %d",
+                instance.getController().getOyuncu().getInsanSkor(),
+                instance.getController().getPc().getPcSkor()
+        );
+        alert.setContentText(message);
 
-            // Tüm kartların opaklığını normale döndür
-            playerCardsContainer.getChildren().forEach(node -> node.setOpacity(1.0));
-
-            // Bilgisayarın kart seçimini simüle et
-            simulateComputerCardSelection();
-        }
+        alert.showAndWait();
     }
+
+
     private void createPlayerCards() {
         playerCardsContainer.getChildren().clear();
         ArrayList<Savas_Araclari> playerCards = playerOyuncu.getInsanKart();
@@ -100,55 +122,47 @@ public class UIController implements Initializable, Dosya_Islemleri {
     }
 
     private void handleCardClick(StackPane cardPane, Savas_Araclari card) {
-        if (playerOyuncu.getKullanilmisKartlarInsan().contains(card)) {
-            // Uyarı ver ve seçim işlemini durdur
+        if (playerOyuncu.getKullanilmisKartlarInsan().contains(card) && playerOyuncu.getKullanilmisKartlarInsan().size()!=instance.getOyuncu().getInsanKart().size()) {
+            System.out.println(playerOyuncu.getKullanilmisKartlarInsan().size());
+            System.out.println(instance.getOyuncu().getInsanKart().size());
             System.out.println("Bu kart daha önce kullanılmış. Başka bir kart seçin!");
             return;
         }
 
         if (playerSelectedCardsContainer.getChildren().contains(cardPane)) {
-            // Kart seçili alandaysa geri taşı
             playerSelectedCardsContainer.getChildren().remove(cardPane);
             playerCardsContainer.getChildren().add(cardPane);
-            cardPane.setOpacity(1.0); // Görünürlüğü normale çevir
+            cardPane.setOpacity(1.0);
             selectedCardCount--;
-            playerOyuncu.getKullanilmisKartlarInsan().remove(card); // Listeden çıkar
+      //      playerOyuncu.getKullanilmisKartlarInsan().remove(card);
         } else if (selectedCardCount < 3) {
             if (playerCardsContainer.getChildren().contains(cardPane)) {
-                // Kart seçili değilse seçili alana taşı
                 playerCardsContainer.getChildren().remove(cardPane);
                 playerSelectedCardsContainer.getChildren().add(cardPane);
                 instance.getInsanSeckart().add(card);
-                Oyuncu.secilenKartlar(instance.getController().getOyuncu(),instance.getController().getPc(),instance.getInsanSeckart(),instance.getPcSeckart());
+                Oyuncu.secilenKartlar(instance.getController().getOyuncu(),
+                        instance.getController().getPc(),
+                        instance.getInsanSeckart(),
+                        instance.getPcSeckart());
                 System.out.println("evet:"+ instance.getInsanSeckart());
-                cardPane.setOpacity(0.7); // Hafif seçili efekti
+                cardPane.setOpacity(0.7);
                 selectedCardCount++;
-                playerOyuncu.getKullanilmisKartlarInsan().add(card); // Kullanılmış kartlara ekle
+//                playerOyuncu.getKullanilmisKartlarInsan().add(card);
+
+                // 3 kart seçildiğinde yapılacak işlemler
+                if (selectedCardCount == 3) {
+                    // Buraya istediğiniz işlemleri ekleyebilirsiniz
+                    // Örneğin:
+                    Platform.runLater(() -> {
+                   //     simulateComputerCardSelection();
+                        instance.getController().getOyuncu().savas(instance.getController().getOyuncu(), instance.getController().getPc(), instance.getController().getInsanSeckart(), instance.getController().getPcSeckart(), countRound);
+                    });
+                }
             }
         } else {
-            // Maksimum kart seçildiğinde kullanıcıyı bilgilendir
             System.out.println("Maksimum 3 kart seçebilirsiniz!");
         }
     }
-
-
-    private void simulateComputerCardSelection() {
-        computerSelectedCardsContainer.getChildren().clear();
-        Random random = new Random();
-
-        // Bilgisayarın 3 kart seçmesi
-        for (int i = 0; i < 3; i++) {
-            if (computerCardsContainer.getChildren().isEmpty()) break;
-
-            int randomIndex = random.nextInt(computerCardsContainer.getChildren().size());
-            StackPane selectedCard = (StackPane) computerCardsContainer.getChildren().get(randomIndex);
-
-            // Seçilen kartı kopyala ve seçili kartlar bölümüne ekle
-            StackPane cardCopy = new StackPane(new ImageView(((ImageView)selectedCard.getChildren().get(0)).getImage()));
-            computerSelectedCardsContainer.getChildren().add(cardCopy);
-        }
-    }
-
     public void setGameLists(Oyuncu playerOyuncu, Oyuncu pcOyuncu) {
         if (playerOyuncu == null || pcOyuncu == null) {
             throw new IllegalArgumentException("Oyuncu nesneleri null olamaz");
