@@ -26,7 +26,6 @@ public class UIController implements Initializable, Dosya_Islemleri {
     @FXML private HBox playerCardsContainer;
     @FXML private HBox playerSelectedCardsContainer;
     @FXML private Button finishButton;
-
     private Controller instance;
     private  int countRound=1;
     private int kontrol=0;
@@ -180,8 +179,10 @@ public class UIController implements Initializable, Dosya_Islemleri {
         cardView.setPreserveRatio(true);
 
         try {
-            String imagePath = isComputer ? "/sample/arka1.png" : "/sample/card3.png";
-            Image image = new Image(getClass().getResourceAsStream(imagePath));
+            Image image = CardImageHelper.getCardImage(
+                    card != null ? card.getClass().getSimpleName() : null,
+                    isComputer
+            );
             cardView.setImage(image);
         } catch (Exception e) {
             System.err.println("Kart resmi yüklenemedi: " + e.getMessage());
@@ -220,5 +221,22 @@ public class UIController implements Initializable, Dosya_Islemleri {
             playerSelectedCardsContainer.getChildren().clear();
             computerSelectedCardsContainer.getChildren().clear();
         });
+    }
+
+}
+class CardImageHelper {
+    public static Image getCardImage(String sinif, boolean isBackface) {
+        if (isBackface) {
+            return new Image(Objects.requireNonNull(CardImageHelper.class.getResourceAsStream("/sample/arka1.png")));
+        }
+
+        try {
+            CardTypes cardType = CardTypes.fromString(sinif);
+            return new Image(Objects.requireNonNull(CardImageHelper.class.getResourceAsStream(cardType.getImagePath())));
+        } catch (Exception e) {
+            System.err.println("Kart resmi yüklenemedi: " + e.getMessage());
+            // Yedek olarak varsayılan kart görselini döndür
+            return new Image(Objects.requireNonNull(CardImageHelper.class.getResourceAsStream("/sample/card3.png")));
+        }
     }
 }

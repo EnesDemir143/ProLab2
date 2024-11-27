@@ -263,5 +263,4 @@ public class Oyuncu implements Dosya_Islemleri {
             System.out.println("devamm");
             return -1;
         }
-
 }
