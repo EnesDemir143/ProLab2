@@ -38,9 +38,7 @@ public class Controller {
         return controller;
     }
 
-    public void setController(Controller controller) {
-        this.controller = controller;
-    }
+
 
     private ArrayList<Savas_Araclari> pcSeckart = new ArrayList<>();
     private ArrayList<Savas_Araclari> insanSeckart = new ArrayList<>();
@@ -99,7 +97,7 @@ public class Controller {
             // Oyun hazırlıklarını arka planda yap
             Task<Void> gameSetupTask = new Task<>() {
                 @Override
-                protected Void call() throws Exception {
+                protected Void call()  {
                     oyuncu.dosyayiSifirla();
                     oyuncu.insanKartListesi(oyuncu);
                     pc.bilgisyarKartListesi(pc);
@@ -137,7 +135,7 @@ public class Controller {
         // Oyun mantığını arka planda çalıştır
         Task<Void> gameTask = new Task<>() {
             @Override
-            protected Void call() throws Exception {
+            protected Void call()  {
                 return null;
             }
         };
@@ -183,9 +181,5 @@ public class Controller {
 
     public ArrayList<Savas_Araclari> getInsanSeckart() {
         return insanSeckart;
-    }
-
-    public void setInsanSeckart(ArrayList<Savas_Araclari> insanSeckart) {
-        this.insanSeckart = insanSeckart;
     }
 }

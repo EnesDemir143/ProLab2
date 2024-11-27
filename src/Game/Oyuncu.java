@@ -144,6 +144,7 @@ public class Oyuncu implements Dosya_Islemleri {
         //insanın saldırısı
 
         for(int i = 0; i < 3; i++) {
+            System.out.println("size bro:"+insanseckart.size());
             if(insanseckart.get(i) instanceof EkstraVurusOzellikleri ekstralar) {
                 int hasar = insanseckart.get(i).getVurus(); // Temel vuruş hasarı
                 // Rakip kartın sınıfına göre avantaj hesaplama
@@ -210,7 +211,7 @@ public class Oyuncu implements Dosya_Islemleri {
     }
 
     public static int savasSonuclari(Oyuncu insan, Oyuncu pc, int tur, int kontrol){
-            if( tur==5 || (insan.getInsanKart().size()==1 || pc.getBilgisayarKart().size()==1) || (kontrol==1) ) {
+            if( tur==8 || (insan.getInsanKart().size()==1 || pc.getBilgisayarKart().size()==1) || (kontrol==1) ) {
                 if(insan.getInsanSkor()>pc.getPcSkor()){
                     System.out.println("sen kazandın");
                     return 2;
@@ -244,6 +245,7 @@ public class Oyuncu implements Dosya_Islemleri {
                 }
             }
             if ( kontrol==0 && (insan.getInsanKart().size()==2 || pc.getBilgisayarKart().size()==2))  {
+                System.out.println("ekstra kartttttt");
                 int x=0;
                 if(pc.getBilgisayarKart().size()==2){
                     pc.getBilgisayarKart().add(pc.kartEkleme(pc));
@@ -261,16 +263,5 @@ public class Oyuncu implements Dosya_Islemleri {
             System.out.println("devamm");
             return -1;
         }
-    public String getKartTipi() {
-        return insanKart.isEmpty() ? "" : insanKart.get(0).getSinif();
-    }
-
-    public int getKartGucu() {
-        return insanKart.isEmpty() ? 0 : insanKart.get(0).getVurus();
-    }
-
-    public int getKartCani() {
-        return insanKart.isEmpty() ? 0 : insanKart.get(0).getDayaniklilik();
-    }
 
 }
