@@ -19,6 +19,7 @@ public class Controller {
     private Stage stage;
     private Oyuncu oyuncu;
     private Oyuncu pc;
+    @FXML private TextField turCount;
 
     private Controller controller=this;
 
@@ -38,7 +39,9 @@ public class Controller {
         return controller;
     }
 
-
+    public TextField getTurCount() {
+        return turCount;
+    }
 
     private ArrayList<Savas_Araclari> pcSeckart = new ArrayList<>();
     private ArrayList<Savas_Araclari> insanSeckart = new ArrayList<>();
@@ -61,39 +64,51 @@ public class Controller {
         username.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER || event.getCode() == KeyCode.DOWN) {
                 level.requestFocus();
+            } else if (event.getCode() == KeyCode.UP) {
+                turCount.requestFocus();
             }
         });
 
         level.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                handleSubmit();
+            if (event.getCode() == KeyCode.ENTER || event.getCode() == KeyCode.DOWN) {
+                turCount.requestFocus();
             } else if (event.getCode() == KeyCode.UP) {
                 username.requestFocus();
+            }
+        });
+
+        turCount.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                if (validateAllFields()) {
+                    handleSubmit();
+                }
+            } else if (event.getCode() == KeyCode.DOWN) {
+                username.requestFocus();
+            } else if (event.getCode() == KeyCode.UP) {
+                level.requestFocus();
             }
         });
     }
 
     @FXML
     private void handleSubmit() {
-        if (!validateInput()) {
-            return;
-        }
-
         try {
             oyuncu.setOyuncu_adi(username.getText());
             oyuncu.setInsanSkor(Integer.parseInt(level.getText()));
+            // Save turn count to wherever you need it in your game logic
             switchToThirdScene();
         } catch (Exception e) {
             showError("Geçersiz giriş! Lütfen kontrol ediniz.");
         }
     }
-
     private void switchToThirdScene() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/sample3.fxml"));
             Scene thirdScene = new Scene(loader.load());
             UIController gameController = loader.getController();
             gameController.setInstance(this);
+            oyuncu.setController(this);
+            pc.setController(this);
             // Oyun hazırlıklarını arka planda yap
             Task<Void> gameSetupTask = new Task<>() {
                 @Override
@@ -158,21 +173,42 @@ public class Controller {
         });
     }
 
-    private boolean validateInput() {
+    private boolean validateAllFields() {
+        // Username validation
         if (username.getText().trim().isEmpty()) {
             showError("Kullanıcı adı boş olamaz!");
             return false;
         }
 
+        // Level validation
         if (level.getText().trim().isEmpty()) {
             showError("Seviye boş olamaz!");
             return false;
         }
-
         try {
-            Integer.parseInt(level.getText());
+            int levelValue = Integer.parseInt(level.getText());
+            if (levelValue < 0) {
+                showError("Seviye pozitif bir değer olmalıdır!");
+                return false;
+            }
         } catch (NumberFormatException e) {
             showError("Seviye sayısal bir değer olmalıdır!");
+            return false;
+        }
+
+        // Turn count validation
+        if (turCount.getText().trim().isEmpty()) {
+            showError("Tur sayısı boş olamaz!");
+            return false;
+        }
+        try {
+            int turns = Integer.parseInt(turCount.getText());
+            if (turns < 1 || turns > 15) {
+                showError("Tur sayısı 1 ile 15 arasında olmalıdır!");
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            showError("Tur sayısı sayısal bir değer olmalıdır!");
             return false;
         }
 

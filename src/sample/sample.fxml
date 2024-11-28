@@ -19,11 +19,11 @@
       </ImageView>
 
       <!-- Ana VBox container -->
-      <VBox alignment="CENTER" spacing="10"> <!-- Spacing 10 yapıldı -->
+      <VBox alignment="CENTER" spacing="10">
          <children>
             <!-- Kullanıcı Adı HBox -->
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="450.0"
-                  style="-fx-background-color: rgba(255, 255, 255, 0.5); /* Daha saydam */
+                  style="-fx-background-color: rgba(255, 255, 255, 0.5);
                          -fx-background-radius: 12;
                          -fx-border-color: rgba(0, 0, 0, 0.1);
                          -fx-border-radius: 12;
@@ -38,7 +38,7 @@
                   </Label>
                   <TextField fx:id="username" nodeOrientation="LEFT_TO_RIGHT"
                              prefHeight="40.0" prefWidth="270.0"
-                             style="-fx-background-color: rgba(255, 255, 255, 0.4); /* Daha saydam */
+                             style="-fx-background-color: rgba(255, 255, 255, 0.4);
                                    -fx-background-radius: 8;
                                    -fx-border-color: rgba(52, 73, 94, 0.2);
                                    -fx-border-radius: 8;
@@ -54,7 +54,7 @@
 
             <!-- Level HBox -->
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="450.0"
-                  style="-fx-background-color: rgba(255, 255, 255, 0.5); /* Daha saydam */
+                  style="-fx-background-color: rgba(255, 255, 255, 0.5);
                          -fx-background-radius: 12;
                          -fx-border-color: rgba(0, 0, 0, 0.1);
                          -fx-border-radius: 12;
@@ -69,7 +69,38 @@
                   </Label>
                   <TextField fx:id="level" nodeOrientation="LEFT_TO_RIGHT"
                              prefHeight="40.0" prefWidth="270.0"
-                             style="-fx-background-color: rgba(255, 255, 255, 0.4); /* Daha saydam */
+                             style="-fx-background-color: rgba(255, 255, 255, 0.4);
+                                   -fx-background-radius: 8;
+                                   -fx-border-color: rgba(52, 73, 94, 0.2);
+                                   -fx-border-radius: 8;
+                                   -fx-font-size: 22;
+                                   -fx-prompt-text-fill: #95A5A6;
+                                   -fx-padding: 5;">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+
+            <!-- Tur Sayısı HBox -->
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="450.0"
+                  style="-fx-background-color: rgba(255, 255, 255, 0.5);
+                         -fx-background-radius: 12;
+                         -fx-border-color: rgba(0, 0, 0, 0.1);
+                         -fx-border-radius: 12;
+                         -fx-padding: 5 15;">
+               <children>
+                  <Label prefHeight="40.0" prefWidth="160.0" text="Tur Sayısı:"
+                         style="-fx-text-fill: #34495E;
+                                -fx-padding: 0 10 0 0;">
+                     <font>
+                        <Font name="System Bold" size="28.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="turCount" nodeOrientation="LEFT_TO_RIGHT"
+                             prefHeight="40.0" prefWidth="270.0"
+                             style="-fx-background-color: rgba(255, 255, 255, 0.4);
                                    -fx-background-radius: 8;
                                    -fx-border-color: rgba(52, 73, 94, 0.2);
                                    -fx-border-radius: 8;
@@ -83,7 +114,6 @@
                </children>
             </HBox>
          </children>
-         <!-- Alt tarafa sabitlenmiş ve yatayda ortalanmış -->
          <AnchorPane.bottomAnchor>50.0</AnchorPane.bottomAnchor>
          <AnchorPane.leftAnchor>290.0</AnchorPane.leftAnchor>
          <AnchorPane.rightAnchor>290.0</AnchorPane.rightAnchor>

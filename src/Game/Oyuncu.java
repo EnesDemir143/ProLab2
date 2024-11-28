@@ -8,16 +8,18 @@ import Veri_Modelleri.Savas_Araclari_Modeli.Hava_Araclari_Modeli.Ucak;
 import Veri_Modelleri.Savas_Araclari_Modeli.Kara_Araclari_Modeli.KFS;
 import Veri_Modelleri.Savas_Araclari_Modeli.Kara_Araclari_Modeli.Obus;
 import Veri_Modelleri.Savas_Araclari_Modeli.Savas_Araclari;
+import sample.Controller;
+
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Oyuncu implements Dosya_Islemleri {
     private  String  oyuncu_id;
     private  String oyuncu_adi;
     private int insanSkor;
     private int pcSkor;
+    private Controller instance;
    private  ArrayList<Savas_Araclari> insanKart = new ArrayList<>();
    private  ArrayList<Savas_Araclari> bilgisayarKart = new ArrayList<>();
    private ArrayList<Savas_Araclari>kullanilmisKartlarInsan = new ArrayList<>();
@@ -29,6 +31,20 @@ public class Oyuncu implements Dosya_Islemleri {
 
     public ArrayList<Savas_Araclari> getKullanilmisKartlarPc() {
         return kullanilmisKartlarPc;
+    }
+    // Setter method to set the controller
+    public void setController(Controller controller) {
+        this.instance = controller;
+    }
+    public int getTurnCount() {
+        if (instance != null && instance.getTurCount() != null) {
+            try {
+                return Integer.parseInt(instance.getTurCount().getText());
+            } catch (NumberFormatException e) {
+                return 10; // Default value
+            }
+        }
+        return 10; // Default value if controller is null
     }
 
     public Oyuncu() {
@@ -208,7 +224,7 @@ public class Oyuncu implements Dosya_Islemleri {
     }
 
     public static int savasSonuclari(Oyuncu insan, Oyuncu pc, int tur, int kontrol){
-            if( tur==8 || (insan.getInsanKart().size()==1 || pc.getBilgisayarKart().size()==1) || (kontrol==1) ) {
+            if( tur==insan.getTurnCount() || (insan.getInsanKart().size()==1 || pc.getBilgisayarKart().size()==1) || (kontrol==1) ) {
                 if(insan.getInsanSkor()>pc.getPcSkor()){
                     System.out.println("sen kazandın");
                     return 2;
