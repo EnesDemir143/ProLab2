@@ -37,7 +37,6 @@ public class UIController implements Initializable, Dosya_Islemleri {
     @FXML private Button finishButton;
     @FXML private Label playerScoreLabel;
     @FXML private Label computerScoreLabel;
-
     private Controller instance;
     private int countRound = 1;
     private int kontrol = 0;
@@ -298,7 +297,6 @@ public class UIController implements Initializable, Dosya_Islemleri {
             showWarningAlert("Hata", "Bu kart daha önce kullanılmış. Önce hiç kullanılmamış olan kartlardan seçin!");
             return;
         }
-
         if (playerSelectedCardsContainer.getChildren().contains(cardPane)) {
             deselectCard(cardPane, card);
         } else if (selectedCardCount < 3) {
@@ -485,6 +483,7 @@ public class UIController implements Initializable, Dosya_Islemleri {
             createComputerCards();
             selectedCardCount = 0;
             selectedCardIndex = 0;
+            Oyuncu.setSelect(0);
             selectedToOriginalMap.clear();
             playerSelectedCardsContainer.getChildren().clear();
             computerSelectedCardsContainer.getChildren().clear();

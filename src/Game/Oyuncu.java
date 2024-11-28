@@ -20,6 +20,7 @@ public class Oyuncu implements Dosya_Islemleri {
     private int insanSkor;
     private int pcSkor;
     private Controller instance;
+    private static int select=0;
    private  ArrayList<Savas_Araclari> insanKart = new ArrayList<>();
    private  ArrayList<Savas_Araclari> bilgisayarKart = new ArrayList<>();
    private ArrayList<Savas_Araclari>kullanilmisKartlarInsan = new ArrayList<>();
@@ -36,6 +37,11 @@ public class Oyuncu implements Dosya_Islemleri {
     public void setController(Controller controller) {
         this.instance = controller;
     }
+
+    public static void setSelect(int select) {
+        Oyuncu.select = select;
+    }
+
     public int getTurnCount() {
         if (instance != null && instance.getTurCount() != null) {
             try {
@@ -141,17 +147,20 @@ public class Oyuncu implements Dosya_Islemleri {
 
     public  int kartSec(Oyuncu oyuncu,ArrayList<Savas_Araclari> pcseckart,ArrayList<Savas_Araclari> insanseckart){
         if(oyuncu.oyuncu_adi.equals("Bilgisayar")){
+            System.out.println("saaassafadfafasfdad");
             Random rand = new Random();
             int secim;
             do {
                 secim = rand.nextInt(oyuncu.getBilgisayarKart().size());
             } while (oyuncu.getKullanilmisKartlarPc().contains(oyuncu.getBilgisayarKart().get(secim)) && kullanilmisKartlarPc.size() != getBilgisayarKart().size());
-
+            if(!pcseckart.contains(oyuncu.getBilgisayarKart().get(secim))){
+                return  secim;
+            }else{
             while (pcseckart.contains(oyuncu.getBilgisayarKart().get(secim))){
                 secim = rand.nextInt(oyuncu.getBilgisayarKart().size());
             }
             return secim;
-        }else{
+        }}else{
             return -1;
         }
     }
@@ -219,8 +228,9 @@ public class Oyuncu implements Dosya_Islemleri {
         }
         if(pcSeckart.size()<3) {
             pcSeckart.add(pc.getBilgisayarKart().get(pc.kartSec(pc, pcSeckart, insanseckart)));
-            if (pc.getKullanilmisKartlarPc().contains(pcSeckart.get(selectedCardIndex))) {
-                pc.getKullanilmisKartlarPc().add(pcSeckart.get(selectedCardIndex));
+            if (!pc.getKullanilmisKartlarPc().contains(pcSeckart.get(select))) {
+                pc.getKullanilmisKartlarPc().add(pcSeckart.get(select));
+                select++;
             }
         }
     }
