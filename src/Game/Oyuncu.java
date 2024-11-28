@@ -217,9 +217,11 @@ public class Oyuncu implements Dosya_Islemleri {
         if (!insan.getKullanilmisKartlarInsan().contains(insanseckart.get(selectedCardIndex))){
             insan.getKullanilmisKartlarInsan().add(insanseckart.get(selectedCardIndex));
         }
-        pcSeckart.add(pc.getBilgisayarKart().get(pc.kartSec(pc,pcSeckart,insanseckart)));
-        if (pc.getKullanilmisKartlarPc().contains(pcSeckart.get(selectedCardIndex))){
-            pc.getKullanilmisKartlarPc().add(pcSeckart.get(selectedCardIndex));
+        if(pcSeckart.size()<3) {
+            pcSeckart.add(pc.getBilgisayarKart().get(pc.kartSec(pc, pcSeckart, insanseckart)));
+            if (pc.getKullanilmisKartlarPc().contains(pcSeckart.get(selectedCardIndex))) {
+                pc.getKullanilmisKartlarPc().add(pcSeckart.get(selectedCardIndex));
+            }
         }
     }
 

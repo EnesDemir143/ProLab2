@@ -47,7 +47,7 @@
                            -fx-font-size: 16;
                            -fx-background-radius: 20;
                            -fx-padding: 10 20;"
-                    prefWidth="120" prefHeight="40" />
+                    prefWidth="200" prefHeight="40" />
         </VBox>
     </children>
 </AnchorPane>
