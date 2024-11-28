@@ -13,6 +13,7 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -26,6 +27,7 @@ import javafx.scene.effect.Glow;
 
 import java.net.URL;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class UIController implements Initializable, Dosya_Islemleri {
     @FXML private HBox computerCardsContainer;
@@ -77,7 +79,17 @@ public class UIController implements Initializable, Dosya_Islemleri {
             showComputerSelectedCards();
             Platform.runLater(this::performBattle);
         } else {
-            animateCardBattle(() -> proceedToNextRound());
+            // Animasyonları başlat ve callback ile oyun bitişini kontrol et
+            animateCardBattle(() -> {
+                if (isGameOver()) {
+                    // Animasyonlar bittikten 1 saniye sonra oyun bitişi işle
+                    PauseTransition pause = new PauseTransition(Duration.seconds(0));
+                    pause.setOnFinished(event -> handleGameOver());
+                    pause.play();
+                } else {
+                    proceedToNextRound(); // Yeni tur başlat
+                }
+            });
         }
     }
 
@@ -109,98 +121,162 @@ public class UIController implements Initializable, Dosya_Islemleri {
                 instance.getController().getOyuncu().getInsanKart(),
                 instance.getController().getPc().getBilgisayarKart());
 
-        if (isGameOver()) {
-            handleGameOver();
-        }
 
         finishButton.setText("Savaş");
         updateScores();
     }
     private void animateCardBattle(Runnable onComplete) {
-        Timeline timeline = new Timeline();
-
         List<Node> playerCards = new ArrayList<>(playerSelectedCardsContainer.getChildren());
         List<Node> computerCards = new ArrayList<>(computerSelectedCardsContainer.getChildren());
 
-        Map<Node, Point2D> originalPositions = new HashMap<>();
-        playerCards.forEach(card -> originalPositions.put(card, new Point2D(card.getTranslateX(), card.getTranslateY())));
-        computerCards.forEach(card -> originalPositions.put(card, new Point2D(card.getTranslateX(), card.getTranslateY())));
-
-        for (int i = 0; i < Math.min(playerCards.size(), computerCards.size()); i++) {
-            Node playerCard = playerCards.get(i);
-            Node computerCard = computerCards.get(i);
-
-            // Add dramatic battle animations
-            KeyFrame playerAttack = new KeyFrame(Duration.millis(400),
-                    new KeyValue(playerCard.translateYProperty(), -80),
-                    new KeyValue(playerCard.rotateProperty(), -25),
-                    new KeyValue(playerCard.scaleXProperty(), 1.2),
-                    new KeyValue(playerCard.scaleYProperty(), 1.2),
-                    new KeyValue(playerCard.opacityProperty(), 0.7)
-            );
-
-            KeyFrame computerAttack = new KeyFrame(Duration.millis(400),
-                    new KeyValue(computerCard.translateYProperty(), 80),
-                    new KeyValue(computerCard.rotateProperty(), 25),
-                    new KeyValue(computerCard.scaleXProperty(), 1.2),
-                    new KeyValue(computerCard.scaleYProperty(), 1.2),
-                    new KeyValue(computerCard.opacityProperty(), 0.7)
-            );
-
-            KeyFrame playerReturn = new KeyFrame(Duration.millis(600),
-                    new KeyValue(playerCard.translateYProperty(), originalPositions.get(playerCard).getY()),
-                    new KeyValue(playerCard.rotateProperty(), 0),
-                    new KeyValue(playerCard.scaleXProperty(), 1),
-                    new KeyValue(playerCard.scaleYProperty(), 1),
-                    new KeyValue(playerCard.opacityProperty(), 1)
-            );
-
-            KeyFrame computerReturn = new KeyFrame(Duration.millis(600),
-                    new KeyValue(computerCard.translateYProperty(), originalPositions.get(computerCard).getY()),
-                    new KeyValue(computerCard.rotateProperty(), 0),
-                    new KeyValue(computerCard.scaleXProperty(), 1),
-                    new KeyValue(computerCard.scaleYProperty(), 1),
-                    new KeyValue(computerCard.opacityProperty(), 1)
-            );
-
-            // Clash effect with vibration
-            KeyFrame clashEffect = new KeyFrame(Duration.millis(450), event -> {
-                Timeline vibeTimeline = new Timeline(
-                        new KeyFrame(Duration.millis(50),
-                                new KeyValue(playerCard.translateXProperty(), -5),
-                                new KeyValue(computerCard.translateXProperty(), 5)
-                        ),
-                        new KeyFrame(Duration.millis(100),
-                                new KeyValue(playerCard.translateXProperty(), 5),
-                                new KeyValue(computerCard.translateXProperty(), -5)
-                        ),
-                        new KeyFrame(Duration.millis(150),
-                                new KeyValue(playerCard.translateXProperty(), 0),
-                                new KeyValue(computerCard.translateXProperty(), 0)
-                        )
-                );
-                vibeTimeline.play();
+        if (playerCards.isEmpty() || computerCards.isEmpty()) {
+            Platform.runLater(() -> {
+                PauseTransition finalPause = new PauseTransition(Duration.seconds(1));
+                finalPause.setOnFinished(event -> onComplete.run());
+                finalPause.play();
             });
-
-            timeline.getKeyFrames().addAll(playerAttack, computerAttack, clashEffect, playerReturn, computerReturn);
+            return;
         }
 
-        timeline.setOnFinished(event -> {
-            playerSelectedCardsContainer.setEffect(new Glow(0.8));
-            computerSelectedCardsContainer.setEffect(new Glow(0.8));
+        int cardCount = Math.min(playerCards.size(), computerCards.size());
+        final AtomicInteger battleIndex = new AtomicInteger(0);
 
-            PauseTransition pause = new PauseTransition(Duration.millis(200));
-            pause.setOnFinished(e -> {
-                playerSelectedCardsContainer.setEffect(null);
-                computerSelectedCardsContainer.setEffect(null);
-                onComplete.run();
-            });
-            pause.play();
-        });
+        Runnable performCardBattle = new Runnable() {
+            @Override
+            public void run() {
+                if (battleIndex.get() < cardCount) {
+                    int currentIndex = battleIndex.getAndIncrement();
 
-        timeline.play();
+                    if (currentIndex >= playerCards.size() || currentIndex >= computerCards.size()) {
+                        finishBattle();
+                        return;
+                    }
+
+                    Node playerCard = playerCards.get(currentIndex);
+                    Node computerCard = computerCards.get(currentIndex);
+
+                    Timeline cardBattleTimeline = new Timeline();
+
+                    // Attack animation
+                    KeyFrame playerAttack = new KeyFrame(Duration.millis(400),
+                            new KeyValue(playerCard.translateYProperty(), -80),
+                            new KeyValue(playerCard.rotateProperty(), -25),
+                            new KeyValue(playerCard.scaleXProperty(), 1.2),
+                            new KeyValue(playerCard.scaleYProperty(), 1.2)
+                    );
+
+                    KeyFrame computerAttack = new KeyFrame(Duration.millis(400),
+                            new KeyValue(computerCard.translateYProperty(), 80),
+                            new KeyValue(computerCard.rotateProperty(), 25),
+                            new KeyValue(computerCard.scaleXProperty(), 1.2),
+                            new KeyValue(computerCard.scaleYProperty(), 1.2)
+                    );
+
+                    KeyFrame resetPlayerCard = new KeyFrame(Duration.millis(800),
+                            new KeyValue(playerCard.translateYProperty(), 0, Interpolator.EASE_BOTH),
+                            new KeyValue(playerCard.rotateProperty(), 0, Interpolator.EASE_BOTH),
+                            new KeyValue(playerCard.scaleXProperty(), 1, Interpolator.EASE_BOTH),
+                            new KeyValue(playerCard.scaleYProperty(), 1, Interpolator.EASE_BOTH)
+                    );
+
+                    KeyFrame resetComputerCard = new KeyFrame(Duration.millis(800),
+                            new KeyValue(computerCard.translateYProperty(), 0, Interpolator.EASE_BOTH),
+                            new KeyValue(computerCard.rotateProperty(), 0, Interpolator.EASE_BOTH),
+                            new KeyValue(computerCard.scaleXProperty(), 1, Interpolator.EASE_BOTH),
+                            new KeyValue(computerCard.scaleYProperty(), 1, Interpolator.EASE_BOTH)
+                    );
+
+                    // Impact effect
+                    KeyFrame clashEffect = new KeyFrame(Duration.millis(450), event -> {
+                        boolean playerCardEliminated = safelyCheckCardElimination(currentIndex, true);
+                        boolean computerCardEliminated = safelyCheckCardElimination(currentIndex, false);
+
+                        if (playerCardEliminated) {
+                            createCardEliminationAnimation(playerCard, playerSelectedCardsContainer, currentIndex);
+                        }
+
+                        if (computerCardEliminated) {
+                            createCardEliminationAnimation(computerCard, computerSelectedCardsContainer, currentIndex);
+                        }
+
+                        // Schedule next battle or final transition
+                        PauseTransition pause = new PauseTransition(Duration.seconds(1));
+                        pause.setOnFinished(e -> run());
+                        pause.play();
+                    });
+
+                    cardBattleTimeline.getKeyFrames().addAll(playerAttack, computerAttack, resetPlayerCard, resetComputerCard, clashEffect);
+                    cardBattleTimeline.play();
+                } else {
+                    PauseTransition finalPause = new PauseTransition(Duration.seconds(1));
+                    finalPause.setOnFinished(event -> onComplete.run());
+                    finalPause.play();
+                }
+            }
+
+            private void finishBattle() {
+                PauseTransition finalPause = new PauseTransition(Duration.seconds(1));
+                finalPause.setOnFinished(event -> onComplete.run());
+                finalPause.play();
+            }
+        };
+
+        // Start the first battle
+        performCardBattle.run();
     }
 
+    // Yeni kart eleme animasyonu - konumu korur
+    private void createCardEliminationAnimation(Node card, HBox container, int index) {
+        // Kartın mevcut konumunu koruyarak şeffaflığını azalt
+        FadeTransition fadeOut = new FadeTransition(Duration.millis(500), card);
+        fadeOut.setFromValue(1.0);
+        fadeOut.setToValue(0.0);
+
+        // Kartı yok et ama yerini boş bırak
+        fadeOut.setOnFinished(event -> {
+            Platform.runLater(() -> {
+                // Kartı şeffaf ve etkisiz hale getir
+                card.setOpacity(0);
+                card.setMouseTransparent(true);
+
+                // Konteynerdeki diğer kartların yerini değiştirme
+                container.getChildren().set(index, createPlaceholderNode());
+            });
+        });
+
+        fadeOut.play();
+    }
+
+    // Boş kart için yer tutucu oluştur
+    private Node createPlaceholderNode() {
+        Pane placeholderPane = new Pane();
+        placeholderPane.setMinSize(120, 180);  // Orijinal kart boyutu
+        placeholderPane.setMaxSize(120, 180);
+        placeholderPane.setStyle("-fx-background-color: transparent;");
+        return placeholderPane;
+    }
+
+    // Güvenli kart eleme kontrolü (önceki örnekteki gibi)
+    private boolean safelyCheckCardElimination(int cardIndex, boolean isPlayerCard) {
+        try {
+            List<Savas_Araclari> playerCards = instance.getInsanSeckart();
+            List<Savas_Araclari> computerCards = instance.getPcSeckart();
+
+            if (playerCards == null || computerCards == null ||
+                    cardIndex >= playerCards.size() || cardIndex >= computerCards.size()) {
+                return false;
+            }
+
+            if (isPlayerCard) {
+                return playerCards.get(cardIndex).getDayaniklilik() <= 0;
+            } else {
+                return computerCards.get(cardIndex).getDayaniklilik() <= 0;
+            }
+        } catch (Exception e) {
+            System.err.println("Kart eleme kontrolünde hata: " + e.getMessage());
+            return false;
+        }
+    }
     private void proceedToNextRound() {
         cardsConfirmed = false;
         instance.getController().getPcSeckart().clear();
@@ -285,15 +361,21 @@ public class UIController implements Initializable, Dosya_Islemleri {
     }
 
     private boolean isGameOver() {
-        return kontrol == 3 || kontrol == 4 || kontrol == 5 || kontrol == 6 || kontrol == 2;
+        boolean maxRoundsReached = countRound == instance.getController().getOyuncu().getTurnCount(); // Max tur sayısını kontrol et
+        return maxRoundsReached || kontrol == 3 || kontrol == 4 || kontrol == 5 || kontrol == 6 || kontrol == 2;
     }
 
     private void handleGameOver() {
         instance.getController().getOyuncu().savasSonucu(
                 instance.getController().getOyuncu(),
                 instance.getController().getPc());
+
         finishButton.setDisable(true);
-        showGameOverDialog();
+
+        // 1 saniyelik bir bekleme ekliyoruz
+        PauseTransition pause = new PauseTransition(Duration.seconds(1));
+        pause.setOnFinished(event -> showGameOverDialog());
+        pause.play();
     }
 
     private void showGameOverDialog() {
@@ -307,7 +389,7 @@ public class UIController implements Initializable, Dosya_Islemleri {
         ));
         alert.setOnHidden(e -> Platform.runLater(() ->
                 finishButton.getScene().getWindow().hide()));
-        alert.showAndWait();
+        alert.show();
     }
 
     public void setGameLists(Oyuncu playerOyuncu, Oyuncu pcOyuncu) {
