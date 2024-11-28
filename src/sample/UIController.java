@@ -3,6 +3,9 @@ package sample;
 import Game.Dosya_Islemleri;
 import Game.Oyuncu;
 import Veri_Modelleri.Savas_Araclari_Modeli.Savas_Araclari;
+import javafx.animation.FillTransition;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -17,6 +20,9 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.fxml.Initializable;
+import javafx.scene.shape.Circle;
+import javafx.util.Duration;
+
 import java.net.URL;
 import java.util.*;
 
@@ -29,6 +35,11 @@ public class UIController implements Initializable, Dosya_Islemleri {
     private Controller instance;
     private  int countRound=1;
     private int kontrol=0;
+    private int selectedCardIndex = 0;
+    @FXML
+    private Label playerScoreLabel;
+    @FXML
+    private Label computerScoreLabel;
     public void setInstance(Controller instance) {
         this.instance = instance;
     }
@@ -40,12 +51,15 @@ public class UIController implements Initializable, Dosya_Islemleri {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+   //     playerScoreLabel.setText("Oyuncu Skoru: 0");
+     //   computerScoreLabel.setText("Bilgisayar Skoru: 0");
         System.out.println("UIController initialized");
         assert computerCardsContainer != null : "computerCardsContainer FXML yüklenemedi";
         assert playerCardsContainer != null : "playerCardsContainer FXML yüklenemedi";
         assert computerSelectedCardsContainer != null : "computerSelectedCardsContainer FXML yüklenemedi";
         assert playerSelectedCardsContainer != null : "playerSelectedCardsContainer FXML yüklenemedi";
         if (finishButton != null) {
+            finishButton.setDisable(true);
             finishButton.setOnAction(e -> {
                 // Önce kart savaşlarını gerçekleştir
                 Oyuncu.kartSavaslari(instance.getController().getOyuncu(),
@@ -112,31 +126,67 @@ public class UIController implements Initializable, Dosya_Islemleri {
     }
 
     private void handleCardClick(StackPane cardPane, Savas_Araclari card) {
-        if (playerOyuncu.getKullanilmisKartlarInsan().contains(card) && playerOyuncu.getKullanilmisKartlarInsan().size()!=instance.getOyuncu().getInsanKart().size()) {
-            System.out.println(playerOyuncu.getKullanilmisKartlarInsan().size());
-            System.out.println(instance.getOyuncu().getInsanKart().size());
+        if (selectedCardCount!=3){
+            finishButton.setDisable(true);
+        }
+        if (playerOyuncu.getKullanilmisKartlarInsan().contains(card)
+                && playerOyuncu.getKullanilmisKartlarInsan().size() != instance.getOyuncu().getInsanKart().size()
+                && !playerSelectedCardsContainer.getChildren().contains(cardPane)) {
             System.out.println("Bu kart daha önce kullanılmış. Başka bir kart seçin!");
             return;
         }
+
+        // Initially disable the finish button
+
         if (playerSelectedCardsContainer.getChildren().contains(cardPane)) {
             playerSelectedCardsContainer.getChildren().remove(cardPane);
             playerCardsContainer.getChildren().add(cardPane);
             cardPane.setOpacity(1.0);
             selectedCardCount--;
+
+            // Kartı kullanılmış kartlardan ve seçilen kartlardan çıkar
+            playerOyuncu.getKullanilmisKartlarInsan().remove(card);
+            instance.getController().getInsanSeckart().remove(card);
+            selectedCardIndex--;
+            if (selectedCardCount!=3){
+                finishButton.setDisable(true);
+            }
+
         } else if (selectedCardCount < 3) {
             if (playerCardsContainer.getChildren().contains(cardPane)) {
                 playerCardsContainer.getChildren().remove(cardPane);
                 playerSelectedCardsContainer.getChildren().add(cardPane);
                 instance.getInsanSeckart().add(card);
-                Oyuncu.secilenKartlar(instance.getController().getOyuncu(),
+
+                // Kart seçme işlemini yap, güncel selectedCardIndex'i kullan
+                Oyuncu.secilenKartlar(
+                        instance.getController().getOyuncu(),
                         instance.getController().getPc(),
                         instance.getInsanSeckart(),
-                        instance.getPcSeckart());
+                        instance.getPcSeckart(),
+                        selectedCardIndex
+                );
+
                 cardPane.setOpacity(0.7);
-                selectedCardCount++;
+                if (selectedCardCount < 3) {
+                    selectedCardIndex++;
+                    selectedCardCount++;
+                }
+                if (selectedCardCount!=3){
+                    finishButton.setDisable(true);
+                }
+                // Enable finish button only when 3 cards are selected
                 if (selectedCardCount == 3) {
+                    finishButton.setDisable(false);
+
                     Platform.runLater(() -> {
-                        instance.getController().getOyuncu().savas(instance.getController().getOyuncu(), instance.getController().getPc(), instance.getController().getInsanSeckart(), instance.getController().getPcSeckart(), countRound);
+                        instance.getController().getOyuncu().savas(
+                                instance.getController().getOyuncu(),
+                                instance.getController().getPc(),
+                                instance.getController().getInsanSeckart(),
+                                instance.getController().getPcSeckart(),
+                                countRound
+                        );
                     });
                 }
             }
@@ -153,6 +203,8 @@ public class UIController implements Initializable, Dosya_Islemleri {
         this.pcOyuncu = pcOyuncu;
 
         Platform.runLater(() -> {
+            playerScoreLabel.setText("Oyuncu Skoru: " + playerOyuncu.getInsanSkor());
+            computerScoreLabel.setText("Bilgisayar Skoru: " + pcOyuncu.getPcSkor());
             createPlayerCards();
             createComputerCards();
         });
@@ -189,23 +241,40 @@ public class UIController implements Initializable, Dosya_Islemleri {
         }
 
         if (!isComputer && card != null) {
+            // Health Circle
+            Circle healthCircle = new Circle(15); // 15 pixel radius
+            healthCircle.setFill(Color.RED);
+
+            // Health Label inside the circle
+            Label healthLabel = new Label(String.valueOf(card.getDayaniklilik()));
+            healthLabel.setStyle("-fx-text-fill: white; -fx-font-weight: bold;");
+
+            // StackPane to center the label in the circle
+            StackPane healthIndicator = new StackPane(healthCircle, healthLabel);
+
             VBox details = new VBox(3);
             details.setAlignment(Pos.BOTTOM_CENTER);
 
-            Label typeLabel = new Label(card.getSinif());
-            Label strengthLabel = new Label("Güç: " + card.getVurus());
-            Label healthLabel = new Label("Can: " + card.getDayaniklilik());
+           // Label typeLabel = new Label(card.getSinif());
+          //  Label strengthLabel = new Label("Güç: " + card.getVurus());
+           // Label healthDetailsLabel = new Label("Can: " + card.getDayaniklilik());
 
-            typeLabel.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 10px;");
-            strengthLabel.setStyle("-fx-text-fill: white; -fx-font-size: 9px;");
-            healthLabel.setStyle("-fx-text-fill: white; -fx-font-size: 9px;");
+         //   typeLabel.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 10px;");
+           // strengthLabel.setStyle("-fx-text-fill: white; -fx-font-size: 9px;");
+            //healthDetailsLabel.setStyle("-fx-text-fill: white; -fx-font-size: 9px;");
 
-            details.getChildren().addAll(typeLabel, strengthLabel, healthLabel);
-            cardPane.getChildren().addAll(cardView, details);
+           // details.getChildren().addAll(typeLabel, strengthLabel, healthDetailsLabel);
 
             // Hover Effects
             cardView.setOnMouseEntered(e -> cardPane.setEffect(new DropShadow(10, Color.YELLOW)));
             cardView.setOnMouseExited(e -> cardPane.setEffect(null));
+
+            // Create a VBox to stack the health indicator above the card
+            VBox cardLayout = new VBox(5); // 5 is the spacing between health indicator and card
+            cardLayout.setAlignment(Pos.CENTER);
+            cardLayout.getChildren().addAll(healthIndicator, cardView, details);
+
+            cardPane.getChildren().add(cardLayout);
         } else {
             cardPane.getChildren().add(cardView);
         }
@@ -217,12 +286,25 @@ public class UIController implements Initializable, Dosya_Islemleri {
             createPlayerCards();
             createComputerCards();
             selectedCardCount = 0;
+            selectedCardIndex = 0;
             selectedToOriginalMap.clear();
             playerSelectedCardsContainer.getChildren().clear();
             computerSelectedCardsContainer.getChildren().clear();
+            finishButton.setDisable(true);
+            playerScoreLabel.setText("Oyuncu Skoru: " + playerOyuncu.getInsanSkor());
+            computerScoreLabel.setText("Bilgisayar Skoru: " + pcOyuncu.getPcSkor());
         });
     }
-
+    private void animateHealthIndicator(Label healthIndicator) {
+        // Create a timeline to make the health indicator blink
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.ZERO, evt -> healthIndicator.setVisible(true)),
+                new KeyFrame(Duration.seconds(0.5), evt -> healthIndicator.setVisible(false)),
+                new KeyFrame(Duration.seconds(1), evt -> healthIndicator.setVisible(true))
+        );
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+    }
 }
 class CardImageHelper {
     public static Image getCardImage(String sinif, boolean isBackface) {
@@ -239,4 +321,6 @@ class CardImageHelper {
             return new Image(Objects.requireNonNull(CardImageHelper.class.getResourceAsStream("/sample/card3.png")));
         }
     }
+
+
 }

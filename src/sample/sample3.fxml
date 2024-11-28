@@ -1,23 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
 
-<AnchorPane prefHeight="1080.0" prefWidth="1080.0" style="-fx-background-image: url('/sample/backGraund.png'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/17.0.13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.UIController">
+<AnchorPane prefHeight="1080.0" prefWidth="1080.0" style="-fx-background-image: url('/sample/backGraund.png'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/17.0.13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.UIController" stylesheets="@styles.css">
     <children>
-        <!-- Bilgisayar kartları -->
+        <!-- Bilgisayar kartları ve skor -->
         <VBox alignment="CENTER" spacing="20" AnchorPane.topAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <!-- Bilgisayar Skoru -->
+            <StackPane>
+                <Label fx:id="computerScoreLabel"
+                       style="-fx-background-color: rgba(0, 0, 0, 0.7);
+                              -fx-text-fill: white;
+                              -fx-padding: 10 20;
+                              -fx-background-radius: 15;
+                              -fx-font-size: 18;
+                              -fx-font-weight: bold;"
+                       text="Bilgisayar Skoru: 0" />
+            </StackPane>
             <HBox fx:id="computerCardsContainer" alignment="CENTER" prefHeight="150.0" spacing="10" />
             <HBox fx:id="computerSelectedCardsContainer" alignment="CENTER" prefHeight="150.0" spacing="10" />
         </VBox>
 
-        <!-- Oyuncu kartları ve seçili kartlar -->
+        <!-- Oyuncu kartları, seçili kartlar ve skor -->
         <VBox alignment="CENTER" spacing="20" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <HBox fx:id="playerSelectedCardsContainer" alignment="CENTER" prefHeight="150.0" spacing="10"/>
             <HBox fx:id="playerCardsContainer" alignment="CENTER" prefHeight="150.0" spacing="10"/>
-            <Button fx:id="finishButton" text="Bitir" styleClass="game-button" prefWidth="120" prefHeight="40" />
+            <!-- Oyuncu Skoru -->
+            <StackPane>
+                <Label fx:id="playerScoreLabel"
+                       style="-fx-background-color: rgba(0, 0, 0, 0.7);
+                              -fx-text-fill: white;
+                              -fx-padding: 10 20;
+                              -fx-background-radius: 15;
+                              -fx-font-size: 18;
+                              -fx-font-weight: bold;"
+                       text="Oyuncu Skoru: 0" />
+            </StackPane>
+            <Button fx:id="finishButton" text="Bitir"
+                    style="-fx-background-color: #4CAF50;
+                           -fx-text-fill: white;
+                           -fx-font-size: 16;
+                           -fx-background-radius: 20;
+                           -fx-padding: 10 20;"
+                    prefWidth="120" prefHeight="40" />
         </VBox>
     </children>
 </AnchorPane>

@@ -1,12 +1,12 @@
 package sample;
 
 public enum CardTypes {
-    TANK("card3.png"),
-    HELICOPTER("card3.png"),
-    FIGHTER_JET("card3.png"),
-    BATTLESHIP("card3.png"),
-    SUBMARINE("card3.png"),
-    ARTILLERY("card3.png");
+    OBUS("Obus.jpeg"),
+    SIHA("Siha.jpeg"),
+    UCAK("Ucak.jpeg"),
+    FIRKATEYN("Firkateyn.jpeg"),
+    SIDA("Sida.jpeg"),
+    KFS("Kfs.jpeg");
 
     private final String imagePath;
 
@@ -20,12 +20,12 @@ public enum CardTypes {
 
     public static CardTypes fromString(String sinif) {
         return switch (sinif.toLowerCase()) {
-            case "obus" -> TANK;
-            case "kfc" -> HELICOPTER;
-            case "siha" -> FIGHTER_JET;
-            case "ucak" -> BATTLESHIP;
-            case "firkateyn" -> SUBMARINE;
-            case "sida" -> ARTILLERY;
+            case "obus" -> OBUS;
+            case "siha" -> SIHA;
+            case "ucak" -> UCAK;
+            case "kfs" -> KFS;
+            case "firkateyn" -> FIRKATEYN;
+            case "sida" -> SIDA;
             default -> throw new IllegalArgumentException("Geçersiz kart türü: " + sinif);
         };
     }

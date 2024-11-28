@@ -18,7 +18,6 @@ public class Oyuncu implements Dosya_Islemleri {
     private  String oyuncu_adi;
     private int insanSkor;
     private int pcSkor;
-    private static int i=0;
    private  ArrayList<Savas_Araclari> insanKart = new ArrayList<>();
    private  ArrayList<Savas_Araclari> bilgisayarKart = new ArrayList<>();
    private ArrayList<Savas_Araclari>kullanilmisKartlarInsan = new ArrayList<>();
@@ -196,18 +195,16 @@ public class Oyuncu implements Dosya_Islemleri {
         }
         insan.getInsanKart().add(insan.kartEkleme(insan));
         pc.getBilgisayarKart().add(pc.kartEkleme(pc));
-        i=0;
     }
 
-    public static void secilenKartlar(Oyuncu insan, Oyuncu pc, ArrayList<Savas_Araclari> insanseckart, ArrayList<Savas_Araclari> pcSeckart) {
-            if (!insan.getKullanilmisKartlarInsan().contains(insanseckart.get(i))){
-                insan.getKullanilmisKartlarInsan().add(insanseckart.get(i));
-            }
-            pcSeckart.add(pc.getBilgisayarKart().get(pc.kartSec(pc,pcSeckart,insanseckart)));
-            if (pc.getKullanilmisKartlarPc().contains(pcSeckart.get(i))){
-                pc.getKullanilmisKartlarPc().add(pcSeckart.get(i));
-            }
-        i++;
+    public static void secilenKartlar(Oyuncu insan, Oyuncu pc, ArrayList<Savas_Araclari> insanseckart, ArrayList<Savas_Araclari> pcSeckart, int selectedCardIndex) {
+        if (!insan.getKullanilmisKartlarInsan().contains(insanseckart.get(selectedCardIndex))){
+            insan.getKullanilmisKartlarInsan().add(insanseckart.get(selectedCardIndex));
+        }
+        pcSeckart.add(pc.getBilgisayarKart().get(pc.kartSec(pc,pcSeckart,insanseckart)));
+        if (pc.getKullanilmisKartlarPc().contains(pcSeckart.get(selectedCardIndex))){
+            pc.getKullanilmisKartlarPc().add(pcSeckart.get(selectedCardIndex));
+        }
     }
 
     public static int savasSonuclari(Oyuncu insan, Oyuncu pc, int tur, int kontrol){
