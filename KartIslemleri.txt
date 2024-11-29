@@ -4,42 +4,42 @@ BAŞLANGIÇ KARTLARI VE PUANLAR
 Oyuncu: enes
 Başlangıç Puanı: 12
 Kartlar:
+- firkateyn1 (Dayanıklılık: 25)
 - obus1 (Dayanıklılık: 20)
 - obus2 (Dayanıklılık: 20)
 - obus3 (Dayanıklılık: 20)
-- firkateyn1 (Dayanıklılık: 25)
-- firkateyn2 (Dayanıklılık: 25)
 - obus4 (Dayanıklılık: 20)
+- ucak1 (Dayanıklılık: 20)
 ------------------------------
 Oyuncu: Bilgisayar
 Başlangıç Puanı: 0
 Kartlar:
-- ucak1 (Dayanıklılık: 20)
 - ucak2 (Dayanıklılık: 20)
-- firkateyn3 (Dayanıklılık: 25)
 - ucak3 (Dayanıklılık: 20)
-- firkateyn4 (Dayanıklılık: 25)
-- firkateyn5 (Dayanıklılık: 25)
+- firkateyn2 (Dayanıklılık: 25)
+- ucak4 (Dayanıklılık: 20)
+- obus5 (Dayanıklılık: 20)
+- firkateyn3 (Dayanıklılık: 25)
 --------------------------------------------------
 
 -------------------- 1. SAVAŞ --------------------
 
 Oyuncu Seçilen Kartlar:
+- ucak1 (Dayanıklılık: 20)
 - obus4 (Dayanıklılık: 20)
-- firkateyn1 (Dayanıklılık: 25)
-- firkateyn2 (Dayanıklılık: 25)
+- obus3 (Dayanıklılık: 20)
 ------------------------------
 Bilgisayar Seçilen Kartlar:
+- ucak4 (Dayanıklılık: 20)
+- obus5 (Dayanıklılık: 20)
 - ucak3 (Dayanıklılık: 20)
-- ucak2 (Dayanıklılık: 20)
-- ucak1 (Dayanıklılık: 20)
 
 -------------------- EŞLEŞMELER --------------------
 OYUNCU                              | BİLGİSAYAR                         
 ---------------------------------------------------------------------------
-obus4 (Dayanıklılık: 20)            | ucak3 (Dayanıklılık: 20)           
-firkateyn1 (Dayanıklılık: 25)       | ucak2 (Dayanıklılık: 20)           
-firkateyn2 (Dayanıklılık: 25)       | ucak1 (Dayanıklılık: 20)           
+ucak1 (Dayanıklılık: 20)            | ucak4 (Dayanıklılık: 20)           
+obus4 (Dayanıklılık: 20)            | obus5 (Dayanıklılık: 20)           
+obus3 (Dayanıklılık: 20)            | ucak3 (Dayanıklılık: 20)           
 ---------------------------------------------------------------------------
 
 -------------------- GÜNCEL DURUM --------------------
@@ -52,25 +52,331 @@ Bilgisayar: 10
 GÜNCEL DESTELER
 --------------------
 Oyuncu Destesi:
+- firkateyn1 (Dayanıklılık: 25)
 - obus1 (Dayanıklılık: 20)
 - obus2 (Dayanıklılık: 20)
-- obus3 (Dayanıklılık: 20)
+- obus4 (Dayanıklılık: 10)
+- ucak1 (Dayanıklılık: 10)
+- firkateyn4 (Dayanıklılık: 25)
+--------------------
+Bilgisayar Destesi:
+- ucak2 (Dayanıklılık: 20)
+- ucak3 (Dayanıklılık: 10)
+- firkateyn2 (Dayanıklılık: 25)
+- ucak4 (Dayanıklılık: 10)
+- obus5 (Dayanıklılık: 10)
+- firkateyn3 (Dayanıklılık: 25)
+- obus6 (Dayanıklılık: 20)
+--------------------------------------------------
+
+-------------------- 2. SAVAŞ --------------------
+
+Oyuncu Seçilen Kartlar:
+- firkateyn4 (Dayanıklılık: 25)
+- firkateyn1 (Dayanıklılık: 25)
+- obus1 (Dayanıklılık: 20)
+------------------------------
+Bilgisayar Seçilen Kartlar:
+- firkateyn2 (Dayanıklılık: 25)
+- ucak2 (Dayanıklılık: 20)
+- firkateyn3 (Dayanıklılık: 25)
+
+-------------------- EŞLEŞMELER --------------------
+OYUNCU                              | BİLGİSAYAR                         
+---------------------------------------------------------------------------
+firkateyn4 (Dayanıklılık: 25)       | firkateyn2 (Dayanıklılık: 25)      
+firkateyn1 (Dayanıklılık: 25)       | ucak2 (Dayanıklılık: 20)           
+obus1 (Dayanıklılık: 20)            | firkateyn3 (Dayanıklılık: 25)      
+---------------------------------------------------------------------------
+
+-------------------- GÜNCEL DURUM --------------------
+
+SKORLAR
+--------------------
+Oyuncu: 12
+Bilgisayar: 10
+
+GÜNCEL DESTELER
+--------------------
+Oyuncu Destesi:
 - firkateyn1 (Dayanıklılık: 15)
+- obus1 (Dayanıklılık: 10)
+- obus2 (Dayanıklılık: 20)
+- obus4 (Dayanıklılık: 10)
+- ucak1 (Dayanıklılık: 10)
+- firkateyn4 (Dayanıklılık: 15)
+- ucak5 (Dayanıklılık: 20)
+--------------------
+Bilgisayar Destesi:
+- ucak2 (Dayanıklılık: 5)
+- ucak3 (Dayanıklılık: 10)
 - firkateyn2 (Dayanıklılık: 15)
+- ucak4 (Dayanıklılık: 10)
+- obus5 (Dayanıklılık: 10)
+- firkateyn3 (Dayanıklılık: 10)
+- obus6 (Dayanıklılık: 20)
+- firkateyn5 (Dayanıklılık: 25)
+--------------------------------------------------
+
+-------------------- 3. SAVAŞ --------------------
+
+Oyuncu Seçilen Kartlar:
+- ucak5 (Dayanıklılık: 20)
+- obus2 (Dayanıklılık: 20)
+- obus4 (Dayanıklılık: 10)
+------------------------------
+Bilgisayar Seçilen Kartlar:
+- firkateyn5 (Dayanıklılık: 25)
+- obus6 (Dayanıklılık: 20)
+- obus5 (Dayanıklılık: 10)
+
+-------------------- EŞLEŞMELER --------------------
+OYUNCU                              | BİLGİSAYAR                         
+---------------------------------------------------------------------------
+ucak5 (Dayanıklılık: 20)            | firkateyn5 (Dayanıklılık: 25)      
+obus2 (Dayanıklılık: 20)            | obus6 (Dayanıklılık: 20)           
+obus4 (Dayanıklılık: 10)            | obus5 (Dayanıklılık: 10)           
+---------------------------------------------------------------------------
+
+-------------------- GÜNCEL DURUM --------------------
+
+SKORLAR
+--------------------
+Oyuncu: 22
+Bilgisayar: 20
+
+GÜNCEL DESTELER
+--------------------
+Oyuncu Destesi:
+- firkateyn1 (Dayanıklılık: 15)
+- obus1 (Dayanıklılık: 10)
+- obus2 (Dayanıklılık: 10)
+- ucak1 (Dayanıklılık: 10)
+- firkateyn4 (Dayanıklılık: 15)
+- ucak5 (Dayanıklılık: 5)
+- ucak6 (Dayanıklılık: 20)
+--------------------
+Bilgisayar Destesi:
+- ucak2 (Dayanıklılık: 5)
+- ucak3 (Dayanıklılık: 10)
+- firkateyn2 (Dayanıklılık: 15)
+- ucak4 (Dayanıklılık: 10)
+- firkateyn3 (Dayanıklılık: 10)
+- obus6 (Dayanıklılık: 10)
+- firkateyn5 (Dayanıklılık: 15)
+- obus7 (Dayanıklılık: 20)
+--------------------------------------------------
+
+-------------------- 4. SAVAŞ --------------------
+
+Oyuncu Seçilen Kartlar:
+- ucak6 (Dayanıklılık: 20)
+- ucak5 (Dayanıklılık: 5)
+- ucak1 (Dayanıklılık: 10)
+------------------------------
+Bilgisayar Seçilen Kartlar:
+- obus7 (Dayanıklılık: 20)
+- ucak4 (Dayanıklılık: 10)
+- ucak2 (Dayanıklılık: 5)
+
+-------------------- EŞLEŞMELER --------------------
+OYUNCU                              | BİLGİSAYAR                         
+---------------------------------------------------------------------------
+ucak6 (Dayanıklılık: 20)            | obus7 (Dayanıklılık: 20)           
+ucak5 (Dayanıklılık: 5)             | ucak4 (Dayanıklılık: 10)           
+ucak1 (Dayanıklılık: 10)            | ucak2 (Dayanıklılık: 5)            
+---------------------------------------------------------------------------
+
+-------------------- GÜNCEL DURUM --------------------
+
+SKORLAR
+--------------------
+Oyuncu: 52
+Bilgisayar: 40
+
+GÜNCEL DESTELER
+--------------------
+Oyuncu Destesi:
+- firkateyn1 (Dayanıklılık: 15)
+- obus1 (Dayanıklılık: 10)
+- obus2 (Dayanıklılık: 10)
+- firkateyn4 (Dayanıklılık: 15)
+- ucak6 (Dayanıklılık: 10)
+- sida1 (Dayanıklılık: 15)
+--------------------
+Bilgisayar Destesi:
+- ucak3 (Dayanıklılık: 10)
+- firkateyn2 (Dayanıklılık: 15)
+- firkateyn3 (Dayanıklılık: 10)
+- obus6 (Dayanıklılık: 10)
+- firkateyn5 (Dayanıklılık: 15)
+- obus8 (Dayanıklılık: 20)
+--------------------------------------------------
+
+-------------------- 5. SAVAŞ --------------------
+
+Oyuncu Seçilen Kartlar:
+- sida1 (Dayanıklılık: 15)
+- ucak6 (Dayanıklılık: 10)
+- obus2 (Dayanıklılık: 10)
+------------------------------
+Bilgisayar Seçilen Kartlar:
+- obus8 (Dayanıklılık: 20)
+- firkateyn3 (Dayanıklılık: 10)
+- obus6 (Dayanıklılık: 10)
+
+-------------------- EŞLEŞMELER --------------------
+OYUNCU                              | BİLGİSAYAR                         
+---------------------------------------------------------------------------
+sida1 (Dayanıklılık: 15)            | obus8 (Dayanıklılık: 20)           
+ucak6 (Dayanıklılık: 10)            | firkateyn3 (Dayanıklılık: 10)      
+obus2 (Dayanıklılık: 10)            | obus6 (Dayanıklılık: 10)           
+---------------------------------------------------------------------------
+
+-------------------- GÜNCEL DURUM --------------------
+
+SKORLAR
+--------------------
+Oyuncu: 82
+Bilgisayar: 80
+
+GÜNCEL DESTELER
+--------------------
+Oyuncu Destesi:
+- firkateyn1 (Dayanıklılık: 15)
+- obus1 (Dayanıklılık: 10)
+- firkateyn4 (Dayanıklılık: 15)
+- siha1 (Dayanıklılık: 15)
+--------------------
+Bilgisayar Destesi:
+- ucak3 (Dayanıklılık: 10)
+- firkateyn2 (Dayanıklılık: 15)
+- firkateyn5 (Dayanıklılık: 15)
+- obus9 (Dayanıklılık: 20)
+--------------------------------------------------
+
+-------------------- 6. SAVAŞ --------------------
+
+Oyuncu Seçilen Kartlar:
+- siha1 (Dayanıklılık: 15)
+- firkateyn4 (Dayanıklılık: 15)
+- obus1 (Dayanıklılık: 10)
+------------------------------
+Bilgisayar Seçilen Kartlar:
+- obus9 (Dayanıklılık: 20)
+- firkateyn2 (Dayanıklılık: 15)
+- firkateyn5 (Dayanıklılık: 15)
+
+-------------------- EŞLEŞMELER --------------------
+OYUNCU                              | BİLGİSAYAR                         
+---------------------------------------------------------------------------
+siha1 (Dayanıklılık: 15)            | obus9 (Dayanıklılık: 20)           
+firkateyn4 (Dayanıklılık: 15)       | firkateyn2 (Dayanıklılık: 15)      
+obus1 (Dayanıklılık: 10)            | firkateyn5 (Dayanıklılık: 15)      
+---------------------------------------------------------------------------
+
+-------------------- GÜNCEL DURUM --------------------
+
+SKORLAR
+--------------------
+Oyuncu: 102
+Bilgisayar: 90
+
+GÜNCEL DESTELER
+--------------------
+Oyuncu Destesi:
+- firkateyn1 (Dayanıklılık: 15)
+- firkateyn4 (Dayanıklılık: 5)
+- siha1 (Dayanıklılık: 5)
 - firkateyn6 (Dayanıklılık: 25)
 --------------------
 Bilgisayar Destesi:
-- ucak1 (Dayanıklılık: 5)
-- ucak2 (Dayanıklılık: 5)
-- firkateyn3 (Dayanıklılık: 25)
 - ucak3 (Dayanıklılık: 10)
-- firkateyn4 (Dayanıklılık: 25)
-- firkateyn5 (Dayanıklılık: 25)
-- firkateyn7 (Dayanıklılık: 25)
+- firkateyn2 (Dayanıklılık: 5)
+- ucak7 (Dayanıklılık: 20)
+--------------------------------------------------
+
+-------------------- 7. SAVAŞ --------------------
+
+Oyuncu Seçilen Kartlar:
+- firkateyn6 (Dayanıklılık: 25)
+- firkateyn1 (Dayanıklılık: 15)
+- siha1 (Dayanıklılık: 5)
+------------------------------
+Bilgisayar Seçilen Kartlar:
+- ucak7 (Dayanıklılık: 20)
+- firkateyn2 (Dayanıklılık: 5)
+- ucak3 (Dayanıklılık: 10)
+
+-------------------- EŞLEŞMELER --------------------
+OYUNCU                              | BİLGİSAYAR                         
+---------------------------------------------------------------------------
+firkateyn6 (Dayanıklılık: 25)       | ucak7 (Dayanıklılık: 20)           
+firkateyn1 (Dayanıklılık: 15)       | firkateyn2 (Dayanıklılık: 5)       
+siha1 (Dayanıklılık: 5)             | ucak3 (Dayanıklılık: 10)           
+---------------------------------------------------------------------------
+
+-------------------- GÜNCEL DURUM --------------------
+
+SKORLAR
+--------------------
+Oyuncu: 122
+Bilgisayar: 110
+
+GÜNCEL DESTELER
+--------------------
+Oyuncu Destesi:
+- firkateyn1 (Dayanıklılık: 5)
+- firkateyn4 (Dayanıklılık: 5)
+- firkateyn6 (Dayanıklılık: 15)
+- kfs1 (Dayanıklılık: 10)
+--------------------
+Bilgisayar Destesi:
+- ucak7 (Dayanıklılık: 5)
+- obus10 (Dayanıklılık: 20)
+- siha2 (Dayanıklılık: 15)
+--------------------------------------------------
+
+-------------------- 8. SAVAŞ --------------------
+
+Oyuncu Seçilen Kartlar:
+- kfs1 (Dayanıklılık: 10)
+- firkateyn6 (Dayanıklılık: 15)
+- firkateyn4 (Dayanıklılık: 5)
+------------------------------
+Bilgisayar Seçilen Kartlar:
+- obus10 (Dayanıklılık: 20)
+- siha2 (Dayanıklılık: 15)
+- ucak7 (Dayanıklılık: 5)
+
+-------------------- EŞLEŞMELER --------------------
+OYUNCU                              | BİLGİSAYAR                         
+---------------------------------------------------------------------------
+kfs1 (Dayanıklılık: 10)             | obus10 (Dayanıklılık: 20)          
+firkateyn6 (Dayanıklılık: 15)       | siha2 (Dayanıklılık: 15)           
+firkateyn4 (Dayanıklılık: 5)        | ucak7 (Dayanıklılık: 5)            
+---------------------------------------------------------------------------
+
+-------------------- GÜNCEL DURUM --------------------
+
+SKORLAR
+--------------------
+Oyuncu: 152
+Bilgisayar: 150
+
+GÜNCEL DESTELER
+--------------------
+Oyuncu Destesi:
+- firkateyn1 (Dayanıklılık: 5)
+- obus11 (Dayanıklılık: 20)
+--------------------
+Bilgisayar Destesi:
+- obus10 (Dayanıklılık: 10)
+- obus12 (Dayanıklılık: 20)
 --------------------------------------------------
 
 -------------------- SAVAŞ SONUCU --------------------
 
 KAZANAN: enes
-Final Skoru: 12
+Final Skoru: 152
 --------------------------------------------------
