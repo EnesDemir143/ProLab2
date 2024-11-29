@@ -364,7 +364,7 @@ public class UIController implements Initializable, Dosya_Islemleri {
     }
 
     private boolean isGameOver() {
-        return instance.getController().getTurncount()+1==countRound || kontrol == 3 || kontrol == 4 || kontrol == 5 || kontrol == 6 || kontrol == 2;
+        return instance.getController().getTurncount()==countRound || kontrol == 3 || kontrol == 4 || kontrol == 5 || kontrol == 6 || kontrol == 2;
     }
 
     private void handleGameOver() {
