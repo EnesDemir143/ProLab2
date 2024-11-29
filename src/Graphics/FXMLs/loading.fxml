@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Graphics.Controllers.LoadingController"
+            prefHeight="1080.0" prefWidth="1080.0"
+            style="-fx-background-color: rgba(52, 73, 94, 0.9);">
+    <children>
+        <VBox alignment="CENTER" spacing="20"
+              AnchorPane.topAnchor="0"
+              AnchorPane.bottomAnchor="0"
+              AnchorPane.leftAnchor="0"
+              AnchorPane.rightAnchor="0">
+
+            <ProgressIndicator fx:id="progressIndicator"
+                               prefWidth="200"
+                               prefHeight="200"
+                               progress="0.0"/>
+
+            <Text fx:id="loadingText"
+                  fill="WHITE"
+                  text="Oyun hazırlanıyor..."
+                  textAlignment="CENTER">
+                <font>
+                    <Font size="24" />
+                </font>
+            </Text>
+        </VBox>
+    </children>
+</AnchorPane>

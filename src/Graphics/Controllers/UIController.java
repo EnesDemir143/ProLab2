@@ -1,11 +1,14 @@
-package sample;
+package Graphics.Controllers;
 
 import Game.Dosya_Islemleri;
 import Game.Oyuncu;
 import Veri_Modelleri.Savas_Araclari_Modeli.Savas_Araclari;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -20,11 +23,12 @@ import javafx.scene.paint.Color;
 import javafx.fxml.Initializable;
 import javafx.scene.shape.Circle;
 import javafx.animation.*;
-import javafx.geometry.Point2D;
 import javafx.scene.Node;
+import javafx.stage.Stage;
 import javafx.util.Duration;
-import javafx.scene.effect.Glow;
+import Graphics.CardTypes;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -348,6 +352,7 @@ public class UIController implements Initializable, Dosya_Islemleri {
 
     private void prepareBattle() {
         Platform.runLater(() -> {
+            System.out.println("tur"+countRound+ "  "+instance.getTurncount());
             instance.getController().getOyuncu().savas(
                     instance.getController().getOyuncu(),
                     instance.getController().getPc(),
@@ -359,8 +364,7 @@ public class UIController implements Initializable, Dosya_Islemleri {
     }
 
     private boolean isGameOver() {
-        boolean maxRoundsReached = countRound == instance.getController().getOyuncu().getTurnCount(); // Max tur sayısını kontrol et
-        return maxRoundsReached || kontrol == 3 || kontrol == 4 || kontrol == 5 || kontrol == 6 || kontrol == 2;
+        return instance.getController().getTurncount()+1==countRound || kontrol == 3 || kontrol == 4 || kontrol == 5 || kontrol == 6 || kontrol == 2;
     }
 
     private void handleGameOver() {
@@ -370,10 +374,39 @@ public class UIController implements Initializable, Dosya_Islemleri {
 
         finishButton.setDisable(true);
 
-        // 1 saniyelik bir bekleme ekliyoruz
-        PauseTransition pause = new PauseTransition(Duration.seconds(1));
-        pause.setOnFinished(event -> showGameOverDialog());
-        pause.play();
+        // Oyun sonuç bilgilerini hazırla
+        String gameOutcome = determineGameOutcome();
+
+        // JavaFX sahnesini değiştir ve sonuç ekranını göster
+        Platform.runLater(() -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Graphics/FXMLs/game_results.fxml"));
+                Parent root = loader.load();
+                GameResultsController controller = loader.getController();
+
+                controller.setGameResults(
+                        instance.getController().getOyuncu().getInsanSkor(),
+                        instance.getController().getPc().getPcSkor(),
+                        gameOutcome
+                );
+
+                Stage stage = (Stage) finishButton.getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    // Oyun sonucunu belirleyen yardımcı metod
+    private String determineGameOutcome() {
+        int playerScore = instance.getController().getOyuncu().getInsanSkor();
+        int computerScore = instance.getController().getPc().getPcSkor();
+
+        if (playerScore > computerScore) return "win";
+        if (playerScore < computerScore) return "lose";
+        return "draw";
     }
 
     private void showGameOverDialog() {
@@ -422,12 +455,21 @@ public class UIController implements Initializable, Dosya_Islemleri {
     private void createComputerCards() {
         computerCardsContainer.getChildren().clear();
         ArrayList<Savas_Araclari> computerCards = pcOyuncu.getBilgisayarKart();
-        for (int i = 0; i < computerCards.size(); i++) {
+        for (Savas_Araclari card : computerCards) {
             StackPane cardPane = createCardPane(null, true);
+            // Set fixed size similar to player cards
+            cardPane.setMinSize(120, 180);
+            cardPane.setMaxSize(120, 180);
+
+            // Update ImageView inside the cardPane
+            ImageView cardView = (ImageView) cardPane.getChildren().get(0);
+            cardView.setFitHeight(230);
+            cardView.setFitWidth(180);
+            cardView.setPreserveRatio(true);
+
             computerCardsContainer.getChildren().add(cardPane);
         }
     }
-
     private StackPane createCardPane(Savas_Araclari card, boolean isComputer) {
         StackPane cardPane = new StackPane();
         cardPane.setMinSize(120, 180);
@@ -505,7 +547,7 @@ public class UIController implements Initializable, Dosya_Islemleri {
 class CardImageHelper {
     public static Image getCardImage(String sinif, boolean isBackface) {
         if (isBackface) {
-            return new Image(Objects.requireNonNull(CardImageHelper.class.getResourceAsStream("/sample/arka1.png")));
+            return new Image(Objects.requireNonNull(CardImageHelper.class.getResourceAsStream("/Graphics/Photos/KartArkasi.png")));
         }
 
         try {
@@ -514,7 +556,7 @@ class CardImageHelper {
         } catch (Exception e) {
             System.err.println("Kart resmi yüklenemedi: " + e.getMessage());
             // Yedek olarak varsayılan kart görselini döndür
-            return new Image(Objects.requireNonNull(CardImageHelper.class.getResourceAsStream("/sample/card3.png")));
+            return new Image(Objects.requireNonNull(CardImageHelper.class.getResourceAsStream("/Graphics/Photos/KartArkasi.png")));
         }
     }
 }

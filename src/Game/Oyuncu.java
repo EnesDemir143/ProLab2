@@ -8,7 +8,7 @@ import Veri_Modelleri.Savas_Araclari_Modeli.Hava_Araclari_Modeli.Ucak;
 import Veri_Modelleri.Savas_Araclari_Modeli.Kara_Araclari_Modeli.KFS;
 import Veri_Modelleri.Savas_Araclari_Modeli.Kara_Araclari_Modeli.Obus;
 import Veri_Modelleri.Savas_Araclari_Modeli.Savas_Araclari;
-import sample.Controller;
+import Graphics.Controllers.Controller;
 
 
 import java.util.ArrayList;
@@ -42,16 +42,7 @@ public class Oyuncu implements Dosya_Islemleri {
         Oyuncu.select = select;
     }
 
-    public int getTurnCount() {
-        if (instance != null && instance.getTurCount() != null) {
-            try {
-                return Integer.parseInt(instance.getTurCount().getText());
-            } catch (NumberFormatException e) {
-                return 10; // Default value
-            }
-        }
-        return 10; // Default value if controller is null
-    }
+
 
     public Oyuncu() {
         oyuncu_id = "0";
@@ -236,7 +227,7 @@ public class Oyuncu implements Dosya_Islemleri {
     }
 
     public static int savasSonuclari(Oyuncu insan, Oyuncu pc, int tur, int kontrol){
-            if( tur==insan.getTurnCount() || (insan.getInsanKart().size()==1 || pc.getBilgisayarKart().size()==1) || (kontrol==1) ) {
+            if( tur==insan.instance.getTurncount() || (insan.getInsanKart().size()==1 || pc.getBilgisayarKart().size()==1) || (kontrol==1) ) {
                 if(insan.getInsanSkor()>pc.getPcSkor()){
                     System.out.println("sen kazandın");
                     return 2;

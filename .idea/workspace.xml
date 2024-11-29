@@ -5,10 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82e517f4-47f5-42a0-a255-1f2613b1799b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Graphics/Controllers/GameResultsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Graphics/Controllers/LoadingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Graphics/FXMLs/game_results.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Graphics/FXMLs/loading.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Graphics/Photos/Firkateyn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Graphics/Photos/KartArkasi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Graphics/Photos/Kfs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Graphics/Photos/Obus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Graphics/Photos/Sida.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Graphics/Photos/Siha.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Graphics/Photos/ucak.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KartIslemleri.txt" beforeDir="false" afterPath="$PROJECT_DIR$/KartIslemleri.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Oyun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Oyun.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/Oyuncu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Oyuncu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/UIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/UIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/CardTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/CardTypes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/Controllers/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Firkateyn.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Kfs.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Obus.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Sida.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Siha.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/UIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/Controllers/UIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Ucak.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/arka1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/backGraund.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/Photos/backGraund.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/card3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/FXMLs/sample.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/sample2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/FXMLs/sample2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/sample3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/FXMLs/sample3.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/FXMLs/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,10 +47,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="module-info" />
-        <option value="FxmlFile" />
-        <option value="Class" />
         <option value="Interface" />
         <option value="Enum" />
+        <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -40,35 +68,38 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Oyun.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;UI&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/enesdemir/IdeaProjects/ProLab2/src/sample&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.Oyun.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "UI",
+    "jdk.selected.JAVA_MODULE": "17",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/enesdemir/IdeaProjects/ProLab2/src/sample/Photos",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.JavaFX",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/sample/Photos" />
       <recent name="$PROJECT_DIR$/src/sample" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/sample/FXMLs" />
+      <recent name="$PROJECT_DIR$/src/sample/Photos" />
       <recent name="$PROJECT_DIR$/src/sample" />
     </key>
   </component>
@@ -135,7 +166,7 @@
       <workItem from="1732630914901" duration="37000" />
       <workItem from="1732634184190" duration="637000" />
       <workItem from="1732682409704" duration="29561000" />
-      <workItem from="1732733160268" duration="36451000" />
+      <workItem from="1732733160268" duration="46425000" />
     </task>
     <servers />
   </component>

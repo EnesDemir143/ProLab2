@@ -1,17 +1,17 @@
-package sample;
+package Graphics;
 
 public enum CardTypes {
-    OBUS("Obus.jpeg"),
-    SIHA("Siha.jpeg"),
-    UCAK("Ucak.jpeg"),
-    FIRKATEYN("Firkateyn.jpeg"),
-    SIDA("Sida.jpeg"),
-    KFS("Kfs.jpeg");
+    OBUS("Obus.png"),
+    SIHA("Siha.png"),
+    UCAK("ucak.png"),
+    FIRKATEYN("Firkateyn.png"),
+    SIDA("Sida.png"),
+    KFS("Kfs.png");
 
     private final String imagePath;
 
     CardTypes(String imagePath) {
-        this.imagePath = "/sample/" + imagePath;
+        this.imagePath = "/Graphics/Photos/" + imagePath;
     }
 
     public String getImagePath() {

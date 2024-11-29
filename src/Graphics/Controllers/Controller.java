@@ -1,16 +1,20 @@
-package sample;
+package Graphics.Controllers;
 
 import Game.Oyuncu;
 import Veri_Modelleri.Savas_Araclari_Modeli.Savas_Araclari;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Controller {
@@ -20,6 +24,7 @@ public class Controller {
     private Oyuncu oyuncu;
     private Oyuncu pc;
     @FXML private TextField turCount;
+    int turncount = 0;
 
     private Controller controller=this;
 
@@ -43,6 +48,14 @@ public class Controller {
         return turCount;
     }
 
+    public int getTurncount() {
+        return turncount;
+    }
+
+    public void setTurncount(int turncount) {
+        this.turncount = turncount;
+    }
+
     private ArrayList<Savas_Araclari> pcSeckart = new ArrayList<>();
     private ArrayList<Savas_Araclari> insanSeckart = new ArrayList<>();
 
@@ -59,7 +72,27 @@ public class Controller {
             setupSampleScene();
         }
     }
+    @FXML
+    private void switchToMainScene(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Graphics/FXMLs/sample.fxml"));
+            Scene scene = new Scene(loader.load());
 
+            // Mevcut pencereyi al
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Yeni sahneyi ayarla
+            stage.setScene(scene);
+
+            // Oyuncu nesnesini gerekirse oluştur ve kontrolöre set et
+            Oyuncu oyuncu = new Oyuncu("", "", 0);
+            Controller controller = loader.getController();
+            controller.setStageAndOyuncu(stage, oyuncu);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     private void setupSampleScene() {
         username.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER || event.getCode() == KeyCode.DOWN) {
@@ -95,7 +128,8 @@ public class Controller {
         try {
             oyuncu.setOyuncu_adi(username.getText());
             oyuncu.setInsanSkor(Integer.parseInt(level.getText()));
-            // Save turn count to wherever you need it in your game logic
+            // Add this line to set the turn count
+            setTurncount(Integer.parseInt(turCount.getText()));
             switchToThirdScene();
         } catch (Exception e) {
             showError("Geçersiz giriş! Lütfen kontrol ediniz.");
@@ -103,46 +137,13 @@ public class Controller {
     }
     private void switchToThirdScene() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/sample3.fxml"));
-            Scene thirdScene = new Scene(loader.load());
-            UIController gameController = loader.getController();
-            gameController.setInstance(this);
-            oyuncu.setController(this);
-            pc.setController(this);
-            // Oyun hazırlıklarını arka planda yap
-            Task<Void> gameSetupTask = new Task<>() {
-                @Override
-                protected Void call()  {
-                    oyuncu.dosyayiSifirla();
-                    oyuncu.insanKartListesi(oyuncu);
-                    pc.bilgisyarKartListesi(pc);
-                    oyuncu.ilkKartlar(oyuncu, pc, oyuncu.getInsanKart(), pc.getBilgisayarKart());
-                    return null;
-                }
-            };
-
-            gameSetupTask.setOnSucceeded(event -> {
-                Platform.runLater(() -> {
-                    try {
-                        gameController.setGameLists(oyuncu, pc);
-                        stage.setScene(thirdScene);
-                        startGame();
-                    } catch (Exception e) {
-                        showError("Oyun başlatılırken hata oluştu: " + e.getMessage());
-                    }
-                });
-            });
-
-            gameSetupTask.setOnFailed(event -> {
-                showError("Oyun hazırlıkları sırasında hata oluştu: " + gameSetupTask.getException().getMessage());
-            });
-
-            // Arka plan işlemini başlat
-            new Thread(gameSetupTask).start();
-
-
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Graphics/FXMLs/loading.fxml"));
+            Scene loadingScene = new Scene(loader.load());
+            LoadingController loadingController = loader.getController();
+            loadingController.setParentController(this, stage);
+            stage.setScene(loadingScene);
         } catch (Exception e) {
-            showError("Oyun yüklenirken hata oluştu: " + e.getMessage());
+            showError("Yükleme ekranı açılırken hata oluştu: " + e.getMessage());
         }
     }
 
