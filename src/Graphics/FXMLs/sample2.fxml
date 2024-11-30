@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1080.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Photos/backGraund.png" />
+            <Image url="@../Photos/baslangıc.jpg" />
          </image>
       </ImageView>
       <Button layoutX="440.0" layoutY="929.0"

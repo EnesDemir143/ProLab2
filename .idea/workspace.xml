@@ -10,7 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82e517f4-47f5-42a0-a255-1f2613b1799b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/KartIslemleri.txt" beforeDir="false" afterPath="$PROJECT_DIR$/KartIslemleri.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graphics/Controllers/UIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/Controllers/UIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graphics/FXMLs/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/FXMLs/sample.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graphics/FXMLs/sample2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/FXMLs/sample2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graphics/FXMLs/sample3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graphics/FXMLs/sample3.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Graphics/Photos/backGraund.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +68,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -141,7 +147,15 @@
       <workItem from="1732634184190" duration="637000" />
       <workItem from="1732682409704" duration="29561000" />
       <workItem from="1732733160268" duration="46622000" />
-      <workItem from="1732884904340" duration="2152000" />
+      <workItem from="1732884904340" duration="3104000" />
+      <workItem from="1732895122004" duration="70000" />
+      <workItem from="1732895629646" duration="954000" />
+      <workItem from="1732902741022" duration="256000" />
+      <workItem from="1732903011307" duration="8139000" />
+      <workItem from="1732962073830" duration="79000" />
+      <workItem from="1732966309082" duration="238000" />
+      <workItem from="1732975558945" duration="345000" />
+      <workItem from="1732991106727" duration="5236000" />
     </task>
     <servers />
   </component>

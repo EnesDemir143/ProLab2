@@ -507,7 +507,7 @@ public class UIController implements Initializable, Dosya_Islemleri {
         healthLabel.setStyle("-fx-text-fill: white; -fx-font-weight: bold;");
 
         StackPane healthIndicator = new StackPane(healthCircle, healthLabel);
-        glowEffectHover = new DropShadow(20, Color.YELLOWGREEN);
+        glowEffectHover = new DropShadow(20, Color.BLUE);
         glowEffectHover.setSpread(0.3);
         cardView.setOnMouseEntered(e -> cardPane.setEffect(glowEffectHover));
         cardView.setOnMouseExited(e -> cardPane.setEffect(null));
